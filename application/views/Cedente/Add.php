@@ -7,8 +7,10 @@
  */
 //var_dump($cidades)
 ?>
-<br>
-
+<div class="page-header">
+    <h1>Cadastrar -</h1>
+</div>
+<!-- 
 <?php if (isset($error)) { ?>
 <div class="panel panel-danger">
     <div class="panel-heading">Erro -</div>
@@ -16,6 +18,7 @@
 </div>
 <?php
 } ?>
+-->
 
 <div class="well">
     <form action="<?= site_url('create') ?>" method="post" class="form-group">

@@ -8,7 +8,9 @@
 //var_dump($cedente);
 //var_dump($cidades);
 ?>
-<br><br>
+<div class="page-header">
+    <h1>Atualizar -</h1>
+</div>
 <div class="well">
     <form action="<?= site_url('update') ?>" method="post" class="form-group">
         <input type="hidden" name="cedente[id_cedente]" value="<?= $cedente[0]['id_cedente'] ?>">
