@@ -53,6 +53,8 @@ $route['default_controller'] = 'Welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+
+/** CEDENTES */
 $route['cedentes'] = "CedenteController";
 $route['cedentes/add'] = "CedenteController/add";
 $route['cedentes/create'] = "CedenteController/create";
@@ -60,3 +62,30 @@ $route['cedentes/edit/(:num)'] = "CedenteController/edit/$1";
 $route['cedentes/update'] = "CedenteController/update";
 $route['cedentes/delete/(:num)'] = "CedenteController/delete/$1";
 $route['cedentes/show/(:num)'] = "CedenteController/show/$1";
+
+/** FREQUENCIA */
+$route['frequency'] = 'FrequencyController';
+$route['frequency/add'] = 'FrequencyController/add';
+$route['frequency/create'] = 'FrequencyController/create';
+$route['frequency/edit/(:num)'] = 'FrequencyController/edit/$1';
+$route['frequency/update/(:num)'] = 'FrequencyController/update/$1';
+$route['frequency/delete/(:num)'] = 'FrequencyController/delete/$1';
+
+/** BANCOS */
+$route['banks'] = "BanksController";
+$route['banks/add'] = "BanksController/add";
+$route['banks/create'] = "BanksController/create";
+$route['banks/delete/(:num)'] = "BanksController/delete/$1";
+$route['banks/update/(:num)'] = "BanksController/update/$1";
+$route['banks/edit/(:num)'] = "BanksController/edit/$1";
+
+/** ASSOCIADOS */
+$route['associated'] = "AssociatedController";
+$route['associated/(:num)'] = "AssociatedController/index/$1";
+$route['associated-detail/(:num)'] = "AssociatedController/detailedAssociate/$1";
+$route['associated/new'] = "AssociatedController/newAssociate";
+$route['associated/create'] = "AssociatedController/createAssociate";
+$route['associated/edit/(:num)'] = "AssociatedController/editAssociate/$1";
+$route['associated/update'] = "AssociatedController/updateAssociate";
+$route['associated/delete/(:num)'] = "AssociatedController/deleteAssociate/$1";
+/** Fim Associados */
