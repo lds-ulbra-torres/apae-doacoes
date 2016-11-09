@@ -1,4 +1,4 @@
-<script src="<?= base_url('assets/js/cedentes/cedente-delete.js') ?>"></script>
+<script src="<?= base_url('assets/js/cedentes/cedentes-delete.js') ?>"></script>
 <div class="page-header">
     <h1>Cadastro de Cedentes -</h1>
 </div>

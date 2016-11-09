@@ -5,7 +5,7 @@
             */
             var idCedente;
             $("table").on("click",".deleteCedente", function(){
-            	$('#deleteCedente').modal();	
+            	$('#deleteCedente').modal();
             	idCedente = $(this).attr("id");
             });
 
@@ -28,8 +28,8 @@
                 },
                 error: function(data){
                 	console.log(data);
-                	alert('Erro ao Excluir! - Cadastro sendo utilizado');	
+                	alert('Erro ao Excluir! - Cadastro sendo utilizado');
                 }
             });
-            }); 
-        }); 
+            });
+        });
