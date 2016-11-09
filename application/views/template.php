@@ -8,14 +8,12 @@
 	<meta name="author" content="LDS Ulbra Torres">
 	<title>Projeto APAE</title>
 	<link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
+	<script src="<?= base_url('assets/js/jquery-3.1.1.min.js') ?>"></script>
+	<script src="<?= base_url('assets/bootstrap/js/bootstrap.min.js') ?>"></script>
 </head>
 <body>
 	<div class="container" id="contents">
 		<?= $contents ?>
 	</div>
-
-	<script src="<?= base_url('assets/js/jquery-3.1.1.min.js') ?>"></script>
-	<script src="<?= base_url('assets/bootstrap/js/bootstrap.min.js') ?>"></script>
-	<script src="<?= base_url('assets/js/jquery.apae.js') ?>"></script>
 </body>
 </html>

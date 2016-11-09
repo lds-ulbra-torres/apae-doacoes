@@ -1,7 +1,8 @@
+<script src="<?= base_url('assets/js/cedentes/cedente-delete.js') ?>"></script>
 <div class="page-header">
     <h1>Cadastro de Cedentes -</h1>
 </div>
-<a href="<?= site_url('add') ?>" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Cadastrar
+<a href="<?= site_url('cedentes/add') ?>" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Cadastrar
     Cedente</a>
     <br>
     <br>

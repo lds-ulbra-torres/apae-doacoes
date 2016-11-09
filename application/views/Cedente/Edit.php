@@ -12,7 +12,7 @@
     <h1>Atualizar -</h1>
 </div>
 <div class="well">
-    <form action="<?= site_url('update') ?>" method="post" class="form-group">
+    <form action="<?= site_url('cedentes/update') ?>" method="post" class="form-group">
         <input type="hidden" name="cedente[id_cedente]" value="<?= $cedente[0]['id_cedente'] ?>">
         <div>
             <label>Codigo do Cedente:</label>
@@ -69,7 +69,7 @@
         <br>
         <div>
             <button class="btn btn-success">Cadastrar</button>
-            <a class="btn btn-default" href="<?= site_url('') ?>">Voltar</a>
+            <a class="btn btn-default" href="<?= site_url('cedentes') ?>">Voltar</a>
         </div>
     </form>
 </div>

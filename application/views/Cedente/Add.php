@@ -10,7 +10,7 @@
 <div class="page-header">
     <h1>Cadastrar -</h1>
 </div>
-<!-- 
+<!--
 <?php if (isset($error)) { ?>
 <div class="panel panel-danger">
     <div class="panel-heading">Erro -</div>
@@ -21,7 +21,7 @@
 -->
 
 <div class="well">
-    <form action="<?= site_url('create') ?>" method="post" class="form-group">
+    <form action="<?= site_url('cedentes/create') ?>" method="post" class="form-group">
         <div>
             <label>Codigo do Cedente:</label>
             <input type="number" class="form-control" name="cedente[cod_cedente]" placeholder="Codigo do Cedente.." required>
@@ -68,7 +68,7 @@
         <br>
         <div>
             <button class="btn btn-success">Cadastrar</button>
-            <a class="btn btn-default" href="<?= site_url('') ?>">Voltar</a>
+            <a class="btn btn-default" href="<?= site_url('cedentes') ?>">Voltar</a>
         </div>
     </form>
 </div>

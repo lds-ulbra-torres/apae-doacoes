@@ -49,14 +49,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'CedenteController';
+$route['default_controller'] = 'Welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['add'] = "CedenteController/add";
-$route['create'] = "CedenteController/create";
-$route['edit/(:num)'] = "CedenteController/edit/$1";
-$route['update'] = "CedenteController/update";
-$route['delete/(:num)'] = "CedenteController/delete/$1";
-$route['show/(:num)'] = "CedenteController/show/$1";
-
+$route['cedentes'] = "CedenteController";
+$route['cedentes/add'] = "CedenteController/add";
+$route['cedentes/create'] = "CedenteController/create";
+$route['cedentes/edit/(:num)'] = "CedenteController/edit/$1";
+$route['cedentes/update'] = "CedenteController/update";
+$route['cedentes/delete/(:num)'] = "CedenteController/delete/$1";
+$route['cedentes/show/(:num)'] = "CedenteController/show/$1";
