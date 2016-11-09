@@ -1,3 +1,4 @@
+<script src="<?= base_url('assets/js/associated/associated.js') ?>" charset="utf-8"></script>
 <div class="container">
   <div class="page-header">
     <h4><?= $title ?></h4>

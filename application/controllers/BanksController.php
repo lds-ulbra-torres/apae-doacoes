@@ -43,7 +43,7 @@ class BanksController extends CI_Controller {
 		}else{
 			$this->session->set_flashdata("danger", "Erro ao criar banco!");
 		}
-		redirect('/','refresh');
+		redirect('banks','refresh');
 	}
 
 	/**
@@ -58,7 +58,7 @@ class BanksController extends CI_Controller {
 		}else{
 			$this->session->set_flashdata("danger", "Erro ao remover banco!");
 		}
-		redirect('/','refresh');
+		redirect('banks','refresh');
 	}
 
 	/*
@@ -74,7 +74,7 @@ class BanksController extends CI_Controller {
 			$this->load->view('banks/updateBank', $data);
 		}else{
 			$this->session->set_flashdata("danger", "Erro ao buscar registro na base de dados!");
-			redirect('/','refresh');
+			redirect('bank','refresh');
 		}
 	}
 
@@ -88,7 +88,7 @@ class BanksController extends CI_Controller {
 		}else{
 			$this->session->set_flashdata("danger", "Erro ao atualizar banco!");
 		}
-		redirect('/','refresh');
+		redirect('banks','refresh');
 	}
 
 

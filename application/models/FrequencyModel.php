@@ -25,7 +25,7 @@ class FrequencyModel extends CI_Model
      */
     public function getOne($pIdFrequency)
     {
-        $this->db->where('idFrequency', $pIdFrequency);
+        $this->db->where('id_frequency', $pIdFrequency);
         return $this->db->get($this->table)->result_array();
     }
 
@@ -46,7 +46,7 @@ class FrequencyModel extends CI_Model
      */
     public function update($pFrequency)
     {
-        $this->db->where('idFrequency', $pFrequency['idFrequency']);
+        $this->db->where('id_frequency', $pFrequency['id_frequency']);
         return $this->db->update($this->table, $pFrequency) > 0 ? TRUE : FALSE;
     }
 
@@ -57,7 +57,7 @@ class FrequencyModel extends CI_Model
      */
     public function delete($pId)
     {
-        $this->db->where('idFrequency', $pId);
+        $this->db->where('id_frequency', $pId);
         return $this->db->delete($this->table) > 0 ? TRUE : FALSE;
     }
 

@@ -29,7 +29,7 @@ class AssociatedModel extends CI_Model {
 				$idContact = substr($contact, 0, strpos($contact, '/'));
 				$valueContact = substr($contact, strpos($contact, '/') + 1, strlen($contact));
 
-				$this->db->insert('contact', array('id_contact_type' => $idContact,'id_associate' => $id, 'description_contact' => $valueContact));
+				$this->db->insert('contact', array('contact_type_id' => $idContact,'id_associate' => $id, 'description_contact' => $valueContact));
 			}
 		}
 
@@ -70,7 +70,7 @@ class AssociatedModel extends CI_Model {
 				$idContact = substr($contact, 0, strpos($contact, '/'));
 				$valueContact = substr($contact, strpos($contact, '/') + 1, strlen($contact));
 
-				$this->db->insert('contact', array('id_contact_type' => $idContact,'id_associate' => $associate['id_associate'], 'description_contact' => $valueContact));
+				$this->db->insert('contact', array('contact_type_id' => $idContact,'id_associate' => $associate['id_associate'], 'description_contact' => $valueContact));
 			}
 		}
 
@@ -114,7 +114,7 @@ class AssociatedModel extends CI_Model {
 	}
 
 	public function getUserContacts($id){
-		return $this->db->query("SELECT c.id_contact_type,description_contact,description_contact_type FROM contact c INNER JOIN contact_type ct ON c.id_contact_type = ct.id_contact_type WHERE c.id_associate = $id")->result_array();
+		return $this->db->query("SELECT c.contact_type_id,description_contact,description_contact_type FROM contact c INNER JOIN contact_type ct ON c.contact_type_id = ct.id_contact_type WHERE c.id_associate = $id")->result_array();
 	}
 
 	public function getAllContactTypes() {

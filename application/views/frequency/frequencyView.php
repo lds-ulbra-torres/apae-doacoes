@@ -15,13 +15,13 @@
 			if ($frequencies != null) {
 				foreach ($frequencies as $frequency): ?>
 				<tr>
-					<td><?php echo $frequency['idFrequency']; ?></td>
+					<td><?php echo $frequency['id_frequency']; ?></td>
 					<td><?php echo $frequency['frequency_description']; ?></td>
 					<td><a class="btn btn-primary" title="Editar"
-						href="<?php echo site_url('frequency/edit') . "/" . $frequency['idFrequency']; ?>"><span class="glyphicon glyphicon-pencil"></span></a>
+						href="<?php echo site_url('frequency/edit') . "/" . $frequency['id_frequency']; ?>"><span class="glyphicon glyphicon-pencil"></span></a>
 					</td>
 					<td>
-						<a title="Apagar" class="delete_frequency btn btn-danger" id="<?php echo $frequency['idFrequency'] ?>" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+						<a title="Apagar" class="delete_frequency btn btn-danger" id="<?php echo $frequency['id_frequency'] ?>" href="#"><span class="glyphicon glyphicon-trash"></span></a>
 					</td>
 				</tr>
 			<?php endforeach;

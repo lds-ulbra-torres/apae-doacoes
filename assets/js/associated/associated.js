@@ -4,6 +4,11 @@ $(document).ready(function(){
     $("#error_" + $(this).attr('id')).addClass('hide');
   });
 
+  $(".close").on('click', function() {
+    console.log('pegou click');
+    this.parentNode.parentNode.removeChild(this.parentNode);
+  });
+
 });
 
 $('#contact_modal').ready(function() {

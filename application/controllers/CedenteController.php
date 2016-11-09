@@ -12,7 +12,7 @@ class CedenteController extends CI_Controller
 
     public function show($id_cedente)
     {
-        $data['cedente'] = $this->CedenteModel->getOne($id_cedente);
+        $data['cedente'] = $this->CedenteModel->getOne($id_cedente)[0];
         $this->template->load('template', 'Cedente/Show', $data);
     }
 

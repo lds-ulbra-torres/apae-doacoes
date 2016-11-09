@@ -9,7 +9,7 @@ class CedenteModel extends CI_Model
     {
         $this->db->select('id_cedente, name_city, razao_social');
         $this->db->from($this->table);
-        $this->db->join('city', 'city.id_city = cedentes.id_cidade', 'inner');
+        $this->db->join('city', 'city.id_city = cedentes.id_cidade', 'left');
         return $this->db->get()->result_array();
     }
 
@@ -18,10 +18,8 @@ class CedenteModel extends CI_Model
 
         $this->db->select('id_cedente, razao_social,
             cod_cedente, num_agencia, num_operacao, num_conta_corrente, cnpj, name_city, id_cidade');
-        $this->db->from($this->table);
-        $this->db->join('city', 'city.id_city = cedentes.id_cidade', 'inner');
-        $this->db->where('id_cedente', $idCedente);
-        return $this->db->get()->result_array();
+        $this->db->join('city', 'city.id_city = cedentes.id_cidade', 'left');
+        return $this->db->get_where($this->table, array('id_cedente' => $idCedente))->result_array();
     }
 
     public function getCities()

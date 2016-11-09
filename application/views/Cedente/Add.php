@@ -57,7 +57,7 @@
         <br>
         <div>
             <label>Cidade:</label>
-            <select class="form-control" name="cedente[id_cidade]" required>
+            <select class="form-control" name="cedente[id_cidade]">
                 <?php foreach ($cidades as $cidade) { ?>
                 <option value="<?= $cidade['id_city'] ?>">
                     <?= $cidade['name_city'] ?>

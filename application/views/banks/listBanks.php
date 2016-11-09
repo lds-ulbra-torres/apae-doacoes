@@ -46,8 +46,8 @@
 						<td><?= $bank['check_digit_agency']; ?></td>
 						<td><?= $bank['account_number']; ?></td>
 						<td><?= $bank['check_digit_account']; ?></td>
-						<td><a type="button" data-toggle="modal" data-target=".bs-example-modal-sm" class="btn btn-danger" >EXCLUIR</a></td>
-						<td><a class="btn btn-warning" href="<?= site_url('edit')."/".$bank['id_bank'];?>">ALTERAR</a></td>
+						<td><a type="button" data-model-id="<?= $bank['id_bank'] ?>" data-toggle="modal" data-target=".bs-example-modal-sm" class="btn btn-danger" >EXCLUIR</a></td>
+						<td><a class="btn btn-warning" href="<?= site_url('banks/edit')."/".$bank['id_bank'];?>">ALTERAR</a></td>
 					</tr>
 				<?php
 					}
@@ -58,7 +58,7 @@
 		</div>
 	</div>
 
-	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	<div id="delete-modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 	  <div class="modal-dialog modal-sm" role="document">
 	    <div class="modal-content">
 	      	<div class="modal-header">
@@ -78,9 +78,17 @@
 	  </div>
 	</div>
 	<script type="text/javascript" language="javascript">
+		(function() {
+			var modelId;
+			$("#delete-modal").on('show.bs.modal', function(e) {
+				var button = e.relatedTarget;
+				console.log(button.data('model-id'));
+			})
+		})();
 		$('#Confirmar').click(function(e) {
 	        e.preventDefault();
-	        window.location.href =  "<?= site_url('banks/delete')."/".$bank['id_bank'];?>"
+
+	        window.location.href =  '<?= base_url("banks/delete/").$bank["id_bank"] ?>';
 		});
 	</script>
 	<script type="text/javascript" language="javascript">

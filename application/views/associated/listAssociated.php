@@ -1,11 +1,11 @@
 
-<div class="container">
+<div class="well well-lg">
   <div class="page-header">
-    <h4>Associados</h4>
+    <h2>Associados</h2>
     <a class="btn btn-success" href="<?= base_url('associated/new') ?>">Novo Associado <span class="glyphicon glyphicon-plus"></span></a>
   </div>
 
-  <div class="well well-lg">
+  <div class="">
     <table class="table table-responsive table-striped table-hover">
       <thead>
         <tr>

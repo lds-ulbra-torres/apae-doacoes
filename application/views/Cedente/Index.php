@@ -23,12 +23,12 @@
                         <td><?= $cedente['razao_social'] ?></td>
                         <td><?= $cedente['name_city'] ?></td>
                         <td>
-                            <a class="btn btn-default" href="<?= site_url('show') . "/" . $cedente['id_cedente'] ?>">
+                            <a class="btn btn-default" href="<?= site_url('cedentes/show') . "/" . $cedente['id_cedente'] ?>">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                             </a>
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="<?= site_url('edit') . "/" . $cedente['id_cedente'] ?>">
+                            <a class="btn btn-primary" href="<?= site_url('cedentes/edit') . "/" . $cedente['id_cedente'] ?>">
                                 <span class="glyphicon glyphicon-edit"></span>
                             </a>
                         </td>

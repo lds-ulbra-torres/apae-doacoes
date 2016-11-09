@@ -1,3 +1,5 @@
+<script src="<?= base_url('assets/js/associated/associated.js') ?>" charset="utf-8"></script>
+
 <div class="container">
   <div class="page-header">
     <h4><?= $title ?></h4>
@@ -109,9 +111,9 @@
 <div class="row col-sm-6">
   <label class="lead">Contatos</label>
   <a data-toggle="modal" data-target="#contact_modal" class="label label-success" href="#"><span class="glyphicon glyphicon-plus"></span> Contato</a>
-  <div id="contacts" class="well">         
+  <div id="contacts" class="well">
     <?php foreach ($user_contacts as $contact) :?>
-      <div class="contact"><button class="close" type="button"><span>&times;</span></button><input type="hidden" name="contact[]" value="<?= $contact['id_contact_type'];?>/<?= $contact['description_contact']; ?>"><strong><?= $contact['description_contact_type']; ?>: </strong><?= $contact['description_contact']; ?></div>
+      <div class="contact"><button class="close" type="button"><span>&times;</span></button><input type="hidden" name="contact[]" value="<?= $contact['contact_type_id'];?>/<?= $contact['description_contact']; ?>"><strong><?= $contact['description_contact_type']; ?>: </strong><?= $contact['description_contact']; ?></div>
     <?php endforeach; ?>
 
   </div>
