@@ -2,7 +2,7 @@
 <div class="well well-lg">
   <div class="page-header">
     <h2>Associados</h2>
-    <a class="btn btn-success" href="<?= base_url('associated/new') ?>">Novo Associado <span class="glyphicon glyphicon-plus"></span></a>
+    <a class="btn btn-success" href="<?= base_url('associated/new') ?>"><span class="glyphicon glyphicon-plus"></span> Cadastrar Associado</a>
   </div>
 
   <div class="">

@@ -5,7 +5,6 @@ class BanksController extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('BanksModel');
 	}
 
 	/**
@@ -30,7 +29,7 @@ class BanksController extends CI_Controller {
 	* Função que carrega a view com formulario para inserir os dados de um novo banco
 	*/
 	public function add(){
-		$this->load->view('banks/newBank');
+		$this->template->load("template", "banks/newBank");
 	}
 
 	/**
@@ -71,7 +70,7 @@ class BanksController extends CI_Controller {
 	public function edit($id_bank){
 		$data['bank']= $this->BanksModel->getOne($id_bank);
 		if($data['bank']!= FALSE){
-			$this->load->view('banks/updateBank', $data);
+			$this->template->load('template', 'banks/updateBank', $data);
 		}else{
 			$this->session->set_flashdata("danger", "Erro ao buscar registro na base de dados!");
 			redirect('bank','refresh');

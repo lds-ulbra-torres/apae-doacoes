@@ -16,7 +16,7 @@ class CedenteModel extends CI_Model
     public function getOne($idCedente)
     {
 
-        $this->db->select('id_cedente, razao_social,
+        $this->db->select('id_cedente, razao_social, id_bank,
             cod_cedente, num_agencia, num_operacao, num_conta_corrente, cnpj, name_city, id_cidade');
         $this->db->join('city', 'city.id_city = cedentes.id_cidade', 'left');
         return $this->db->get_where($this->table, array('id_cedente' => $idCedente))->result_array();

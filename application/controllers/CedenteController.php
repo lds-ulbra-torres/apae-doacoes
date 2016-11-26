@@ -18,14 +18,15 @@ class CedenteController extends CI_Controller
 
     public function add()
     {
-        $data['cidades'] = $this->CedenteModel->getCities();
+        $data['bancos'] = $this->BanksModel->GetAll();
+        $data['cidades'] = $this->CitiesModel->GetAllCities();
         $this->template->load('template', 'Cedente/Add', $data);
     }
 
     public function create()
     {
         if ($this->CedenteModel->create($this->input->post('cedente'))) {
-            redirect(site_url(''));
+            redirect(site_url('cedentes'));
         } else {
             $data['error'] = "Erro ao inserir.";
             $this->template->load('template', 'Cedente/Create', $data);
@@ -34,6 +35,7 @@ class CedenteController extends CI_Controller
 
     public function edit($idCedente)
     {
+        $data['bancos'] = $this->BanksModel->GetAll();
         $data['cidades'] = $this->CedenteModel->getCities();
         $data['cedente'] = $this->CedenteModel->getOne($idCedente);
         $this->template->load('template', 'Cedente/Edit', $data);
@@ -42,7 +44,7 @@ class CedenteController extends CI_Controller
     public function update()
     {
         if ($this->CedenteModel->update($this->input->post('cedente'))) {
-            redirect('');
+            redirect('cedentes');
         } else {
             echo "Erro ao atualizar";
         }

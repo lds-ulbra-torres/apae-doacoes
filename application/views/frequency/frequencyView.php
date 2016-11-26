@@ -1,9 +1,11 @@
-<div class="col-md-offset-2 col-md-8">
-	<h4>Frequências - </h4>
-	<a class="btn btn-success" href="<?php echo site_url('frequency/add'); ?>" title="Cadastrar">+Nova Frequência</a>
-	<br><br>
+<div class="well well-lg">
+	<div class="page-header">
+		<h2>Frequências</h2>
+		<a class="btn btn-success" href="<?= site_url('frequency/add'); ?>" title="Cadastrar"><span class="glyphicon glyphicon-plus"></span> Cadastrar Frequência</a>
+
+	</div>
 	<table id="Tfrequency" class="table table-responsive table-hover">
-		<thead >
+		<thead>
 			<tr>
 				<th class="col-md-1">ID</th>
 				<th class="col-md-9">Tipo</th>
@@ -17,11 +19,11 @@
 				<tr>
 					<td><?php echo $frequency['id_frequency']; ?></td>
 					<td><?php echo $frequency['frequency_description']; ?></td>
-					<td><a class="btn btn-primary" title="Editar"
-						href="<?php echo site_url('frequency/edit') . "/" . $frequency['id_frequency']; ?>"><span class="glyphicon glyphicon-pencil"></span></a>
-					</td>
 					<td>
-						<a title="Apagar" class="delete_frequency btn btn-danger" id="<?php echo $frequency['id_frequency'] ?>" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+						<div class="btn-group">
+							<a class="btn btn-primary" title="Editar"	href="<?php echo site_url('frequency/edit') . "/" . $frequency['id_frequency']; ?>"><span class="glyphicon glyphicon-pencil"></span></a>
+								<a title="Apagar" class="delete_frequency btn btn-danger" id="<?php echo $frequency['id_frequency'] ?>" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+						</div>
 					</td>
 				</tr>
 			<?php endforeach;

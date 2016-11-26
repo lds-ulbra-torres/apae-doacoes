@@ -5,7 +5,6 @@ class AssociatedController extends CI_Controller {
 
   public function __construct() {
     parent::__construct();
-    $this->load->model('AssociatedModel');
   }
 
   public function index() {
@@ -24,7 +23,10 @@ class AssociatedController extends CI_Controller {
   }
 
   public function newAssociate() {
+    $data['cidades'] = $this->CitiesModel->GetAllCities();
     $data['contact_types'] = $this->AssociatedModel->getAllContactTypes();
+    $data['payment_types'] = $this->AssociatedModel->getAllPaymentTypes();
+    $data['frequencias'] = $this->FrequencyModel->getAll();
 
     if ($this->session->contact_types) {
       $data['contact_types'] = $this->AssociatedModel->getAllContactTypes();
@@ -42,6 +44,7 @@ class AssociatedController extends CI_Controller {
     $this->form_validation->set_rules('birth_date', 'Data de Nascimento', 'required');
 
     if ($this->form_validation->run()) {
+
       $associate = $this->input->post();
       $id = $this->AssociatedModel->create($associate);
       if($id !== 0){
@@ -67,6 +70,11 @@ class AssociatedController extends CI_Controller {
   public function editAssociate() {
     $id = $this->uri->segment(3);
     $data['title'] = "Alterar Associado";
+    $data['cidades'] = $this->CitiesModel->GetAllCities();
+    $data['contact_types'] = $this->AssociatedModel->getAllContactTypes();
+    $data['payment_types'] = $this->AssociatedModel->getAllPaymentTypes();
+    $data['frequencias'] = $this->FrequencyModel->getAll();
+
     $data['contact_types'] = $this->AssociatedModel->getAllContactTypes();
     $data['user_contacts'] = $this->AssociatedModel->getUserContacts($id);
     $data['action'] = "associated/update";
