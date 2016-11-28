@@ -1,14 +1,26 @@
 $(document).ready(function(){
 
+  if($('#id_payment_type').val() == 1){
+    $('#div_bank').removeClass('hide');
+  }else{
+    $('#div_bank').addClass('hide');
+  }
+
   $('input').change(function(){
     $("#error_" + $(this).attr('id')).addClass('hide');
   });
 
   $(".close").on('click', function() {
-    console.log('pegou click');
     this.parentNode.parentNode.removeChild(this.parentNode);
   });
 
+  $('#id_payment_type').change(function(e){
+    if(this.value == 1){
+      $('#div_bank').removeClass('hide');
+    }else{
+      $('#div_bank').addClass('hide');
+    }
+  });
 });
 
 $('#contact_modal').ready(function() {

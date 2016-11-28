@@ -105,12 +105,12 @@ class AssociatedModel extends CI_Model {
 
 	public function inactive($id) {
 		$this->db->where('id_associate', $id);
-		return $this->db->update($this->table, array('active' => 0));
+		return $this->db->update($this->table, array('disable' => 1));
 	}
 
 	public function active($id) {
 		$this->db->where('id_associate', $id);
-		return $this->db->update($this->table, array('active' => 1));
+		return $this->db->update($this->table, array('disable' => 0));
 	}
 
 	public function getUserContacts($id) {

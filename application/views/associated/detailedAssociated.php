@@ -81,7 +81,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
-        <button id="confirmInactive" type="button" class="btn btn-warning" data-dismiss="modal">Inativar</button>
+        <a href=" <?= base_url('associated/inactive/'.$associate->id_associate); ?> " id="confirmInactive" type="button" class="btn btn-warning">Inativar</a>
       </div>
     </div>
   </div>
