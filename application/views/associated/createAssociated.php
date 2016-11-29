@@ -82,21 +82,21 @@
     </div>
 
     <div class="form-group row">
-      <label for="street" class="col-sm-3 col-form-label">Nome no cartão de associado</label>
+      <label for="name_in_card" class="col-sm-3 col-form-label">Nome no cartão de associado</label>
       <div class="col-sm-8">
         <input type="text" class="form-control" id="name_in_card" name="name_in_card" placeholder="Nome no Cartão" value="<?= set_value('name_in_card', isset($associate->name_in_card) ? $associate->name_in_card:''); ?>">
       </div>
     </div>
 
     <div class="form-group row">
-      <label for="street" class="col-sm-3 col-form-label">Vencimento de Cobranças</label>
+      <label for="duo_date" class="col-sm-3 col-form-label">Vencimento de Cobranças</label>
       <div class="col-sm-8">
         <input type="date" class="form-control" id="duo_date" name="duo_date" value="<?=date('Y-m-d', strtotime('+1 month'))?>">
       </div>
     </div>
 
     <div class="form-group row">
-      <label for="street" class="col-sm-3 col-form-label">Valor de contribuição</label>
+      <label for="value_frequency" class="col-sm-3 col-form-label">Valor de contribuição</label>
       <div class="col-sm-8">
         <input type="text" class="form-control" id="value_frequency" name="value_frequency" placeholder="Valor" value="<?= set_value('value_frequency', isset($associate->value_frequency) ? $associate->value_frequency:''); ?>">
       </div>
@@ -117,8 +117,24 @@
     </div>
 
     <div id="div_bank" class="hide">
+      <!--<div class="form-group row">
+        <label for="bank_name" class="col-sm-3 col-form-label">Banco</label>
+        <div class="col-sm-8">
+          <select required class="form-control" name="bank_id" id="bank_id" >
+              <?php foreach ($banks as $b) { ?>
+              <option value="<?= $b['id_bank'] ?>">
+                  <?= $b['name_bank'] ?>
+              </option>
+              <?php } ?>
+          </select>
+        </div>
+      </div>-->
+<!--
+ACHO QUE É LINHA DUPLICADA SALVAR MAIS UM NOME DA BANCO...
+DA PRA MANTER UMA RELAÇÃO ENTRE ASSOCIATED->BANK
+-->
       <div class="form-group row">
-        <label for="street" class="col-sm-3 col-form-label">Nome do banco</label>
+        <label for="bank_name" class="col-sm-3 col-form-label">Nome do banco</label>
         <div class="col-sm-8">
           <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Banco" value="<?= set_value('bank_name', isset($associate->bank_name) ? $associate->bank_name:''); ?>">
         </div>

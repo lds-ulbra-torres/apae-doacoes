@@ -22,7 +22,7 @@
         <tr>
           <td><a href="<?=base_url('associated/'. $associate->id_associate)?>"><?= $associate->id_associate ?></a></td>
           <td><?= $associate->name_associate ?></td>
-          <td><?= $associate->birth_date?></td>
+          <td><?= date_format(date_create($associate->birth_date), 'd/m/y')?></td>
           <td><?= $associate->rg ?></td>
           <td><?= $associate->cpf ?></td>
 
