@@ -88,6 +88,7 @@ $route['associated/create'] = "AssociatedController/createAssociate";
 $route['associated/edit/(:num)'] = "AssociatedController/editAssociate/$1";
 $route['associated/update'] = "AssociatedController/updateAssociate";
 $route['associated/delete/(:num)'] = "AssociatedController/deleteAssociate/$1";
+$route['associated/inactive/(:num)'] = "AssociatedController/inactiveAssociate/$1";
 /** Fim Associados */
 
 /** CARTEIRAS */

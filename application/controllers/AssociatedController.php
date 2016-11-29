@@ -54,9 +54,13 @@ class AssociatedController extends CI_Controller {
       }
 
     }else {
+      $data['cidades'] = $this->CitiesModel->GetAllCities();
       $data['contact_types'] = $this->AssociatedModel->getAllContactTypes();
+      $data['payment_types'] = $this->AssociatedModel->getAllPaymentTypes();
+      $data['frequencias'] = $this->FrequencyModel->getAll();
       $data['action'] = 'associated/create';
       $data['title'] = 'Novo Associado';
+
       $this->template->load('template', 'associated/createAssociated', $data);
     }
   }
@@ -89,16 +93,7 @@ class AssociatedController extends CI_Controller {
     $this->form_validation->set_rules('birth_date', 'Data de Nascimento', 'required');
 
     if ($this->form_validation->run()) {
-      $associate = array(
-        'id_associate' => $this->input->post('id_associate'),
-        'name_associate' => $this->input->post('name_associate'),
-        'rg' => $this->input->post('rg'),
-        'cpf' => $this->input->post('cpf'),
-        'birth_date' => $this->input->post('birth_date'),
-        'street' => $this->input->post('street'),
-        'number' => $this->input->post('number'),
-        'neighborhood' => $this->input->post('neighborhood')
-        );
+      $associate = $this->input->post();
       $contacts = $this->input->post('contact');
 
       if ($this->AssociatedModel->update($associate,$contacts)) {
@@ -125,6 +120,7 @@ class AssociatedController extends CI_Controller {
   public function inactiveAssociate() {
     $id = $this->uri->segment(3);
     $this->AssociatedModel->inactive($id);
+    redirect('associated','refresh');
   }
 
   public function dialogContact() {
