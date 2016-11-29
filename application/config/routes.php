@@ -89,6 +89,14 @@ $route['associated/edit/(:num)'] = "AssociatedController/editAssociate/$1";
 $route['associated/update'] = "AssociatedController/updateAssociate";
 $route['associated/delete/(:num)'] = "AssociatedController/deleteAssociate/$1";
 $route['associated/inactive/(:num)'] = "AssociatedController/inactiveAssociate/$1";
+
+$route['associated/(:num)/collections'] = "CollectionsController/index/$1";
+$route['associated/(:num)/collections/(:num)/edit'] = "CollectionsController/editCollection/$2";
+$route['associated/(:num)/collections/update'] = "CollectionsController/updateCollection";
+$route['associated/(:num)/collections/(:num)'] = "CollectionsController/detailCollection/$2";
+$route['associated/(:num)/collections/new'] = "CollectionsController/newCollection";
+$route['associated/(:num)/collections/create'] = "CollectionsController/createCollection";
+$route['associated/(:num)/collections/delete/(:num)'] = "CollectionsController/deleteCollection/$2";
 /** Fim Associados */
 
 /** CARTEIRAS */

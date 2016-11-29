@@ -20,16 +20,17 @@
       <tbody>
         <?php foreach($associated as $associate): ?>
         <tr>
-          <td><?= $associate['id_associate'] ?></td>
-          <td><?= $associate['name_associate'] ?></td>
-          <td><?= $associate['birth_date'] ?></td>
-          <td><?= $associate['rg'] ?></td>
-          <td><?= $associate['cpf'] ?></td>
+          <td><a href="<?=base_url('associated/'. $associate->id_associate)?>"><?= $associate->id_associate ?></a></td>
+          <td><?= $associate->name_associate ?></td>
+          <td><?= date_format(date_create($associate->birth_date), 'd/m/y')?></td>
+          <td><?= $associate->rg ?></td>
+          <td><?= $associate->cpf ?></td>
 
           <td>
             <div class="btn-group">
-              <a class="btn btn-info" href="<?= base_url('associated-detail/'.$associate['id_associate']) ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
-              <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate['id_associate']) ?>"><span class="glyphicon glyphicon-edit"></span></a>
+              <a class="btn btn-info" href="<?= base_url('associated-detail/'. $associate->id_associate) ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
+              <a class="btn btn-primary" href="<?= base_url('associated/edit/'. $associate->id_associate) ?>"><span class="glyphicon glyphicon-edit"></span></a>
+              <a class="btn btn-warning" href="<?= base_url('associated/'. $associate->id_associate .'/collections') ?>"><span class="glyphicon glyphicon-usd"></span></a>
             </div>
           </td>
         </tr>

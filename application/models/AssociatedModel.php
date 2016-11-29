@@ -6,7 +6,7 @@ class AssociatedModel extends CI_Model {
 	var $table = "associated";
 
 	public function getAll($limit=null, $offset=null) {
-	    return $this->db->get($this->table, $limit, $offset)->result_array();
+	    return $this->db->get($this->table, $limit, $offset)->result();
   	}
 
   	public function totalCount() {

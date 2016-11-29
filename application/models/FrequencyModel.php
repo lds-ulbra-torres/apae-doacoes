@@ -30,6 +30,19 @@ class FrequencyModel extends CI_Model
     }
 
     /**
+     * @author Gabriel Dewes, 29 nov, 2016
+     * @param frequencyId id da frequencia
+     * @return coluna 'count_frequency', usado para gerar cobranças.
+     */
+    public function getCountFrequencyByFrequencyId($frequencyId) {
+      $this->db->select('frequency_count');
+      return (int) $this->db
+        ->get_where($this->table, ['id_frequency'=>$frequencyId])
+        ->row()
+        ->frequency_count;
+    }
+
+    /**
      * @author Leonardo S - 11-10-2016 - insere frequencia.
      * @param pFrequency - array com os dados da frequncia que será inserida..
      * @return - retorna, se a frequncia foi inserida, true, senão retorna false;
