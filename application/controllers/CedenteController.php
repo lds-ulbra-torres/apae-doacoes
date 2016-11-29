@@ -6,7 +6,18 @@ class CedenteController extends CI_Controller
 
     public function index()
     {
-        $data['cedentes'] = $this->CedenteModel->getAllByCidades();
+        $baseUrl = base_url('cedentes');
+        $totalRows = $this->CedenteModel->totalCount();
+        $perPage = 5;
+
+        $getPage = (int) $this->input->get("page");
+        $page = $getPage == 0 ? $getPage : ($getPage-1)*$perPage;
+
+        $data['cedentes'] = $this->CedenteModel->getAll($perPage, $page);
+        $config = PaginationHelper($baseUrl, $totalRows, $perPage);
+        $this->pagination->initialize($config);
+        $data['pagination'] = $this->pagination->create_links();
+
         $this->template->load('template', 'Cedente/Index', $data);
     }
 

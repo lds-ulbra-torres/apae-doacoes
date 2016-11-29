@@ -10,6 +10,4 @@ INSERT INTO apaedb.contact_type (id_contact_type, description_contact_type) VALU
 
 INSERT INTO apaedb.payment_type (id_payment_type, description_payment) VALUES 
 (1, 'Boleto'),
-(2, 'Cartão de Crédito'),
-(3, 'Cartão de Débito'),
-(4, 'Depósito Bancário');
+(2, 'Débito em Conta');

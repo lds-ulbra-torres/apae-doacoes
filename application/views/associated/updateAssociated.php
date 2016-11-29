@@ -2,7 +2,7 @@
 
 <div class="well well-lg container">
   <div class="page-header">
-    <h2><?= $title ?></h2>
+    <h2>Alterar Associado</h2>
   </div>
   <div class="row col-sm-12">
     <form method="POST" action="<?= base_url('associated/update'); ?>">
@@ -31,16 +31,6 @@
             id="name_associate" name="name_associate"
             value="<?= set_value('name_associate', isset($associate->name_associate) ? $associate->name_associate:''); ?>"
             placeholder="Nome Associado">
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label for="street" class="col-sm-3 col-form-label">Prazo</label>
-          <div class="col-sm-8">
-            <input type="date"
-            class="form-control"
-            id="due_date" name="due_date"
-            value="<?= date('Y-m-d', strtotime("+1 year")); ?>">
           </div>
         </div>
 
@@ -89,6 +79,53 @@
     </div>
 
     <div class="form-group row">
+      <label for="id_city" class="col-sm-3 col-form-label">Cidade</label>
+      <div class="col-sm-6">
+        <select required class="form-control" name="id_city" id="id_city">
+            <?php foreach ($cidades as $cidade) { ?>
+            <option value="<?= $cidade['id_city'] ?>">
+                <?= $cidade['name_city'] ?>
+            </option>
+            <?php } ?>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="street" class="col-sm-3 col-form-label">Rua</label>
+      <div class="col-sm-8">
+        <input type="text"
+        class="form-control"
+        id="street" name="street"
+        placeholder="Rua"
+        value="<?= set_value('street', isset($associate->street) ? $associate->street:''); ?>">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="number" class="col-sm-3 col-form-label">Número</label>
+      <div class="col-sm-6">
+        <input type="number"
+        class="form-control"
+        id="number" name="number"
+        placeholder="Número"
+        value="<?= set_value('number', isset($associate->number) ? $associate->number:''); ?>">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="neighborhood" class="col-sm-3 col-form-label">Bairro</label>
+      <div class="col-sm-8">
+        <input type="text"
+        class="form-control"
+        id="neighborhood" name="neighborhood"
+        placeholder="Bairro"
+        value="<?= set_value('neighborhood', isset($associate->neighborhood) ? $associate->neighborhood:''); ?>">
+      </div>
+    </div>
+
+
+    <div class="form-group row">
       <label for="street" class="col-sm-3 col-form-label">Nome no cartão de associado</label>
       <div class="col-sm-8">
         <input type="text"
@@ -99,8 +136,19 @@
       </div>
     </div>
 
+
     <div class="form-group row">
-      <label for="street" class="col-sm-3 col-form-label">Valor de contribuição</label>
+      <label for="street" class="col-sm-3 col-form-label">Vencimento de Cobranças</label>
+      <div class="col-sm-8">
+        <input type="date"
+        class="form-control"
+        id="due_date" name="due_date"
+        value="<?= date('Y-m-d', strtotime("+1 year")); ?>">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="street" class="col-sm-3 col-form-label">Valor de Contribuição</label>
       <div class="col-sm-8">
         <input type="text"
         class="form-control"
@@ -115,7 +163,6 @@
       <label for="id_payment_type" class="col-sm-3 col-form-label">Tipo de Pagamento</label>
       <div class="col-sm-6">
         <select required class="form-control" name="id_payment_type" id="id_payment_type">
-            <option value="">Selecione um tipo</option>
             <?php foreach ($payment_types as $pay_type) { ?>
             <option value="<?= $pay_type['id_payment_type']; ?>" <?= $associate->id_payment_type == $pay_type['id_payment_type'] ? 'selected' : '' ?>>
                 <?= $pay_type['description_payment'] ?>
@@ -138,6 +185,17 @@
       </div>
 
       <div class="form-group row">
+        <label for="street" class="col-sm-3 col-form-label">Número da agencia</label>
+        <div class="col-sm-8">
+          <input type="text"
+          class="form-control"
+          id="agency_number" name="agency_number"
+          placeholder="Agencia"
+          value="<?= set_value('agency_number', isset($associate->agency_number) ? $associate->agency_number:''); ?>">
+        </div>
+      </div>
+
+      <div class="form-group row">
         <label for="street" class="col-sm-3 col-form-label">Número da conta</label>
         <div class="col-sm-8">
           <input type="text"
@@ -148,16 +206,6 @@
         </div>
       </div>
 
-      <div class="form-group row">
-        <label for="street" class="col-sm-3 col-form-label">Número da agencia</label>
-        <div class="col-sm-8">
-          <input type="text"
-          class="form-control"
-          id="agency_number" name="agency_number"
-          placeholder="Agencia"
-          value="<?= set_value('agency_number', isset($associate->agency_number) ? $associate->agency_number:''); ?>">
-        </div>
-      </div>
     </div>
 
 
@@ -165,7 +213,6 @@
       <label for="id_frequency" class="col-sm-3 col-form-label">Frequência de Pagamento</label>
       <div class="col-sm-6">
         <select required class="form-control" name="id_frequency" id="id_frequency">
-            <option value="">Selecione uma frequência</option>
             <?php foreach ($frequencias as $frequencia) { ?>
             <option value="<?= $frequencia['id_frequency'] ?>">
                 <?= $frequencia['frequency_description'] ?>
@@ -174,53 +221,6 @@
         </select>
       </div>
     </div>
-
-  <div class="form-group row">
-    <label for="id_city" class="col-sm-3 col-form-label">Cidade</label>
-    <div class="col-sm-6">
-      <select required class="form-control" name="id_city" id="id_city">
-          <option value="">Selecione uma cidade</option>
-          <?php foreach ($cidades as $cidade) { ?>
-          <option value="<?= $cidade['id_city'] ?>">
-              <?= $cidade['name_city'] ?>
-          </option>
-          <?php } ?>
-      </select>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="street" class="col-sm-3 col-form-label">Rua</label>
-    <div class="col-sm-8">
-      <input type="text"
-      class="form-control"
-      id="street" name="street"
-      placeholder="Rua"
-      value="<?= set_value('street', isset($associate->street) ? $associate->street:''); ?>">
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="number" class="col-sm-3 col-form-label">Número</label>
-    <div class="col-sm-6">
-      <input type="number"
-      class="form-control"
-      id="number" name="number"
-      placeholder="Número"
-      value="<?= set_value('number', isset($associate->number) ? $associate->number:''); ?>">
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="neighborhood" class="col-sm-3 col-form-label">Bairro</label>
-    <div class="col-sm-8">
-      <input type="text"
-      class="form-control"
-      id="neighborhood" name="neighborhood"
-      placeholder="Bairro"
-      value="<?= set_value('neighborhood', isset($associate->neighborhood) ? $associate->neighborhood:''); ?>">
-    </div>
-  </div>
 
   <div class="form-group row">
     <label for="id_city" class="col-sm-3 col-form-label">Cidade (comercial)</label>

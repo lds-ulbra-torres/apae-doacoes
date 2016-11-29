@@ -1,10 +1,10 @@
-<div class="container">
+<div class="well well-lg container">
 
   <div class="page-header">
-    <h4>Associado</h4>
+    <h2>Associado</h2>
   </div>
 
-  <div class="well row col-sm-12">
+  <div class="row col-sm-12">
     <div class="dl-horizontal row col-sm-8">
 
       <dt>ID</dt>
@@ -36,6 +36,7 @@
   </div>
 
   <div class="row col-sm-8">
+    <br>
     <a class="btn btn-info" href="<?= base_url('associated') ?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
     <div class="pull-right">
       <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate->id_associate) ?>"><span class="glyphicon glyphicon-edit"></span> Alterar</a>

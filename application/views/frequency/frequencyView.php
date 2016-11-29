@@ -7,29 +7,30 @@
 	<table id="Tfrequency" class="table table-responsive table-hover">
 		<thead>
 			<tr>
-				<th class="col-md-1">ID</th>
-				<th class="col-md-9">Tipo</th>
-				<th class="col-md-2" style="text-align: center" colspan="2">Ações</th>
+				<td>ID</td>
+				<td>Tipo</td>
+				<td>Qtd. Parcelas</td>
+				<td>Ações</td>
 			</tr>
 		</thead>
 		<tbody>
-			<?php
-			if ($frequencies != null) {
+			<?php if ($frequencies != null) {
 				foreach ($frequencies as $frequency): ?>
-				<tr>
-					<td><?php echo $frequency['id_frequency']; ?></td>
-					<td><?php echo $frequency['frequency_description']; ?></td>
-					<td>
-						<div class="btn-group">
-							<a class="btn btn-primary" title="Editar"	href="<?php echo site_url('frequency/edit') . "/" . $frequency['id_frequency']; ?>"><span class="glyphicon glyphicon-pencil"></span></a>
-								<a title="Apagar" class="delete_frequency btn btn-danger" id="<?php echo $frequency['id_frequency'] ?>" href="#"><span class="glyphicon glyphicon-trash"></span></a>
-						</div>
-					</td>
-				</tr>
-			<?php endforeach;
-		} ?>
-	</tbody>
-</table>
+					<tr>
+						<td><?php echo $frequency['id_frequency']; ?></td>
+						<td><?php echo $frequency['frequency_description']; ?></td>
+						<td><?php echo $frequency['frequency_count']; ?></td>
+						<td>
+							<div class="btn-group">
+									<a class="btn btn-primary" title="Editar"	href="<?php echo site_url('frequency/edit') . "/" . $frequency['id_frequency']; ?>"><span class="glyphicon glyphicon-pencil"></span></a>
+									<a title="Apagar" class="delete_frequency btn btn-danger" id="<?php echo $frequency['id_frequency'] ?>" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+							</div>
+						</td>
+					</tr>
+				<?php endforeach;
+			} ?>
+		</tbody>
+	</table>
 <div id="deleteFrequency" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 		<!-- Modal content-->

@@ -5,6 +5,17 @@ class CedenteModel extends CI_Model
 {
     private $table = "cedentes";
 
+    public function getAll($limit=null, $offset=null)
+    {
+        $this->db->select('id_cedente, name_city, razao_social');
+        $this->db->join('city', 'city.id_city = cedentes.id_cidade', 'left');
+        return $this->db->get($this->table, $limit, $offset)->result_array();
+    }
+
+    public function totalCount() {
+	    return $this->db->count_all($this->table);
+  	}
+
     public function getAllByCidades()
     {
         $this->db->select('id_cedente, name_city, razao_social');

@@ -8,7 +8,7 @@
 //var_dump($cedente);
 //var_dump($cidades);
 ?>
-<div class="well">
+<div class="well well-lg">
   <div class="page-header">
       <h1>Alterar Cedente</h1>
   </div>
@@ -80,7 +80,7 @@
             </select>
         </div>
         <br>
-        <div>
+        <div class="form-group">
             <a class="btn btn-default" href="<?= site_url('cedentes') ?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
             <button class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
 

@@ -5,9 +5,16 @@
     <div class="">
       <form action="<?= site_url('frequency/create'); ?>" method="post" class="form-group">
           <div class="form-horizontal">
+
               <div class="form-group">
-                  <label>Tipo da frequencia:</label>
-                  <input placeholder="Tipo da frequência.." type="text" class="form-control" name="frequency[frequency_description]"
+                  <label>Nome</label>
+                  <input placeholder="Nome da Frequência..." type="text" class="form-control" name="frequency[frequency_description]"
+                  required>
+              </div>
+
+              <div class="form-group">
+                  <label>Quantidade de Parcelas</label>
+                  <input placeholder="Parcelas..." type="number" class="form-control" name="frequency[frequency_count]"
                   required>
               </div>
               <div class="form-group">

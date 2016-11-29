@@ -123,8 +123,4 @@ class AssociatedController extends CI_Controller {
     redirect('associated','refresh');
   }
 
-  public function dialogContact() {
-    $this->load->view('associated/dialogContact');
-  }
-
 }

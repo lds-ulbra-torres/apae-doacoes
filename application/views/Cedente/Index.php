@@ -36,6 +36,12 @@
               <?php } ?>
           </tbody>
       </table>
+
+      <div class="row">
+          <div class="col-md-12 text-center">
+              <?= $pagination ?>
+          </div>
+      </div>
   </div>
 
         <div id="deleteCedente" class="modal fade" role="dialog">

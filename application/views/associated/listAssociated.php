@@ -27,8 +27,10 @@
           <td><?= $associate['cpf'] ?></td>
 
           <td>
-            <a class="btn btn-info" href="<?= base_url('associated-detail/'.$associate['id_associate']) ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
-            <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate['id_associate']) ?>"><span class="glyphicon glyphicon-edit"></span></a>
+            <div class="btn-group">
+              <a class="btn btn-info" href="<?= base_url('associated-detail/'.$associate['id_associate']) ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
+              <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate['id_associate']) ?>"><span class="glyphicon glyphicon-edit"></span></a>
+            </div>
           </td>
         </tr>
       <?php endforeach; ?>

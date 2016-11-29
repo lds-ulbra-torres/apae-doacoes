@@ -20,12 +20,12 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entidades <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list"></span> Entidades <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="<?= base_url('frequency') ?>">Frequência</a></li>
-            <li><a href="<?= base_url('cedentes') ?>">Cedentes</a></li>
-            <li><a href="<?= base_url('associated') ?>">Associados</a></li>
-            <li><a href="<?= base_url('banks') ?>">Bancos</a></li>
+            <li><a href="<?= base_url('frequency') ?>"><span class="glyphicon glyphicon-signal"></span> Frequência</a></li>
+            <li><a href="<?= base_url('banks') ?>"><span class="glyphicon glyphicon-usd"></span> Bancos</a></li>
+            <li><a href="<?= base_url('cedentes') ?>"><span class="glyphicon glyphicon-user"></span> Cedentes</a></li>
+            <li><a href="<?= base_url('associated') ?>"><span class="glyphicon glyphicon-thumbs-up"></span> Associados</a></li>
           </ul>
         </li>
       </ul>
