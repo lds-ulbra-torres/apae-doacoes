@@ -96,6 +96,7 @@ $route['associated/(:num)/collections/update'] = "CollectionsController/updateCo
 $route['associated/(:num)/collections/(:num)'] = "CollectionsController/detailCollection/$2";
 $route['associated/(:num)/collections/new'] = "CollectionsController/newCollection";
 $route['associated/(:num)/collections/create'] = "CollectionsController/createCollection";
+$route['associated/(:num)/collections/delete/(:num)'] = "CollectionsController/deleteCollection/$2";
 /** Fim Associados */
 
 /** CARTEIRAS */

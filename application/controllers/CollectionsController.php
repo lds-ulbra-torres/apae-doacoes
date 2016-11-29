@@ -57,4 +57,8 @@ class CollectionsController extends CI_Controller {
       redirect('associated/'. $collection->id_associate .'/collections'.'/'. $id, 'refresh');
     redirect('associated/'. $collection->id_associate .'/collections');
   }
+
+  public function deleteCollection($collectionId) {
+    $this->CollectionModel->delete($collectionId);
+  }
 }

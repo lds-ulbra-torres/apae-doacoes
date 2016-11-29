@@ -16,7 +16,7 @@
     <tbody>
       <?php foreach($collections as $c): ?>
         <?php $baseUrl = base_url('associated/'. $c->id_associate .'/collections') ?>
-        <tr>
+        <tr id="<?=$c->id_collection?>">
           <td><a href="<?=$baseUrl .'/'. $c->id_collection?>"><?= $c->id_collection ?></a></td>
           <td><?= date_format(date_create($c->duo_date_collection), 'd/m/y') ?></td>
           <td><?= $c->value_collection ?></td>
@@ -25,7 +25,7 @@
             <div class="btn-group">
               <a class="btn btn-info" href="<?=$baseUrl .'/'. $c->id_collection?>"><span class="glyphicon glyphicon-eye-open"></span></a>
               <a class="btn btn-primary" href="<?=$baseUrl .'/'. $c->id_collection .'/edit'?>"><span class="glyphicon glyphicon-edit"></span></a>
-              <a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+              <a data-model="<?=$c->id_collection?>" data-toggle="modal" data-target="#delete_modal" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span></a>
             </div>
           </td>
         </tr>
@@ -38,3 +38,45 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="delete_modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Confirmar Exclusão</h4>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja apagar esta Cobrança?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</button>
+        <a data-dismiss="modal" id="confirmDelete" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Apagar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var id, button;
+    $('#delete_modal').on('show.bs.modal', function(e) {
+      button = $(e.relatedTarget);
+      id = button.data('model');
+    })
+    $('#confirmDelete').on('click', function() {
+      $.ajax({
+        url: 'collections/delete/'+id,
+        type: 'POST',
+        success: function(data) {
+          $(button).closest('tr').remove();
+        },
+        error: function(err) {
+          console.error(err);
+        }
+      });
+    })
+  })();
+</script>
