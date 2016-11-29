@@ -91,7 +91,7 @@
     <div class="form-group row">
       <label for="street" class="col-sm-3 col-form-label">Vencimento de Cobranças</label>
       <div class="col-sm-8">
-        <input type="date" class="form-control" id="due_date" name="due_date" value="<?= date('Y-m-d', strtotime("+1 year")); ?>">
+        <input type="date" class="form-control" id="duo_date" name="duo_date" value="<?=date('Y-m-d', strtotime('+1 month'))?>">
       </div>
     </div>
 
@@ -106,7 +106,7 @@
     <div class="form-group row">
       <label for="id_payment_type" class="col-sm-3 col-form-label">Tipo de Pagamento</label>
       <div class="col-sm-6">
-        <select required class="form-control" name="id_payment_type" id="id_payment_type">
+        <select required class="form-control" name="id_payment_type" id="id_payment_type" >
             <?php foreach ($payment_types as $pay_type) { ?>
             <option value="<?= $pay_type['id_payment_type'] ?>">
                 <?= $pay_type['description_payment'] ?>

@@ -48,9 +48,11 @@ class AssociatedController extends CI_Controller {
       $associate = $this->input->post();
       $id = $this->AssociatedModel->create($associate);
       if($id !== 0){
-        redirect('associated-detail/'.$id,'refresh');
+        $associate['id_associate'] = $id;
+        $this->CollectionModel->createCollections((object) $associate);
+        //redirect('associated/'. $id .'/collections','refresh');
       }else{
-        redirect('associated','refresh');
+        //redirect('associated','refresh');
       }
 
     }else {
@@ -113,6 +115,7 @@ class AssociatedController extends CI_Controller {
 
   public function deleteAssociate() {
     $id = $this->uri->segment(3);
+    $this->CollectionModel->deleteByAssociateId($id);
     $this->AssociatedModel->delete($id);
     redirect('associated','refresh');
   }
