@@ -1,9 +1,16 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+/**
+ * @description Helper para paginação do codeigniter
+ * *pode melhorar, o controller ta com um trecho de codigo bem estranho.
+ * @param baseUrl A base url do serviço. Ex: api/users
+ * @param totalRows Total de linhas da tabela, total_count
+ * @param perPage A quantidade de itens por pagina, padrão 10.
+ *
+ */
 function PaginationHelper($baseUrl, $totalRows, $perPage) {
   $config['base_url'] = $baseUrl ? $baseUrl : base_url();
   $config['total_rows'] = $totalRows ? $totalRows : 0;
-  $config['per_page'] = $perPage ? $perPage : 10;
+  $config['per_page'] = $perPage ? $perPage : 10
   $config['page_query_string'] = TRUE;
   $config['query_string_segment'] = 'page';
   $config['use_page_numbers'] = TRUE;
