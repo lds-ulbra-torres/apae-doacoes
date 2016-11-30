@@ -24,6 +24,7 @@ class AssociatedModel extends CI_Model {
 		$this->db->insert($this->table, $associate);
 		$id = $this->db->insert_id();
 
+
 		if(isset($contacts)){
 			foreach($contacts as $contact){
 				$idContact = substr($contact, 0, strpos($contact, '/'));
@@ -59,8 +60,14 @@ class AssociatedModel extends CI_Model {
 	}
 
 	public function update($associate,$contacts) {
+		if(isset($associate['contact'])){
+			$contacts = $associate['contact'];
+			unset($associate['contact']);
+		}
+
 		$this->db->trans_begin();
 		$this->db->where('id_associate', $associate['id_associate']);
+		
 		$this->db->update($this->table, $associate);
 
 		$this->db->where('id_associate',$associate['id_associate']);

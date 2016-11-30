@@ -40,7 +40,11 @@
     <a class="btn btn-info" href="<?= base_url('associated') ?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
     <div class="pull-right">
       <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate->id_associate) ?>"><span class="glyphicon glyphicon-edit"></span> Alterar</a>
-      <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#inactive_modal" class="btn btn-warning" href="#"><span class="glyphicon glyphicon-ban-circle"></span> Inativar</a>
+      <?php if($associate->disable == 0) { ?>
+        <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#inactive_modal" class="btn btn-warning" href="#"><span class="glyphicon glyphicon-ban-circle"></span> Inativar</a>
+      <?php }else{ ?>
+        <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#active_modal" class="btn btn-success" href="#"><span class="glyphicon glyphicon-ok-circle"></span> Ativar</a>
+      <?php } ?>
       <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#delete_modal" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span> Apagar</a>
     </div>
   </div>
@@ -82,7 +86,27 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
-        <a href=" <?= base_url('associated/inactive/'.$associate->id_associate); ?> " id="confirmInactive" type="button" class="btn btn-warning">Inativar</a>
+        <a href=" <?= base_url('associated/inactive/'.$associate->id_associate); ?> " id="confirmInactive" type="button" class="btn btn-warning">Confirmar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="active_modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Confirmar ativação</h4>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja ativar este associado?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+        <a href=" <?= base_url('associated/active/'.$associate->id_associate); ?> " id="confirmInactive" type="button" class="btn btn-warning">Confirmar</a>
       </div>
     </div>
   </div>

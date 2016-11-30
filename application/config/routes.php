@@ -89,6 +89,7 @@ $route['associated/edit/(:num)'] = "AssociatedController/editAssociate/$1";
 $route['associated/update'] = "AssociatedController/updateAssociate";
 $route['associated/delete/(:num)'] = "AssociatedController/deleteAssociate/$1";
 $route['associated/inactive/(:num)'] = "AssociatedController/inactiveAssociate/$1";
+$route['associated/active/(:num)'] = "AssociatedController/activeAssociate/$1";
 
 $route['associated/(:num)/collections'] = "CollectionsController/index/$1";
 $route['associated/(:num)/collections/(:num)/edit'] = "CollectionsController/editCollection/$2";

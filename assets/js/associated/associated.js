@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  if($('#id_payment_type').val() == 2){
+  if($('#id_payment_type').val() == 1){
     $('#div_bank').removeClass('hide');
   }else{
     $('#div_bank').addClass('hide');
@@ -15,7 +15,7 @@ $(document).ready(function(){
   });
 
   $('#id_payment_type').change(function(e){
-    if(this.value == 2){
+    if(this.value == 1){
       $('#div_bank').removeClass('hide');
     }else{
       $('#div_bank').addClass('hide');

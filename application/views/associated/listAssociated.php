@@ -14,6 +14,7 @@
           <td>Data Nascimento</td>
           <td>RG</td>
           <td>CPF</td>
+          <td></td>
           <td>Ações</td>
         </tr>
       </thead>
@@ -25,7 +26,7 @@
           <td><?= date_format(date_create($associate->birth_date), 'd/m/y')?></td>
           <td><?= $associate->rg ?></td>
           <td><?= $associate->cpf ?></td>
-
+          <td><?php if($associate->disable == 1){ echo '<span class="label label-danger">Inativo</span>'; } ?></td>
           <td>
             <div class="btn-group">
               <a class="btn btn-info" href="<?= base_url('associated-detail/'. $associate->id_associate) ?>"><span class="glyphicon glyphicon-eye-open"></span></a>

@@ -10,7 +10,7 @@
 function PaginationHelper($baseUrl, $totalRows, $perPage) {
   $config['base_url'] = $baseUrl ? $baseUrl : base_url();
   $config['total_rows'] = $totalRows ? $totalRows : 0;
-  $config['per_page'] = $perPage ? $perPage : 10
+  $config['per_page'] = $perPage ? $perPage : 10;
   $config['page_query_string'] = TRUE;
   $config['query_string_segment'] = 'page';
   $config['use_page_numbers'] = TRUE;

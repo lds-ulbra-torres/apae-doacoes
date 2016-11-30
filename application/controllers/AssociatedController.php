@@ -120,4 +120,10 @@ class AssociatedController extends CI_Controller {
     redirect('associated','refresh');
   }
 
+  public function activeAssociate() {
+    $id = $this->uri->segment(3);
+    $this->AssociatedModel->active($id);
+    redirect('associated','refresh');
+  }
+
 }
