@@ -28,6 +28,16 @@ class CollectionModel extends CI_Model {
     return $this->db->get_where($this->table, array('associate_id'=>$associateId), $limit, $offset)->result_array();
   }
 
+  /**
+   * @author Gabriel Dewes, 29 nov, 2016
+   * Cria um array de cobranças para o associado determinado pela quantia de parcelas.
+   * @param (object) associate, requere que possua os campos:
+   * @param associate->id_associate
+   * @param associate->id_frequency
+   * @param associate->value_frequency
+   * @param associate->duo_date
+   * @return insert_batch result
+   */
   public function createCollections($associate) {
     $countFrequency = $this->FrequencyModel->getCountFrequencyByFrequencyId($associate->id_frequency);
     if ($countFrequency != null && $countFrequency != 0) {
