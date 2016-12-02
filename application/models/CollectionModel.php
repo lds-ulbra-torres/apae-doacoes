@@ -18,8 +18,9 @@ class CollectionModel extends CI_Model {
   }
 
   public function totalCountByAssociateId($associateId) {
-    $this->db->where('id_associate', $associateId);
-    return $this->db->count_all($this->table);
+    return $this->db
+      ->where('id_associate', $associateId)
+      ->count_all_results($this->table);
   }
 
   public function getAllByAssociateIdBetweenDate($associateId, $startDate, $endDate, $limit=null, $offset=null) {

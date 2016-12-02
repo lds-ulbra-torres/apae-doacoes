@@ -17,13 +17,13 @@
 			<?php if ($frequencies != null) {
 				foreach ($frequencies as $frequency): ?>
 					<tr>
-						<td><?php echo $frequency['id_frequency']; ?></td>
-						<td><?php echo $frequency['frequency_description']; ?></td>
-						<td><?php echo $frequency['frequency_count']; ?></td>
+						<td><?= $frequency['id_frequency']; ?></td>
+						<td><?= $frequency['frequency_description']; ?></td>
+						<td><?= $frequency['frequency_count']; ?></td>
 						<td>
 							<div class="btn-group">
 									<a class="btn btn-primary" title="Editar"	href="<?php echo site_url('frequency/edit') . "/" . $frequency['id_frequency']; ?>"><span class="glyphicon glyphicon-pencil"></span></a>
-									<a title="Apagar" class="delete_frequency btn btn-danger" id="<?php echo $frequency['id_frequency'] ?>" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+									<a data-model="<?=$frequency['id_frequency']?>" data-toggle="modal" data-target="#delete_modal" title="Apagar" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span></a>
 							</div>
 						</td>
 					</tr>
@@ -31,25 +31,49 @@
 			} ?>
 		</tbody>
 	</table>
-<div id="deleteFrequency" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Apagar</h4>
-			</div>
-			<div class="modal-body">
-				<p>Deseja realmente apagar o cadastro?</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<a href="#!" id="delete_frequency" data-dismiss="modal" class=" btn btn-danger">Apagar</a>
-			</div>
-		</div>
 
+	<div class="modal fade" id="delete_modal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	        <h4 class="modal-title">Confirmar Exclusão</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Tem certeza que deseja apagar esta Frequência?</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</button>
+	        <a data-dismiss="modal" id="confirmDelete" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Apagar</a>
+	      </div>
+	    </div>
+	  </div>
 	</div>
-</div>
+
+	<script type="text/javascript">
+	  (function() {
+	    var id, button;
+	    $('#delete_modal').on('show.bs.modal', function(e) {
+	      button = $(e.relatedTarget);
+	      id = button.data('model');
+	    })
+	    $('#confirmDelete').on('click', function() {
+	      $.ajax({
+	        url: 'frequency/delete/'+id,
+	        type: 'POST',
+	        success: function(data) {
+	          $(button).closest('tr').remove();
+	        },
+	        error: function(err) {
+	          console.error(err);
+	        }
+	      });
+	    })
+	  })();
+	</script>
+
 
 	<div hidden id="sucessDelete" class="alert alert-success">
 		<span class="glyphicon glyphicon-trash"></span>  Cadastro Exlcuido!

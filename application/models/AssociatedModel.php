@@ -6,12 +6,12 @@ class AssociatedModel extends CI_Model {
 	var $table = "associated";
 
 	public function getAll($limit=null, $offset=null) {
-	    return $this->db->get($this->table, $limit, $offset)->result();
-  	}
+    return $this->db->get($this->table, $limit, $offset)->result();
+	}
 
-  	public function totalCount() {
-	    return $this->db->count_all($this->table);
-  	}
+	public function totalCount() {
+    return $this->db->count_all($this->table);
+	}
 
 	public function create($associate) {
 		$this->db->trans_begin();
@@ -59,6 +59,14 @@ class AssociatedModel extends CI_Model {
 		return $this->db->get_where($this->table, array('id_associate' => $id))->result();
 	}
 
+	public function getAssociateNameById($associateId) {
+		$this->db->select('name_associate');
+		return $this->db
+			->get_where($this->table, array('id_associate' => $associateId))
+			->row()
+			->name_associate;
+	}
+
 	public function update($associate,$contacts) {
 		if(isset($associate['contact'])){
 			$contacts = $associate['contact'];
@@ -67,7 +75,7 @@ class AssociatedModel extends CI_Model {
 
 		$this->db->trans_begin();
 		$this->db->where('id_associate', $associate['id_associate']);
-		
+
 		$this->db->update($this->table, $associate);
 
 		$this->db->where('id_associate',$associate['id_associate']);
