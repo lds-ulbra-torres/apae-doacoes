@@ -42,7 +42,7 @@
 					<td>
 						<div class="btn-group">
 							<a class="btn btn-primary" href="<?= site_url('banks/edit')."/".$bank['id_bank'];?>"><span class="glyphicon glyphicon-edit"></span></a>
-							<a type="button" data-model-id="<?= $bank['id_bank'] ?>" data-toggle="modal" data-target=".bs-example-modal-sm" class="btn btn-danger" ><span class="glyphicon glyphicon-trash"></span></a>
+							<a data-model="<?=$bank['id_bank']?>" data-toggle="modal" data-target="#delete_modal" type="button" data-model-id="<?= $bank['id_bank'] ?>" data-toggle="modal" data-target=".bs-example-modal-sm" class="btn btn-danger" ><span class="glyphicon glyphicon-trash"></span></a>
 						</div>
 					</td>
 				</tr>
@@ -55,43 +55,44 @@
 	</div>
 </div>
 
-<div id="delete-modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-	<div class="modal-dialog modal-sm" role="document">
+<div class="modal fade" id="delete_modal">
+	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="gridSystemModalLabel">Atenção</h4>
-				</div>
-				<div class="modal-body">
-						<div>Deseja realmente excluir esse banco?</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-success" name="Confirmar" id="Confirmar">Confirmar</button>
-				</div>
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Confirmar Exclusão</h4>
+			</div>
+			<div class="modal-body">
+				<p>Tem certeza que deseja apagar este Banco?</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</button>
+				<a data-dismiss="modal" id="confirmDelete" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Apagar</a>
+			</div>
 		</div>
 	</div>
 </div>
-<script type="text/javascript" language="javascript">
+
+<script type="text/javascript">
 	(function() {
-		var modelId;
-		$("#delete-modal").on('show.bs.modal', function(e) {
-			var button = e.relatedTarget;
-			console.log(button.data('model-id'));
+		var id, button;
+		$('#delete_modal').on('show.bs.modal', function(e) {
+			button = $(e.relatedTarget);
+			id = button.data('model');
+		})
+		$('#confirmDelete').on('click', function() {
+			$.ajax({
+				url: 'banks/delete/'+id,
+				type: 'POST',
+				success: function(data) {
+					$(button).closest('tr').remove();
+				},
+				error: function(err) {
+					console.error(err);
+				}
+			});
 		})
 	})();
-	$('#Confirmar').click(function(e) {
-				e.preventDefault();
-
-				window.location.href =  '<?= base_url("banks/delete/").$bank["id_bank"] ?>';
-	});
-</script>
-<script type="text/javascript" language="javascript">
-	$(document).ready(function () {
-			$(".alerts-hide").click(function () {
-					$('.alerts-hide').hide(500);
-			});
-	});
 </script>

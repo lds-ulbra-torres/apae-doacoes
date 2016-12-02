@@ -1,6 +1,6 @@
 <div class="well well-lg">
   <div class="page-header">
-    <h2>Cobranças</h2>
+    <h2>Doações [<strong><?=$name_associate?></strong>]</h2>
     <a class="btn btn-default" href="<?=base_url('associated')?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
     <a class="btn btn-success" href="collections/new"><span class="glyphicon glyphicon-plus"></span> Cadastrar Cobrança</a>
   </div>
@@ -16,7 +16,7 @@
     <tbody>
       <?php foreach($collections as $c): ?>
         <?php $baseUrl = base_url('associated/'. $c->id_associate .'/collections') ?>
-        <tr id="<?=$c->id_collection?>">
+        <tr>
           <td><a href="<?=$baseUrl .'/'. $c->id_collection?>"><?= $c->id_collection ?></a></td>
           <td><?= date_format(date_create($c->duo_date_collection), 'd/m/y') ?></td>
           <td><?= $c->value_collection ?></td>

@@ -11,7 +11,7 @@ class CollectionsController extends CI_Controller {
     $config = PaginationHelper($baseUrl, $totalRows, $perPage);
     $this->pagination->initialize($config);
     $data['pagination'] = $this->pagination->create_links();
-
+    $data['name_associate'] = $this->AssociatedModel->getAssociateNameById($associateId);
     $data['collections'] = $this->CollectionModel->getAllByAssociateId($associateId, $perPage, $page);
     $this->template->load('template', 'associated/collections/listCollections', $data);
   }
