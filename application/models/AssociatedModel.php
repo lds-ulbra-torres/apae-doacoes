@@ -56,8 +56,9 @@ class AssociatedModel extends CI_Model {
 	}
 
 	public function getById($id) {
-		return $this->db->get_where($this->table, array('id_associate' => $id))->result();
+		return $this->db->get_where($this->table, array($this->table.'.id_associate' => $id))->result();
 	}
+
 
 	public function getAssociateNameById($associateId) {
 		$this->db->select('name_associate');

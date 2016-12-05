@@ -27,6 +27,7 @@ class AssociatedController extends CI_Controller {
     $data['contact_types'] = $this->AssociatedModel->getAllContactTypes();
     $data['payment_types'] = $this->AssociatedModel->getAllPaymentTypes();
     $data['frequencias'] = $this->FrequencyModel->getAll();
+    $data['banks'] = $this->BanksModel->getAll();
 
     if ($this->session->contact_types) {
       $data['contact_types'] = $this->AssociatedModel->getAllContactTypes();
@@ -61,6 +62,7 @@ class AssociatedController extends CI_Controller {
       $data['contact_types'] = $this->AssociatedModel->getAllContactTypes();
       $data['payment_types'] = $this->AssociatedModel->getAllPaymentTypes();
       $data['frequencias'] = $this->FrequencyModel->getAll();
+      $data['banks'] = $this->BanksModel->getAll();
       $this->template->load('template', 'associated/createAssociated', $data);
     }
   }
@@ -68,6 +70,7 @@ class AssociatedController extends CI_Controller {
   public function detailedAssociate() {
     $id = $this->uri->segment(2);
     $data['associate'] = $this->AssociatedModel->getById($id)[0];
+    $data['contacts'] = $this->AssociatedModel->getUserContacts($id);
     $this->template->load('template', 'associated/detailedAssociated', $data);
   }
 
