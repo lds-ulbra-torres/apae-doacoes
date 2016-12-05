@@ -30,17 +30,21 @@ class DashboardModel extends CI_Model{
     }
 
     if ($filter->status == 1) {
+      //em aberto
       $this->db->where('collection.payday_collection =', NULL);
     }
     else if ($filter->status == 2) {
+      //recebido
       $this->db->where('collection.payday_collection !=', NULL);
     }
     else if ($filter->status == 3) {
+      //vencido
       $this->db->where(
       ['collection.payday_collection =' => NULL,
        'collection.duo_date_collection <='    => date('Y-m-d')]);
     }
     else if ($filter->status == 4) {
+      //pago vencido
       $this->db->where(
       ['collection.payday_collection !=' => NULL,
        'collection.payday_collection >=' => 'collection.duo_date_collection']);

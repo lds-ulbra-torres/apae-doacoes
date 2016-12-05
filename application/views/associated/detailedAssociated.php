@@ -24,7 +24,7 @@
 
       <dt>Endereço</dt>
       <dd>
-          <?= $associate->street .', '. $associate->number .', bairro '.$associate->neighborhood ?>
+          <?= $associate->street .' '. $associate->number .', '.$associate->neighborhood ?>
       </dd>
     </div>
 
@@ -41,15 +41,23 @@
     <br>
     <a class="btn btn-info" href="<?= base_url('associated') ?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
     <div class="pull-right">
-      <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate->id_associate) ?>"><span class="glyphicon glyphicon-edit"></span> Alterar</a>
+      <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate->id_associate) ?>">
+        <span class="glyphicon glyphicon-edit"></span> Alterar
+      </a>
       <?php if($associate->disable == 0) { ?>
-        <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#inactive_modal" class="btn btn-warning" href="#"><span class="glyphicon glyphicon-ban-circle"></span> Inativar</a>
+        <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#inactive_modal" class="btn btn-warning" href="#">
+          <span class="glyphicon glyphicon-ban-circle"></span> Inativar
+        </a>
       <?php }else{ ?>
-        <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#active_modal" class="btn btn-success" href="#"><span class="glyphicon glyphicon-ok-circle"></span> Ativar</a>
+        <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#active_modal" class="btn btn-success" href="#">
+          <span class="glyphicon glyphicon-ok-circle"></span> Ativar
+        </a>
       <?php } ?>
       <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#delete_modal" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span> Apagar</a>
       <?php if(strlen($associate->term_route) > 0){ ?>
-        <a class="btn btn-primary" target="_blank" href="<?= base_url($associate->term_route.'/'.$associate->id_associate) ?>"><span class="glyphicon glyphicon-edit"></span> Imprimir autorização</a>
+        <a class="btn btn-primary" target="_blank" href="<?= base_url($associate->term_route.'/'.$associate->id_associate) ?>">
+          <span class="glyphicon glyphicon-file"></span> Imprimir autorização
+        </a>
       <?php } ?>
     </div>
   </div>

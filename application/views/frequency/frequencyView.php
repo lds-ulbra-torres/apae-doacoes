@@ -67,7 +67,7 @@
 	          $(button).closest('tr').remove();
 	        },
 	        error: function(err) {
-	          console.error(err);
+	          $('.toast').text("Erro de violação de integridade de dados!").fadeIn(400).delay(3000).fadeOut(400);
 	        }
 	      });
 	    })

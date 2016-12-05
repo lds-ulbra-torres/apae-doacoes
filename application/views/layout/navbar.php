@@ -11,7 +11,7 @@
     </div>
 
     <div class="collapse navbar-collapse" id="navbar-menu-principal">
-
+      <div class='toast'></div>
       <form class="navbar-form navbar-left">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Buscar...">

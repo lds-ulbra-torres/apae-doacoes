@@ -27,8 +27,7 @@
                     }
                 },
                 error: function(data){
-                	console.log(data);
-                	alert('Erro ao Excluir! - Cadastro sendo utilizado');
+									$('.toast').text("Erro de violação de integridade de dados!").fadeIn(400).delay(3000).fadeOut(400);
                 }
             });
             });

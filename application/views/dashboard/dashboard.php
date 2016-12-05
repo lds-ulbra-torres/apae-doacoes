@@ -86,9 +86,9 @@
             <tr>
               <td><?=$r->id_associate?></td>
               <td><?=$r->name_associate?></td>
-              <td><?=$r->duo_date_collection?></td>
-              <td></td>
-              <td><?=$r->value_collection?></td>
+              <td><?=date_format(date_create($r->duo_date_collection), 'd/m/y')?></td>
+              <td><?= $r->payday_collection != null ? "<span class='label label-success'>Pago dia ". date_format(date_create($r->payday_collection), 'd/m/y') ."</span>" : "<span class='label label-warning'>Pendente</span>" ?></td>
+              <td><?= 'R$ '. number_format($r->value_collection,2) ?></td>
               <td>
                 <div class="btn-group">
                   <a href="#"></a>
