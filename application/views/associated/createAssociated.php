@@ -118,22 +118,6 @@
     </div>
 
     <div id="div_bank" class="hide">
-      <!--<div class="form-group row">
-        <label for="bank_name" class="col-sm-3 col-form-label">Banco</label>
-        <div class="col-sm-8">
-          <select required class="form-control" name="bank_id" id="bank_id" >
-              <?php foreach ($banks as $b) { ?>
-              <option value="<?= $b['id_bank'] ?>">
-                  <?= $b['name_bank'] ?>
-              </option>
-              <?php } ?>
-          </select>
-        </div>
-      </div>-->
-      <!--
-      ACHO QUE É LINHA DUPLICADA SALVAR MAIS UM NOME DA BANCO...
-      DA PRA MANTER UMA RELAÇÃO ENTRE ASSOCIATED->BANK
-      -->
 
       <div class="form-group row">
         <label for="term_route" class="col-sm-3 col-form-label">Banco</label>

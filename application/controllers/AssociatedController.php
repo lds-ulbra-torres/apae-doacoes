@@ -80,8 +80,7 @@ class AssociatedController extends CI_Controller {
     $data['contact_types'] = $this->AssociatedModel->getAllContactTypes();
     $data['payment_types'] = $this->AssociatedModel->getAllPaymentTypes();
     $data['frequencias'] = $this->FrequencyModel->getAll();
-
-    $data['contact_types'] = $this->AssociatedModel->getAllContactTypes();
+    $data['banks'] = $this->BanksModel->getAll();
     $data['user_contacts'] = $this->AssociatedModel->getUserContacts($id);
     $data['associate'] = $this->AssociatedModel->getById($id)[0];
     $this->template->load('template', 'associated/updateAssociated', $data);
@@ -106,6 +105,7 @@ class AssociatedController extends CI_Controller {
     else {
       $data['contact_types'] = $this->AssociatedModel->getAllContactTypes();
       $data['user_contacts'] = $this->AssociatedModel->getUserContacts($this->input->post('id_associate'));
+      $data['banks'] = $this->BanksModel->getAll();
       $this->template->load('template', 'associated/updateAssociated', $data);
     }
   }

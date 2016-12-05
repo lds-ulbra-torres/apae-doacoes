@@ -173,14 +173,18 @@
     </div>
 
     <div id="div_bank" class="hide">
+
       <div class="form-group row">
-        <label for="street" class="col-sm-3 col-form-label">Nome do banco</label>
+        <label for="term_route" class="col-sm-3 col-form-label">Banco</label>
         <div class="col-sm-8">
-          <input type="text"
-          class="form-control"
-          id="bank_name" name="bank_name"
-          placeholder="Banco"
-          value="<?= set_value('bank_name', isset($associate->bank_name) ? $associate->bank_name:''); ?>">
+          <select required class="form-control" name="term_route" id="term_route">
+              <option value="">Selecione um banco</option>
+              <?php foreach ($banks as $bank) { ?>
+              <option value="<?= $bank['term_bank_route']; ?>" <?= $bank['term_bank_route'] === $associate->term_route ? 'selected' : '' ?>>
+                  <?= $bank['name_bank']; ?>
+              </option>
+              <?php } ?>
+          </select>
         </div>
       </div>
 
