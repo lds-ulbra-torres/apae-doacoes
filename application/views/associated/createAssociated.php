@@ -134,12 +134,21 @@
       ACHO QUE É LINHA DUPLICADA SALVAR MAIS UM NOME DA BANCO...
       DA PRA MANTER UMA RELAÇÃO ENTRE ASSOCIATED->BANK
       -->
+
       <div class="form-group row">
-        <label for="bank_name" class="col-sm-3 col-form-label">Nome do banco</label>
+        <label for="term_route" class="col-sm-3 col-form-label">Banco</label>
         <div class="col-sm-8">
-          <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Banco" value="<?= set_value('bank_name', isset($associate->bank_name) ? $associate->bank_name:''); ?>">
+          <select required class="form-control" name="term_route" id="term_route">
+              <option value="">Selecione um banco</option>
+              <?php foreach ($banks as $bank) { ?>
+              <option value="<?= $bank['term_bank_route']; ?>">
+                  <?= $bank['name_bank']; ?>
+              </option>
+              <?php } ?>
+          </select>
         </div>
       </div>
+
 
       <div class="form-group row">
         <label for="street" class="col-sm-3 col-form-label">Número da Agência</label>
@@ -170,6 +179,7 @@
         </select>
       </div>
     </div>
+
     <div class="form-group row">
       <label class="col-sm-3 col-form-label" for="obs">Observações:</label>
       <div class="col-sm-8">
@@ -178,7 +188,7 @@
   </div>
   </div>
 
-  
+
 
 
 

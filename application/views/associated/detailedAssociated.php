@@ -30,9 +30,11 @@
 
     <div class="row col-sm-4">
       <label for="">Contatos</label>
-
+      <br>
+        <?php foreach ($contacts as $contact) : ?>
+         <label><b><?= $contact['description_contact_type']; ?>:</b></label> <?= $contact['description_contact']; ?>
+        <?php endforeach; ?>
     </div>
-
   </div>
 
   <div class="row col-sm-8">
@@ -46,6 +48,9 @@
         <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#active_modal" class="btn btn-success" href="#"><span class="glyphicon glyphicon-ok-circle"></span> Ativar</a>
       <?php } ?>
       <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#delete_modal" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span> Apagar</a>
+      <?php if(strlen($associate->term_route) > 0){ ?>
+        <a class="btn btn-primary" target="_blank" href="<?= base_url($associate->term_route.'/'.$associate->id_associate) ?>"><span class="glyphicon glyphicon-edit"></span> Imprimir autorização</a>
+      <?php } ?>
     </div>
   </div>
 </div>

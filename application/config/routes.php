@@ -58,6 +58,10 @@ $route['dashboard'] = "DashboardController";
 $route['dashboard/filter'] = "DashboardController/filter";
 /** FIM DASHBOARD */
 
+/** TERMS  */
+$route['terms/banco-brasil/(:num)'] = "TermsController/bancoBrasil/$1";
+$route['terms/banrisul/(:num)'] = "TermsController/banrisul/$1";
+/** FIM TERMS */
 
 /** CEDENTES */
 $route['cedentes'] = "CedenteController";
