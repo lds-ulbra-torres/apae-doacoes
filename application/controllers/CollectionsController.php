@@ -2,6 +2,13 @@
 
 class CollectionsController extends CI_Controller {
 
+  public function __construct(){
+		parent::__construct();
+		if (!$this->ion_auth->logged_in()) {
+        redirect('/auth', 'refresh');
+    }
+	}
+
   public function index($associateId) {
     $baseUrl = base_url('associated/'. $associateId .'/collections');
     $totalRows = $this->CollectionModel->totalCountByAssociateId($associateId);

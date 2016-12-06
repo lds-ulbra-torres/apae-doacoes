@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class FrequencyController extends CI_Controller
 {
+
+  public function __construct(){
+		parent::__construct();
+		if (!$this->ion_auth->logged_in()) {
+        redirect('/auth', 'refresh');
+    }
+	}
     /**
      * @author Leonardo - 11-10-2016 - chama index com a lista de frequncias cadastradas
      */

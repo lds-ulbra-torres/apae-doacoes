@@ -73,11 +73,11 @@
     <table class="table table-responsive table-hover">
       <thead>
         <tr>
-          <td>Código Associado</td>
-          <td>Nome Associado</td>
-          <td>Data Vencimento</td>
-          <td>Data Pagamento</td>
-          <td>Valor Pagamento</td>
+          <th>Código Associado</th>
+          <th>Nome Associado</th>
+          <th>Data Vencimento</th>
+          <th>Data Pagamento</th>
+          <th>Valor Pagamento</th>
         </tr>
       </thead>
       <tbody>

@@ -9,13 +9,13 @@
     <table class="table table-responsive table-striped table-hover">
       <thead>
         <tr>
-          <td>ID</td>
-          <td>Nome</td>
-          <td>Data Nascimento</td>
-          <td>RG</td>
-          <td>CPF</td>
-          <td></td>
-          <td>Ações</td>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Data Nascimento</th>
+          <th>RG</th>
+          <th>CPF</th>
+          <th></th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>

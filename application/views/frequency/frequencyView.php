@@ -7,10 +7,10 @@
 	<table id="Tfrequency" class="table table-responsive table-hover">
 		<thead>
 			<tr>
-				<td>ID</td>
-				<td>Tipo</td>
-				<td>Qtd. Parcelas</td>
-				<td>Ações</td>
+				<th>ID</th>
+				<th>Tipo</th>
+				<th>Qtd. Parcelas</th>
+				<th>Ações</th>
 			</tr>
 		</thead>
 		<tbody>
