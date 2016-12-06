@@ -7,7 +7,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<?= base_url() ?>">APAE</a>
+      <a class="navbar-brand logo" href="<?=base_url()?>" ng-click="vm.collapseNavbar()">
+          <img class="logo-img" src="assets/img/logo_apae.png"/>
+          <span>APAE</span>
+      </a>
     </div>
 
     <div class="collapse navbar-collapse" id="navbar-menu-principal">
