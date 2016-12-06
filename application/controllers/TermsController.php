@@ -3,11 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class TermsController extends CI_Controller{
 
-  public function __construct()
-  {
-    parent::__construct();
-    //Codeigniter : Write Less Do More
-  }
+  public function __construct(){
+		parent::__construct();
+		if (!$this->ion_auth->logged_in()) {
+        redirect('/auth', 'refresh');
+    }
+	}
 
   function banrisul($id){
     $data['associated'] = $this->AssociatedModel->getById($id)[0];

@@ -48,7 +48,8 @@ class CollectionModel extends CI_Model {
         $collection = (object) [
           'value_collection' => $associate->value_frequency,
           'duo_date_collection' => $duoDate,
-          'id_associate' => $associate->id_associate
+          'id_associate' => $associate->id_associate,
+          'num_collection' => $i+1
         ];
         array_push($collections, $collection);
       }

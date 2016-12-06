@@ -1,8 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<?php
+
 class Carteiras_Controller extends CI_Controller {
+
+	public function __construct(){
+		parent::__construct();
+		if (!$this->ion_auth->logged_in()) {
+        redirect('/auth', 'refresh');
+    }
+	}
 
 	public function index(){
 		$data['carteira'] = $this->CarteiraModel->getCarteira();
