@@ -41,8 +41,8 @@
 					<td><?= $bank['check_digit_account']; ?></td>
 					<td>
 						<div class="btn-group">
-							<a class="btn btn-primary" href="<?= site_url('banks/edit')."/".$bank['id_bank'];?>"><span class="glyphicon glyphicon-edit"></span></a>
-							<a data-model="<?=$bank['id_bank']?>" data-toggle="modal" data-target="#delete_modal" type="button" data-model-id="<?= $bank['id_bank'] ?>" data-toggle="modal" data-target=".bs-example-modal-sm" class="btn btn-danger" ><span class="glyphicon glyphicon-trash"></span></a>
+							<a class="btn btn-primary btn-sm" href="<?= site_url('banks/edit')."/".$bank['id_bank'];?>"><span class="glyphicon glyphicon-edit"></span></a>
+							<a data-model="<?=$bank['id_bank']?>" data-toggle="modal" data-target="#delete_modal" type="button" class="btn btn-danger btn-sm" ><span class="glyphicon glyphicon-trash"></span></a>
 						</div>
 					</td>
 				</tr>

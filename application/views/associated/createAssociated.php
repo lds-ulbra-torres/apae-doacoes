@@ -82,9 +82,16 @@
     </div>
 
     <div class="form-group row">
-      <label for="name_in_card" class="col-sm-3 col-form-label">Nome no cartão</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control" id="name_in_card" name="name_in_card" placeholder="Nome no Cartão" value="<?= set_value('name_in_card', isset($associate->name_in_card) ? $associate->name_in_card:''); ?>">
+      <label for="id_frequency" class="col-sm-3 col-form-label">Frequência de Pagamento</label>
+      <div class="col-sm-6">
+        <select required class="form-control" name="id_frequency" id="id_frequency">
+            <option value="">Selecione uma frequencia</option>
+            <?php foreach ($frequencias as $frequencia) { ?>
+            <option value="<?= $frequencia['id_frequency'] ?>">
+                <?= $frequencia['frequency_description'] ?>
+            </option>
+            <?php } ?>
+        </select>
       </div>
     </div>
 
@@ -120,9 +127,16 @@
     <div id="div_bank" class="hide">
 
       <div class="form-group row">
+        <label for="name_in_card" class="col-sm-3 col-form-label">Nome no cartão</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="name_in_card" name="name_in_card" placeholder="Nome no Cartão" value="<?= set_value('name_in_card', isset($associate->name_in_card) ? $associate->name_in_card:''); ?>">
+        </div>
+      </div>
+
+      <div class="form-group row">
         <label for="term_route" class="col-sm-3 col-form-label">Banco</label>
         <div class="col-sm-8">
-          <select required class="form-control" name="term_route" id="term_route">
+          <select class="form-control" name="term_route" id="term_route">
               <option value="">Selecione um banco</option>
               <?php foreach ($banks as $bank) { ?>
               <option value="<?= $bank['term_bank_route']; ?>">
@@ -135,32 +149,17 @@
 
 
       <div class="form-group row">
-        <label for="street" class="col-sm-3 col-form-label">Número da Agência</label>
+        <label for="agency_number" class="col-sm-3 col-form-label">Número da Agência</label>
         <div class="col-sm-8">
           <input type="text" class="form-control" id="agency_number" name="agency_number" placeholder="Número da Agencia" value="<?= set_value('agency_number', isset($associate->agency_number) ? $associate->agency_number:''); ?>">
         </div>
       </div>
 
       <div class="form-group row">
-        <label for="street" class="col-sm-3 col-form-label">Número da Conta</label>
+        <label for="account_number" class="col-sm-3 col-form-label">Número da Conta</label>
         <div class="col-sm-8">
           <input type="text" class="form-control" id="account_number" name="account_number" placeholder="Número da Conta" value="<?= set_value('account_number', isset($associate->account_number) ? $associate->account_number:''); ?>">
         </div>
-      </div>
-    </div>
-
-
-    <div class="form-group row">
-      <label for="id_frequency" class="col-sm-3 col-form-label">Frequência de Pagamento</label>
-      <div class="col-sm-6">
-        <select required class="form-control" name="id_frequency" id="id_frequency">
-            <option value="">Selecione uma frequencia</option>
-            <?php foreach ($frequencias as $frequencia) { ?>
-            <option value="<?= $frequencia['id_frequency'] ?>">
-                <?= $frequencia['frequency_description'] ?>
-            </option>
-            <?php } ?>
-        </select>
       </div>
     </div>
 
