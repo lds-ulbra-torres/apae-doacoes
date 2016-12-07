@@ -52,8 +52,12 @@
         </div>
       </div>
 
+      <?php if (isset($returnUrl)) { ?>
+        <input type="hidden" name="returnUrl" value="<?=$returnUrl?>">
+      <?php } ?>
+
       <div class="form-group">
-        <a class="btn btn-default" href="<?=$baseUrl?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
+        <a class="btn btn-default" href="<?=isset($returnUrl) ? $returnUrl:$baseUrl?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
         <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</a>
       </div>
     </form>

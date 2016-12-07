@@ -72,7 +72,7 @@ class AssociatedController extends CI_Controller {
 
   public function detailedAssociate() {
     $id = $this->uri->segment(2);
-    $data['associate'] = $this->AssociatedModel->getById($id)[0];
+    $data['associate'] = $this->AssociatedModel->getByIdEager($id)[0];
     $data['contacts'] = $this->AssociatedModel->getUserContacts($id);
     $this->template->load('template', 'associated/detailedAssociated', $data);
   }
@@ -85,7 +85,7 @@ class AssociatedController extends CI_Controller {
     $data['frequencias'] = $this->FrequencyModel->getAll();
     $data['banks'] = $this->BanksModel->getAll();
     $data['user_contacts'] = $this->AssociatedModel->getUserContacts($id);
-    $data['associate'] = $this->AssociatedModel->getById($id)[0];
+    $data['associate'] = $this->AssociatedModel->getByIdLazy($id)[0];
     $this->template->load('template', 'associated/updateAssociated', $data);
   }
 
@@ -123,13 +123,13 @@ class AssociatedController extends CI_Controller {
   public function inactiveAssociate() {
     $id = $this->uri->segment(3);
     $this->AssociatedModel->inactive($id);
-    redirect('associated','refresh');
+    redirect('associated-detail/'. $id, 'refresh');
   }
 
   public function activeAssociate() {
     $id = $this->uri->segment(3);
     $this->AssociatedModel->active($id);
-    redirect('associated','refresh');
+    redirect('associated-detail/'. $id, 'refresh');
   }
 
 }

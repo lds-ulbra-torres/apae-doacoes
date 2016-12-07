@@ -1,7 +1,7 @@
 <div class="well well-lg">
 
   <div class="page-header">
-    <h2>Dashboard</h2>
+    <h2>Doações</h2>
 
   </div>
 
@@ -13,33 +13,34 @@
 
   <div class="form-inline">
 
-    <form class="" action="<?=base_url('dashboard/filter')?>" method="post">
+    <form class="" action="<?=base_url('donations/filter')?>" method="post">
       <div class="input-group">
           <span class="input-group-addon">De</span>
           <input type="date" class="input-md form-control"
             name="from_date"
-            value="<?= date('Y-m-01') ?>"
+            value="<?= isset($filter->from_date) ? $filter->from_date : date('Y-m-01') ?>"
             required/>
           <span class="input-group-addon">Até</span>
           <input type="date" class="input-md form-control"
             name="to_date"
-            value="<?= date('Y-m-t') ?>"
+            value="<?= isset($filter->to_date) ? $filter->to_date : date('Y-m-t') ?>"
             required/>
 
           <span class="input-group-addon">Status</span>
           <select class="input-md form-control" name="status">
+            <?php $s = isset($filter->status) ? $filter->status : 0; ?>
             <option value="0">Status de Pagamento</option>
-            <option value="1">Em aberto</option>
-            <option value="2">Recebido</option>
-            <option value="3">Vencido</option>
-            <option value="4">Pago Vencido</option>
+            <option value="1" <?=$s==1?'selected':''?>>Em aberto</option>
+            <option value="2" <?=$s==2?'selected':''?>>Recebido</option>
+            <option value="3" <?=$s==3?'selected':''?>>Vencido</option>
+            <option value="4" <?=$s==4?'selected':''?>>Pago Vencido</option>
           </select>
 
           <span class="input-group-addon">Associado</span>
           <select class="input-md form-control" name="id_associate">
             <option value="0">Selecione um Associado</option>
             <?php foreach($associated as $a): ?>
-              <option value="<?=$a->id_associate?>"><?=$a->name_associate?></option>
+              <option value="<?=$a->id_associate?>" <?php if (isset($filter->id_associate)){echo $filter->id_associate == $a->id_associate ? 'selected':'';} ?> ><?=$a->name_associate?></option>
             <?php endforeach ?>
           </select>
 
@@ -78,6 +79,7 @@
           <th>Data Vencimento</th>
           <th>Data Pagamento</th>
           <th>Valor Pagamento</th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -91,9 +93,7 @@
               <td><?= 'R$ '. number_format($r->value_collection,2) ?></td>
               <td>
                 <div class="btn-group">
-                  <a href="#"></a>
-                  <a href="#"></a>
-                  <a href="#"></a>
+                  <a class="btn btn-primary btn-sm" title="Alterar Cobrança" href="<?=base_url('donations/edit-collection/'. $r->id_collection)?>"><span class="glyphicon glyphicon-edit"></span></a>
                 </div>
               </td>
             </tr>
@@ -101,5 +101,11 @@
       <?php } ?>
       </tbody>
     </table>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <?= $pagination ?>
+        </div>
+    </div>
   </div>
 </div>

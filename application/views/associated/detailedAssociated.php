@@ -1,7 +1,7 @@
 <div class="well well-lg container">
 
   <div class="page-header">
-    <h2>Associado</h2>
+    <h2>Associado [<strong><?=$associate->name_associate?></strong>] <?php if($associate->disable == 1){ echo '<span class="label label-danger">Inativo</span>'; } ?></h2>
   </div>
 
   <div class="row col-sm-12">
@@ -9,24 +9,54 @@
 
       <dt>ID</dt>
       <dd><?= $associate->id_associate ?></dd>
-
+      <hr>
       <dt>Nome</dt>
       <dd><?= $associate->name_associate ?></dd>
-
+      <hr>
       <dt>Data de Nascimento</dt>
       <dd><?= $associate->birth_date ?></dd>
-
+      <hr>
       <dt>RG</dt>
       <dd><?= $associate->rg ?></dd>
-
+      <hr>
       <dt>CPF</dt>
       <dd><?= $associate->cpf ?></dd>
-
+      <hr>
       <dt>Endereço</dt>
       <dd>
-          <?= $associate->street .' '. $associate->number .', '.$associate->neighborhood ?>
+          <?= $associate->street .' '. $associate->number .', '. $associate->neighborhood .' '. $associate->complement ?>
       </dd>
+      <hr>
+      <dt>Cidade/Estado</dt>
+      <dd><?= $associate->name_city .' - '. $associate->uf_state ?></dd>
+      <hr>
+      <dt>Método de Pagamento</dt>
+      <dd><?=$associate->description_payment?></dd>
+      <hr>
+      <?php if ( (int) $associate->id_payment_type === 1) { ?>
+        <dt>Nome no Cartão</dt>
+        <dd><?= $associate->name_in_card ?></dd>
+        <hr>
+        <dt>Agência/Conta</dt>
+        <dd><?=$associate->agency_number .' - '. $associate->account_number ?></dd>
+        <hr>
+      <?php } ?>
+      <dt>Frequência</dt>
+      <dd><?=$associate->frequency_description?></dd>
+      <hr>
+      <dt>Vencimento de Parcelas</dt>
+      <dd><?=date_format(date_create($associate->duo_date), 'd/m/Y')?></dd>
+      <hr>
+      <dt>Valor de Contribuição</dt>
+      <dd><?='R$ '. number_format($associate->value_frequency,2)?></dd>
+
     </div>
+
+    <!--
+payment type
+value
+agency - account
+    -->
 
     <div class="row col-sm-4">
       <label for="">Contatos</label>

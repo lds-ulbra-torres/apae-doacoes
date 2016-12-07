@@ -9,6 +9,14 @@ class AssociatedModel extends CI_Model {
     return $this->db->get($this->table, $limit, $offset)->result();
 	}
 
+	public function getAllEager($limit=null, $offset=null) {
+		$this->db->join('frequency', 'associated.id_frequency = frequency.id_frequency', 'inner');
+		$this->db->join('payment_type', 'associated.id_payment_type = payment_type.id_payment_type', 'inner');
+		$this->db->join('city', 'associated.id_city = city.id_city', 'inner');
+		$this->db->join('state', 'city.id_state = state.id_state', 'inner');
+    return $this->db->get($this->table, $limit, $offset)->result();
+	}
+
 	public function totalCount() {
     return $this->db->count_all($this->table);
 	}
@@ -55,7 +63,15 @@ class AssociatedModel extends CI_Model {
 		return $this->db->trans_status() === FALSE ? 0 : $id;
 	}
 
-	public function getById($id) {
+	public function getByIdLazy($id) {
+		return $this->db->get_where($this->table, array($this->table.'.id_associate' => $id))->result();
+	}
+
+	public function getByIdEager($id) {
+		$this->db->join('frequency', 'associated.id_frequency = frequency.id_frequency', 'inner');
+		$this->db->join('payment_type', 'associated.id_payment_type = payment_type.id_payment_type', 'inner');
+		$this->db->join('city', 'associated.id_city = city.id_city', 'inner');
+		$this->db->join('state', 'city.id_state = state.id_state', 'inner');
 		return $this->db->get_where($this->table, array($this->table.'.id_associate' => $id))->result();
 	}
 
