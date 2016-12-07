@@ -46,9 +46,13 @@ class CollectionsController extends CI_Controller {
       $collection = (object) $this->input->post();
       if (empty($collection->payday_collection)) $collection->payday_collection = null;
       $id = $this->CollectionModel->save($collection);
-      if ($id)
+      if ($id) {
+        $this->session->set_flashdata('alert', CreateEntityAlert("Cobrança", $id));
         redirect('associated/'. $collection->id_associate .'/collections'.'/'. $id, 'refresh');
-      redirect('associated/'. $collection->id_associate .'/collections');
+      } else {
+        $this->session->set_flashdata('alert', CreateErrorAlert("Banco de Dados"));
+        redirect('associated/'. $collection->id_associate .'/collections');
+      }
     }
     else {
       $data['collection'] = (object) null;
@@ -65,10 +69,14 @@ class CollectionsController extends CI_Controller {
     }
     $id = $this->CollectionModel->update($collection);
     if ($id) {
-      if ($returnUrl != NULL) redirect($returnUrl);
+      $this->session->set_flashdata('alert', UpdateEntityAlert("Cobrança", $id));
+      if (isset($returnUrl) && $returnUrl != NULL) redirect($returnUrl);
       redirect('associated/'. $collection->id_associate .'/collections'.'/'. $id, 'refresh');
     }
-    redirect('associated/'. $collection->id_associate .'/collections');
+    else {
+      $this->session->set_flashdata('alert', CreateErrorAlert("Banco de Dados"));
+      redirect('associated/'. $collection->id_associate .'/collections');
+    }
   }
 
   public function deleteCollection($collectionId) {

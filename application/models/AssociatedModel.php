@@ -130,8 +130,10 @@ class AssociatedModel extends CI_Model {
 
 		if($this->db->trans_status() === FALSE){
 			$this->db->trans_rollback();
+			return FALSE;
 		}else{
 			$this->db->trans_commit();
+			return TRUE;
 		}
 	}
 

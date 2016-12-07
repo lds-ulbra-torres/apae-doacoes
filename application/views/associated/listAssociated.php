@@ -6,6 +6,9 @@
   </div>
 
   <div class="">
+
+    <?= $this->session->flashdata('alert') ?>
+
     <table class="table table-responsive table-striped table-hover">
       <thead>
         <tr>

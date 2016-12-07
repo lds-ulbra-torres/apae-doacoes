@@ -34,23 +34,20 @@ class FrequencyController extends CI_Controller
     public function create()
     {
         $this->form_validation->set_rules('frequency[frequency_description]', 'frequency_description', 'trim|required');
+        $this->form_validation->set_rules('frequency[frequency_count]', 'frequency_count', 'required');
 
         if ($this->form_validation->run()) {
             if ($this->FrequencyModel->insert($this->input->post('frequency'))) {
-                redirect(site_url('frequency'), 'refresh');
-            } else {
-                //redirect(site_url('add'), 'refresh');
-                //echo "<script>alert('Não inserido.')</script>";
-                //chamar view de erro.
-                $data['heading'] = "Erro ao Inserir -";
-                $data['message'] = "Erro ao deletar a frequencia, tente novamente.";
-                //$this->template->load('template', 'errors/cli/error_db', $data);
-                $this->load->view('errors/html/error_db', $data);
+              $this->session->set_flashdata('alert', CreateEntityAlert("Frequência", 0));
+              redirect('frequency');
             }
-        } else {
-            $data['heading'] = "Erro ao Inserir -";
-            $data['message'] = "Erro ao inserir a frequencia, tente novamente.";
-            $this->template->load('template', 'errors/html/error_db', $data);
+            else {
+              $this->session->set_flashdata('alert', CreateErrorAlert("Banco de Dados"));
+              redirect('frequency');
+            }
+        }
+        else {
+          $this->template->load('template', 'frequency/frequencyCreateView');
         }
     }
 
@@ -74,16 +71,13 @@ class FrequencyController extends CI_Controller
 
         if ($this->form_validation->run()) {
             if ($this->FrequencyModel->update($this->input->post('frequency'))) {
+                $this->session->set_flashdata('alert', UpdateEntityAlert("Frequência", 0));
                 redirect(site_url('frequency'), 'refresh');
             } else {
-                $data['heading'] = "Erro ao atualizar -";
-                $data['message'] = "Erro ao atualizar a frequencia, tente novamente.";
-                $this->template->load('template', 'errors/html/error_db', $data);
+                $this->session->set_flashdata('alert', CreateErrorAlert("Banco de Dados"));
             }
         } else {
-            $data['heading'] = "Erro ao atualizar -";
-            $data['message'] = "Erro ao atualizar a frequencia, tente novamente.";
-            $this->template->load('template', 'errors/html/error_db', $data);
+          $this->template->load('template', 'frequency/frequencyUpdateView');
         }
     }
 
@@ -96,11 +90,11 @@ class FrequencyController extends CI_Controller
     {
         if ($this->FrequencyModel->delete($pId)) {
             //redireciona pra rota default
-            echo  'Cadastro Excluido!';
-        } else {
-            $data['heading'] = "Erro ao deletar -";
-            $data['message'] = "Erro ao deletar a frequencia, tente novamente.";
-            $this->template->load('template', 'errors/html/error_db', $data);
+            $this->session->set_flashdata('alert', DeleteEntityAlert("Frequência", $pId));
         }
+        else {
+          $this->session->set_flashdata('alert', CreateErrorAlert("Violação de Integridade de Dados"));
+        }
+        redirect('frequency');
     }
 }

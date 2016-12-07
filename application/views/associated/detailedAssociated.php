@@ -3,7 +3,7 @@
   <div class="page-header">
     <h2>Associado [<strong><?=$associate->name_associate?></strong>] <?php if($associate->disable == 1){ echo '<span class="label label-danger">Inativo</span>'; } ?></h2>
   </div>
-
+  <?= $this->session->flashdata('alert') ?>
   <div class="row col-sm-12">
     <div class="dl-horizontal row col-sm-8">
 

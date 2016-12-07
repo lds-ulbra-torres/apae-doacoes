@@ -41,9 +41,9 @@ class BanksController extends CI_Controller {
 	*/
 	public function create(){
 		if($this->BanksModel->Create($this->input->post('bank'))){
-			$this->session->set_flashdata("success", "Banco criado com sucesso!");
+			$this->session->set_flashdata("alert", CreateEntityAlert("Banco", 0));
 		}else{
-			$this->session->set_flashdata("danger", "Erro ao criar banco!");
+			$this->session->set_flashdata("alert", CreateErrorAlert("Banco de Dados"));
 		}
 		redirect('banks','refresh');
 	}
@@ -56,9 +56,9 @@ class BanksController extends CI_Controller {
 
 	public function delete($id_bank){
 		if($this->BanksModel->Delete($id_bank)){
-			$this->session->set_flashdata("success", "Banco removido com sucesso!");
+			$this->session->set_flashdata("alert", DeleteEntityAlert("Banco", $id_bank));
 		}else{
-			$this->session->set_flashdata("danger", "Erro ao remover banco!");
+			$this->session->set_flashdata("alert", CreateErrorAlert("Banco de Dados"));
 		}
 		redirect('banks','refresh');
 	}
@@ -75,7 +75,7 @@ class BanksController extends CI_Controller {
 		if($data['bank']!= FALSE){
 			$this->template->load('template', 'banks/updateBank', $data);
 		}else{
-			$this->session->set_flashdata("danger", "Erro ao buscar registro na base de dados!");
+			$this->session->set_flashdata("alert", CreateErrorAlert("Banco de Dados"));
 			redirect('bank','refresh');
 		}
 	}
@@ -86,9 +86,9 @@ class BanksController extends CI_Controller {
 	*/
 	public function update(){
 		if ($this->BanksModel->Update($this->input->post('bank'))) {
-			$this->session->set_flashdata("success", "Banco atualizado com sucesso!");
+			$this->session->set_flashdata("alert", CreateEntityAlert("Banco de Dados"));
 		}else{
-			$this->session->set_flashdata("danger", "Erro ao atualizar banco!");
+			$this->session->set_flashdata("alert", CreateErrorAlert("Banco de Dados"));
 		}
 		redirect('banks','refresh');
 	}
