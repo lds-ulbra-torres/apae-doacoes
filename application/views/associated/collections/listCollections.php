@@ -25,9 +25,9 @@
           <td><?= $c->payday_collection != null ? "<span class='label label-success'>Pago dia ". date_format(date_create($c->payday_collection), 'd/m/y') ."</span>" : "<span class='label label-warning'>Pendente</span>" ?></td>
           <td>
             <div class="btn-group">
-              <a class="btn btn-info" href="<?=$baseUrl .'/'. $c->id_collection?>"><span class="glyphicon glyphicon-eye-open"></span></a>
-              <a class="btn btn-primary" href="<?=$baseUrl .'/'. $c->id_collection .'/edit'?>"><span class="glyphicon glyphicon-edit"></span></a>
-              <a data-model="<?=$c->id_collection?>" data-toggle="modal" data-target="#delete_modal" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+              <a class="btn btn-info btn-sm" href="<?=$baseUrl .'/'. $c->id_collection?>"><span class="glyphicon glyphicon-eye-open"></span></a>
+              <a class="btn btn-primary btn-sm" href="<?=$baseUrl .'/'. $c->id_collection .'/edit'?>"><span class="glyphicon glyphicon-edit"></span></a>
+              <a data-model="<?=$c->id_collection?>" data-toggle="modal" data-target="#delete_modal" class="btn btn-danger btn-sm" href="#"><span class="glyphicon glyphicon-trash"></span></a>
             </div>
           </td>
         </tr>

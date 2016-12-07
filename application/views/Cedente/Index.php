@@ -21,13 +21,13 @@
                   <td><?= $cedente['name_city'] ?></td>
                   <td>
                     <div class="btn-group">
-                      <a role="button" class="btn btn-info" href="<?= site_url('cedentes/show') . "/" . $cedente['id_cedente'] ?>">
+                      <a role="button" class="btn btn-info btn-sm" href="<?= site_url('cedentes/show') . "/" . $cedente['id_cedente'] ?>">
                           <span class="glyphicon glyphicon-eye-open"></span>
                       </a>
-                      <a role="button" class="btn btn-primary" href="<?= site_url('cedentes/edit') . "/" . $cedente['id_cedente'] ?>">
+                      <a role="button" class="btn btn-primary btn-sm" href="<?= site_url('cedentes/edit') . "/" . $cedente['id_cedente'] ?>">
                           <span class="glyphicon glyphicon-edit"></span>
                       </a>
-                      <a role="button" class="deleteCedente btn btn-danger" id="<?= $cedente['id_cedente']; ?>" href="#">
+                      <a role="button" class="deleteCedente btn btn-danger btn-sm" id="<?= $cedente['id_cedente']; ?>" href="#">
                           <span class="glyphicon glyphicon-trash"></span>
                       </a>
                     </div>

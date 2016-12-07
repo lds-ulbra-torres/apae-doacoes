@@ -22,8 +22,8 @@
 						<td><?= $frequency['frequency_count']; ?></td>
 						<td>
 							<div class="btn-group">
-									<a class="btn btn-primary" title="Editar"	href="<?php echo site_url('frequency/edit') . "/" . $frequency['id_frequency']; ?>"><span class="glyphicon glyphicon-pencil"></span></a>
-									<a data-model="<?=$frequency['id_frequency']?>" data-toggle="modal" data-target="#delete_modal" title="Apagar" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+									<a class="btn btn-primary btn-sm" title="Editar"	href="<?php echo site_url('frequency/edit') . "/" . $frequency['id_frequency']; ?>"><span class="glyphicon glyphicon-pencil"></span></a>
+									<a data-model="<?=$frequency['id_frequency']?>" data-toggle="modal" data-target="#delete_modal" title="Apagar" class="btn btn-danger btn-sm" href="#"><span class="glyphicon glyphicon-trash"></span></a>
 							</div>
 						</td>
 					</tr>
