@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!--[if IE]><link rel="shortcut icon" href="assets/img/favicon.ico"><![endif]-->
-	<link rel="icon" href="assets/img/favicon.ico">
+	<!--[if IE]><link rel="shortcut icon" href="<?=base_url('assets/img/favicon.ico')?>"><![endif]-->
+	<link rel="icon" href="<?=base_url('assets/img/favicon.ico')?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<meta name="description" content="APAE Project">
