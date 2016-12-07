@@ -59,9 +59,15 @@ class CollectionsController extends CI_Controller {
   public function updateCollection() {
     $collection = (object) $this->input->post();
     if (empty($collection->payday_collection)) $collection->payday_collection = null;
+    if (isset($collection->returnUrl)) {
+      $returnUrl = $collection->returnUrl;
+      unset($collection->returnUrl);
+    }
     $id = $this->CollectionModel->update($collection);
-    if ($id)
+    if ($id) {
+      if ($returnUrl != NULL) redirect($returnUrl);
       redirect('associated/'. $collection->id_associate .'/collections'.'/'. $id, 'refresh');
+    }
     redirect('associated/'. $collection->id_associate .'/collections');
   }
 

@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand logo" href="<?=base_url()?>" ng-click="vm.collapseNavbar()">
-          <img class="logo-img" src="assets/img/logo_apae.png"/>
+          <img class="logo-img" src="<?=base_url('assets/img/logo_apae.png')?>"/>
           <span>APAE</span>
       </a>
     </div>
@@ -24,7 +24,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <?php if ($this->ion_auth->logged_in()) { ?>
-          <li><a href="<?= base_url('dashboard') ?>"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+          <li><a href="<?= base_url('donations') ?>"><span class="glyphicon glyphicon-dashboard"></span> Doações</a></li>
 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list"></span> Entidades <span class="caret"></span></a>

@@ -20,7 +20,7 @@
     <dd><?=$collection->obs_collection?></dd>
     <hr>
     <div class="form-group">
-      <a class="btn btn-default" href="<?=$baseUrl?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
+      <a class="btn btn-default" href="<?=isset($returnUrl) ? $returnUrl:$baseUrl?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
       <a class="btn btn-primary" href="<?=$baseUrl .'/'. $collection->id_collection .'/edit'?>"><span class="glyphicon glyphicon-edit"></span> Alterar</a>
     </div>
 

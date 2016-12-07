@@ -123,8 +123,8 @@ $config['email_config'] = array(
 	'protocol' => 'smtp',
 	'smtp_host' => 'ssl://smtp.googlemail.com',
 	'smtp_port' => 465,
-	'smtp_user' => 'dewesapp@gmail.com',
-	'smtp_pass' => 'dewes.app41448789',
+	'smtp_user' => 'admin@admin.com',
+	'smtp_pass' => '',
 	'mailtype' => 'html',
 	'charset' => 'utf-8'
 );

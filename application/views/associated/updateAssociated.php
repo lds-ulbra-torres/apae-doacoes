@@ -2,7 +2,7 @@
 
 <div class="well well-lg container">
   <div class="page-header">
-    <h2>Alterar Associado</h2>
+    <h2>Alterar Associado [<strong><?=$associate->name_associate?></strong>]</h2>
   </div>
   <div class="row col-sm-12">
     <form method="POST" action="<?= base_url('associated/update'); ?>">
@@ -270,7 +270,7 @@
         <div class="form-group row">
           <label for="contact_description" class="col-sm-2 col-form-label">Tipo</label>
           <div class="col-sm-6">
-            <select class="" name="contact_type" id="contact_type">
+            <select class="form-control" name="contact_type" id="contact_type">
               <?php foreach($contact_types as $type): ?>
                 <option value="<?= $type["id_contact_type"] ?>" data-name="<?= $type["description_contact_type"] ?>"><?= $type["description_contact_type"] ?></option>
               <?php endforeach ?>

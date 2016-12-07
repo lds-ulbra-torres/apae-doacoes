@@ -54,8 +54,9 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 /** DASHBOARD */
-$route['dashboard'] = "DashboardController";
-$route['dashboard/filter'] = "DashboardController/filter";
+$route['donations'] = "DashboardController";
+$route['donations/filter'] = "DashboardController/filter";
+$route['donations/edit-collection/(:num)'] = "DashboardController/editCollection/$1";
 /** FIM DASHBOARD */
 
 /** TERMS  */

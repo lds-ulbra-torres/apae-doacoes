@@ -7,8 +7,9 @@ class DashboardModel extends CI_Model{
     parent::__construct();
   }
 
-  public function getFilteredResults($filter) {
+  public function getFilteredResults($filter, $limit=NULL, $offset=NULL) {
     $this->buildFilter($filter);
+    $this->db->limit($limit, $offset);
     return $this->db->get()->result();
   }
 
@@ -17,6 +18,11 @@ class DashboardModel extends CI_Model{
     $this->buildFilter($filter);
     $result = $this->db->get()->row()->sum;
     return $result;
+  }
+
+  public function totalCount($filter) {
+    $this->buildFilter($filter);
+    return $this->db->count_all_results();
   }
 
   private function buildFilter($filter) {
