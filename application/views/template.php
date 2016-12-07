@@ -19,5 +19,6 @@
 	<div class="container" id="contents">
 		<?= $contents ?>
 	</div>
+	<?php require_once('layout/footer.php') ?>
 </body>
 </html>

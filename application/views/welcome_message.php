@@ -10,12 +10,6 @@
 	color: #4F5155;
 }
 
-a {
-	color: #003399;
-	background-color: transparent;
-	font-weight: normal;
-}
-
 h1 {
 	color: #444;
 	background-color: transparent;
@@ -41,7 +35,7 @@ code {
 	margin: 0 15px 0 15px;
 }
 
-p.footer {
+p.inner-footer {
 	text-align: right;
 	font-size: 11px;
 	border-top: 1px solid #D0D0D0;
@@ -59,19 +53,19 @@ p.footer {
 <div class="body">
 
 	<div id="container">
-		<h1>Welcome to APAE!</h1>
+		<h1>Bem-vindo ao Sistema de Doações da APAE!</h1>
 
 		<div id="body">
 			<p>Se você está desenvolvendo este site e está perdidão, leia o <a href="user_guide/">User Guide</a>.</p>
 
-			<p>If you would like to edit this page you'll find it located at:</p>
-			<code>application/views/welcome_message.php</code>
+			<!--<p>If you would like to edit this page you'll find it located at:</p>
+			<code><a href="#">Aqui</a></code>
 
 			<p>The corresponding controller for this page is found at:</p>
-			<code>application/controllers/Welcome.php</code>
+			<code><a href="#">Tambem</a></code>-->
 
 		</div>
 
-		<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+		<p class="inner-footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 	</div>
 </div>
