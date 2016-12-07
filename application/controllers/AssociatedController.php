@@ -55,6 +55,7 @@ class AssociatedController extends CI_Controller {
       if($id !== 0){
         $associate['id_associate'] = $id;
         $this->CollectionModel->createCollections((object) $associate);
+        $this->session->set_flashdata('alert', CreateEntityAlert("Associado", $id));
         redirect('associated/'. $id .'/collections','refresh');
       }else{
         redirect('associated','refresh');
@@ -100,6 +101,7 @@ class AssociatedController extends CI_Controller {
       $contacts = $this->input->post('contact');
 
       if ($this->AssociatedModel->update($associate,$contacts)) {
+        $this->session->set_flashdata('alert', UpdateEntityAlert("Associado", $associate->id_associate));
         redirect('associated', 'refresh');
       }else{
         redirect('associated','refresh');
@@ -115,20 +117,28 @@ class AssociatedController extends CI_Controller {
 
   public function deleteAssociate() {
     $id = $this->uri->segment(3);
-    $this->CollectionModel->deleteByAssociateId($id);
-    $this->AssociatedModel->delete($id);
-    redirect('associated','refresh');
+    //$this->CollectionModel->deleteByAssociateId($id);
+    if ($this->AssociatedModel->delete($id)) {
+      $this->session->set_flashdata('alert', DeleteEntityAlert("Associado", $id));
+      redirect('associated','refresh');
+    }
+    else {
+      $this->session->set_flashdata('alert', CreateErrorAlert("Violação de Integridade de Dados."));
+      redirect('associated-detail/'. $id);
+    }
   }
 
   public function inactiveAssociate() {
     $id = $this->uri->segment(3);
     $this->AssociatedModel->inactive($id);
+    $this->session->set_flashdata('alert', UpdateEntityAlert("Associado", $id));
     redirect('associated-detail/'. $id, 'refresh');
   }
 
   public function activeAssociate() {
     $id = $this->uri->segment(3);
     $this->AssociatedModel->active($id);
+    $this->session->set_flashdata('alert', UpdateEntityAlert("Associado", $id));
     redirect('associated-detail/'. $id, 'refresh');
   }
 

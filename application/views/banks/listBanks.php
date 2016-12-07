@@ -4,16 +4,7 @@
 			<h2>Bancos</h2>
 			<a class="btn btn-success" href="<?= site_url('banks/add');?>"><span class="glyphicon glyphicon-plus"></span> Cadastrar Banco</a>
 		</div>
-		<div class="row">
-				<div class="form-group col-md-offset-4 col-md-4">
-					<?php if($this->session->flashdata("success")): ?>
-						<p class="alert alert-success alerts-hide">  <?=  $this->session->flashdata("success") ?>  </p>
-					<?php endif ?>
-					<?php if($this->session->flashdata("danger")): ?>
-						<p class="alert alert-danger alerts-hide">  <?=  $this->session->flashdata("danger")?>  </p>
-					<?php endif ?>
-				</div>
-			</div>
+		<?= $this->session->flashdata('alert') ?>
 		<table class="table table-responsive table-hover">
 			<thead>
 				<tr>
@@ -83,7 +74,7 @@
 			id = button.data('model');
 		})
 		$('#confirmDelete').on('click', function() {
-			$.ajax({
+			/*$.ajax({
 				url: 'banks/delete/'+id,
 				type: 'POST',
 				success: function(data) {
@@ -93,7 +84,8 @@
 					$('.toast').text("Erro de violação de integridade de dados!").fadeIn(400).delay(3000).fadeOut(400);
 
 				}
-			});
+			});*/
+			window.location.href = "banks/delete/"+ id;
 		})
 	})();
 </script>

@@ -58,7 +58,7 @@
 
           <?php if(isset($results)) { ?>
             <span class="input-group-btn">
-              <a href="<?=base_url('dashboard')?>" name="submit" class="btn btn-info">
+              <a href="<?=base_url('donations')?>" name="submit" class="btn btn-info">
                 <span class="glyphicon glyphicon-trash"></span>
               </a>
             </span>

@@ -4,6 +4,9 @@
 		<a class="btn btn-success" href="<?= site_url('frequency/add'); ?>" title="Cadastrar"><span class="glyphicon glyphicon-plus"></span> Cadastrar Frequência</a>
 
 	</div>
+
+	  <?= $this->session->flashdata('alert') ?>
+
 	<table id="Tfrequency" class="table table-responsive table-hover">
 		<thead>
 			<tr>
@@ -60,7 +63,7 @@
 	      id = button.data('model');
 	    })
 	    $('#confirmDelete').on('click', function() {
-	      $.ajax({
+	      /*$.ajax({
 	        url: 'frequency/delete/'+id,
 	        type: 'POST',
 	        success: function(data) {
@@ -69,7 +72,8 @@
 	        error: function(err) {
 	          $('.toast').text("Erro de violação de integridade de dados!").fadeIn(400).delay(3000).fadeOut(400);
 	        }
-	      });
+	      });*/
+				window.location.href = "frequency/delete/"+ id;
 	    })
 	  })();
 	</script>

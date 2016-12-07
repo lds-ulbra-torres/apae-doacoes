@@ -3,6 +3,8 @@
     <h2>Cobrança</h2>
   </div>
 
+  <?= $this->session->flashdata('alert') ?>
+
   <?php $baseUrl = base_url('associated/'. $collection->id_associate .'/collections') ?>
 
   <div class="dl-horizontal">
