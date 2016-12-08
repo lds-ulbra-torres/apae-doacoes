@@ -4,6 +4,7 @@
       <h2>Cedentes</h2>
       <a href="<?= site_url('cedentes/add') ?>" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Cadastrar Cedente</a>
   </div>
+  <?= $this->session->flashdata("alert") ?>
   <table id="tCedente" class="table table-resposive table-hover">
       <thead>
           <tr>

@@ -40,19 +40,25 @@ class CedenteModel extends CI_Model
 
     public function create($cedente)
     {
-        return $this->db->insert($this->table, $cedente);
+        $this->db->insert($this->table, $cedente);
+        return $this->db->insert_id();
     }
 
     public function update($cedente)
     {
         $this->db->where('id_cedente', $cedente['id_cedente']);
-        return $this->db->update($this->table, $cedente);
+        if ($this->db->update($this->table, $cedente)) {
+          return $cedente['id_cedente'];
+        }
+        else return 0;
     }
 
     public function delete($idCedente)
     {
         $this->db->where('id_cedente', $idCedente);
-        return $this->db->delete($this->table);
+         if ($this->db->delete($this->table)) {
+           return $idCedente;
+         } else return 0;
     }
 
 
