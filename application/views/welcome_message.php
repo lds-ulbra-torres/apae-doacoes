@@ -56,9 +56,11 @@ p.inner-footer {
 		<h1>Bem-vindo ao Sistema de Doações da APAE!</h1>
 
 		<div id="body">
-			<p>Se você está desenvolvendo este site e está perdidão, leia o <a href="user_guide/">User Guide</a>.</p>
+			<p>Esta é a página inicial.</p>
 
-			<!--<p>If you would like to edit this page you'll find it located at:</p>
+			<!--<p>Se você está desenvolvendo este site e está perdidão, leia o <a href="user_guide/">User Guide</a>.</p>
+
+			<p>If you would like to edit this page you'll find it located at:</p>
 			<code><a href="#">Aqui</a></code>
 
 			<p>The corresponding controller for this page is found at:</p>

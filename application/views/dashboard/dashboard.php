@@ -3,69 +3,67 @@
   <div class="page-header">
     <h2>Doações</h2>
 
-  </div>
-
-  <div class="pull-right">
-    <span class="input-lg">
-        <p>Total: <?=isset($sum) ? 'R$: '. number_format($sum,2) : number_format(0,2) ?></p>
+    <span class="text-info">
+        <h3>Total: <?=isset($sum) ? 'R$ '. number_format($sum,2) : number_format(0,2) ?></h3>
     </span>
-  </div>
 
-  <div class="form-inline">
+    <div class="form-inline">
 
-    <form class="" action="<?=base_url('donations/filter')?>" method="post">
-      <div class="input-group">
-          <span class="input-group-addon">De</span>
-          <input type="date" class="input-md form-control"
-            name="from_date"
-            value="<?= isset($filter->from_date) ? $filter->from_date : date('Y-m-01') ?>"
-            required/>
-          <span class="input-group-addon">Até</span>
-          <input type="date" class="input-md form-control"
-            name="to_date"
-            value="<?= isset($filter->to_date) ? $filter->to_date : date('Y-m-t') ?>"
-            required/>
+      <form class="" action="<?=base_url('donations/filter')?>" method="post">
+        <div class="input-group">
+            <span class="input-group-addon">De</span>
+            <input type="date" class="input-md form-control"
+              name="from_date"
+              value="<?= isset($filter->from_date) ? $filter->from_date : date('Y-m-01') ?>"
+              required/>
+            <span class="input-group-addon">Até</span>
+            <input type="date" class="input-md form-control"
+              name="to_date"
+              value="<?= isset($filter->to_date) ? $filter->to_date : date('Y-m-t') ?>"
+              required/>
 
-          <span class="input-group-addon">Status</span>
-          <select class="input-md form-control" name="status">
-            <?php $s = isset($filter->status) ? $filter->status : 0; ?>
-            <option value="0">Status de Pagamento</option>
-            <option value="1" <?=$s==1?'selected':''?>>Em aberto</option>
-            <option value="2" <?=$s==2?'selected':''?>>Recebido</option>
-            <option value="3" <?=$s==3?'selected':''?>>Vencido</option>
-            <option value="4" <?=$s==4?'selected':''?>>Pago Vencido</option>
-          </select>
+            <span class="input-group-addon">Status</span>
+            <select class="input-md form-control" name="status">
+              <?php $s = isset($filter->status) ? $filter->status : 0; ?>
+              <option value="0">Status de Pagamento</option>
+              <option value="1" <?=$s==1?'selected':''?>>Em aberto</option>
+              <option value="2" <?=$s==2?'selected':''?>>Recebido</option>
+              <option value="3" <?=$s==3?'selected':''?>>Vencido</option>
+              <option value="4" <?=$s==4?'selected':''?>>Pago Vencido</option>
+            </select>
 
-          <span class="input-group-addon">Associado</span>
-          <select class="input-md form-control" name="id_associate">
-            <option value="0">Selecione um Associado</option>
-            <?php foreach($associated as $a): ?>
-              <option value="<?=$a->id_associate?>" <?php if (isset($filter->id_associate)){echo $filter->id_associate == $a->id_associate ? 'selected':'';} ?> ><?=$a->name_associate?></option>
-            <?php endforeach ?>
-          </select>
+            <span class="input-group-addon">Associado</span>
+            <select class="input-md form-control" name="id_associate">
+              <option value="0">Selecione um Associado</option>
+              <?php foreach($associated as $a): ?>
+                <option value="<?=$a->id_associate?>" <?php if (isset($filter->id_associate)){echo $filter->id_associate == $a->id_associate ? 'selected':'';} ?> ><?=$a->name_associate?></option>
+              <?php endforeach ?>
+            </select>
 
-          <!--<select class="input-md form-control" name="status">
-            <option value="0">Ordenado Por</option>
-            <option value="1">Mais Novo</option>
-            <option value="2">Mais Antigo</option>
-          </select>-->
+            <!--<select class="input-md form-control" name="status">
+              <option value="0">Ordenado Por</option>
+              <option value="1">Mais Novo</option>
+              <option value="2">Mais Antigo</option>
+            </select>-->
 
-          <span class="input-group-btn">
-            <button type="submit" name="submit" class="btn btn-info">
-              <span class="glyphicon glyphicon-search"></span> Buscar
-            </button>
-          </span>
-
-          <?php if(isset($results)) { ?>
             <span class="input-group-btn">
-              <a href="<?=base_url('donations')?>" name="submit" class="btn btn-info">
-                <span class="glyphicon glyphicon-trash"></span>
-              </a>
+              <button type="submit" name="submit" class="btn btn-info">
+                <span class="glyphicon glyphicon-search"></span> Buscar
+              </button>
             </span>
-          <?php } ?>
 
-      </div>
-    </form>
+            <?php if(isset($results)) { ?>
+              <span class="input-group-btn">
+                <a href="<?=base_url('donations')?>" name="submit" class="btn btn-info">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </a>
+              </span>
+            <?php } ?>
+
+        </div>
+      </form>
+
+    </div>
 
   </div>
 
