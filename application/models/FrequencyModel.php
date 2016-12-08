@@ -49,7 +49,8 @@ class FrequencyModel extends CI_Model
      */
     public function insert($pFrequency)
     {
-        return $this->db->insert($this->table, $pFrequency) > 0 ? TRUE : FALSE;
+        $this->db->insert($this->table, $pFrequency);
+        return $this->db->insert_id();
     }
 
     /**
@@ -60,7 +61,10 @@ class FrequencyModel extends CI_Model
     public function update($pFrequency)
     {
         $this->db->where('id_frequency', $pFrequency['id_frequency']);
-        return $this->db->update($this->table, $pFrequency) > 0 ? TRUE : FALSE;
+        if ($this->db->update($this->table, $pFrequency)) {
+          return $pFrequency['id_frequency'];
+        }
+        else return 0;
     }
 
     /**

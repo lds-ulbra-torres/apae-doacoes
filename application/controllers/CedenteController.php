@@ -42,11 +42,13 @@ class CedenteController extends CI_Controller
 
     public function create()
     {
-        if ($this->CedenteModel->create($this->input->post('cedente'))) {
-            redirect(site_url('cedentes'));
+        $id = $this->CedenteModel->create($this->input->post('cedente'));
+        if ($id !== 0) {
+            $this->session->set_flashdata("alert", CreateEntityAlert("Cedente", $id));
+            redirect('cedentes');
         } else {
-            $data['error'] = "Erro ao inserir.";
-            $this->template->load('template', 'Cedente/Create', $data);
+          $this->session->set_flashdata('alert', CreateErrorAlert("Banco de Dados"));
+          redirect('cedente');
         }
     }
 
@@ -60,19 +62,25 @@ class CedenteController extends CI_Controller
 
     public function update()
     {
-        if ($this->CedenteModel->update($this->input->post('cedente'))) {
-            redirect('cedentes');
+      $id = $this->CedenteModel->update($this->input->post('cedente'));
+        if ($id !== 0) {
+          $this->session->set_flashdata("alert", UpdateEntityAlert("Cedente", $id));
+          redirect('cedentes');
         } else {
-            echo "Erro ao atualizar";
+          $this->session->set_flashdata('alert', CreateErrorAlert("Banco de Dados."));
+          redirect('cedentes');
         }
     }
 
     public function delete($idCliente)
     {
-        if ($this->CedenteModel->delete($idCliente)) {
-            redirect('');
+      $id = $this->CedenteModel->delete($idCliente);
+        if ($id !== 0) {
+          $this->session->set_flashdata("alert", DeleteEntityAlert("Cedente", $id));
+          redirect('cedentes');
         } else {
-            redirect('');
+          $this->session->set_flashdata('alert', CreateErrorAlert("Violação de Integridade de Dados."));
+          redirect('cedentes');
         }
 
     }

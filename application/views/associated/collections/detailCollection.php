@@ -18,6 +18,9 @@
     <dt>Data de Pagamento</dt>
     <dd><?=$collection->payday_collection != null ? date('d/m/Y', strtotime($collection->payday_collection)) : ""?></dd>
     <hr>
+    <dt>Nro de Parcela</dt>
+    <dd><?=$collection->num_collection?></dd>
+    <hr>
     <dt>Observações</dt>
     <dd><?=$collection->obs_collection?></dd>
     <hr>

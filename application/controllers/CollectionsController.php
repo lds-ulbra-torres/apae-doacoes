@@ -41,6 +41,7 @@ class CollectionsController extends CI_Controller {
   public function createCollection() {
     $this->form_validation->set_rules('duo_date_collection', 'Data de Vencimento', 'required');
     $this->form_validation->set_rules('value_collection', 'Valor de Contribuição', 'required');
+    $this->form_validation->set_rules('num_collection', 'Número de Parcela', 'required');
 
     if ($this->form_validation->run()) {
       $collection = (object) $this->input->post();

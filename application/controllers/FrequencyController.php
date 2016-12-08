@@ -37,8 +37,9 @@ class FrequencyController extends CI_Controller
         $this->form_validation->set_rules('frequency[frequency_count]', 'frequency_count', 'required');
 
         if ($this->form_validation->run()) {
-            if ($this->FrequencyModel->insert($this->input->post('frequency'))) {
-              $this->session->set_flashdata('alert', CreateEntityAlert("Frequência", 0));
+          $id = $this->FrequencyModel->insert($this->input->post('frequency'));
+            if ($id !== 0) {
+              $this->session->set_flashdata('alert', CreateEntityAlert("Frequência", $id));
               redirect('frequency');
             }
             else {
@@ -70,8 +71,9 @@ class FrequencyController extends CI_Controller
         $this->form_validation->set_rules('frequency[frequency_description]', 'frequency_description', 'trim|required');
 
         if ($this->form_validation->run()) {
-            if ($this->FrequencyModel->update($this->input->post('frequency'))) {
-                $this->session->set_flashdata('alert', UpdateEntityAlert("Frequência", 0));
+          $id = $this->FrequencyModel->update($this->input->post('frequency'));
+            if ($id !== 0) {
+                $this->session->set_flashdata('alert', UpdateEntityAlert("Frequência", $id));
                 redirect(site_url('frequency'), 'refresh');
             } else {
                 $this->session->set_flashdata('alert', CreateErrorAlert("Banco de Dados"));

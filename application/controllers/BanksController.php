@@ -40,8 +40,9 @@ class BanksController extends CI_Controller {
 	* Função que recebe os dados de um banco do formulário chama a função Create do Model, após a operação redireciona para a index.
 	*/
 	public function create(){
-		if($this->BanksModel->Create($this->input->post('bank'))){
-			$this->session->set_flashdata("alert", CreateEntityAlert("Banco", 0));
+		$id = $this->BanksModel->Create($this->input->post('bank'));
+		if($id !== 0){
+			$this->session->set_flashdata("alert", CreateEntityAlert("Banco", $id));
 		}else{
 			$this->session->set_flashdata("alert", CreateErrorAlert("Banco de Dados"));
 		}
@@ -85,8 +86,9 @@ class BanksController extends CI_Controller {
 	* Função que recebe os dados de um banco do formulário e chama a função Update do Model, após a operação redireciona para a index.
 	*/
 	public function update(){
-		if ($this->BanksModel->Update($this->input->post('bank'))) {
-			$this->session->set_flashdata("alert", CreateEntityAlert("Banco de Dados"));
+		$id = $this->BanksModel->Update($this->input->post('bank'));
+		if ($id !== 0) {
+			$this->session->set_flashdata("alert", UpdateEntityAlert("Banco", $id));
 		}else{
 			$this->session->set_flashdata("alert", CreateErrorAlert("Banco de Dados"));
 		}

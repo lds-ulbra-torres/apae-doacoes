@@ -11,7 +11,8 @@ class BanksModel extends CI_Model {
 	* Função que faz inserção no bd de um novo banco.
 	*/
 	public function Create($bank){
-		return $this->db->insert($this->table,$bank);
+		$this->db->insert($this->table,$bank);
+		return $this->db->insert_id();
 	}
 
 	/**
@@ -56,9 +57,9 @@ class BanksModel extends CI_Model {
 	public function Update($bank){
 		$this->db->where('id_bank',$bank['id_bank']);
 		if($this->db->update($this->table,$bank)){
-			return TRUE;
+			return $bank['id_bank'];
 		}else{
-			return FALSE;
+			return 0;
 		}
 
 	}

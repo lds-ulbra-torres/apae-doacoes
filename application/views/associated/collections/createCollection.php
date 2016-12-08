@@ -23,7 +23,7 @@
         </div>
         <label for="duo_date_collection" class="col-sm-3">Data de Vencimento</label>
         <div class="col-md-4">
-          <input type="date" name="duo_date_collection" id="duo_date_collection" value="<?=set_value('duo_date_collection', isset($collection->duo_date_collection) ? date('Y-m-d', strtotime($collection->duo_date_collection)) : '')?>" class="form-control">
+          <input required type="date" name="duo_date_collection" id="duo_date_collection" value="<?=set_value('duo_date_collection', isset($collection->duo_date_collection) ? date('Y-m-d', strtotime($collection->duo_date_collection)) : '')?>" class="form-control">
         </div>
       </div>
 
@@ -33,7 +33,7 @@
         </div>
         <label for="value_collection" class="col-sm-3">Valor de Contribuição</label>
         <div class="col-md-4">
-          <input type="text" name="value_collection" id="value_collection" value="<?=set_value('value_collection', isset($collection->value_collection) ? $collection->value_collection : '')?>" class="form-control">
+          <input required type="number" name="value_collection" id="value_collection" value="<?=set_value('value_collection', isset($collection->value_collection) ? $collection->value_collection : '')?>" class="form-control">
         </div>
       </div>
 
@@ -41,6 +41,16 @@
         <label for="payday_collection" class="col-sm-3">Data de Pagamento</label>
         <div class="col-md-4">
           <input type="date" name="payday_collection" value="<?=set_value('duo_date_collection', isset($collection->value_collection) ? date('Y-m-d', strtotime($collection->payday_collection)) : '')?>" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div id="validation_errors" class="container row">
+          <?= form_error('num_collection','<div id="error_num_collection" class="error col-sm-4 alert alert-warning alert-dismissible" role="alert">', '</div>') ?>
+        </div>
+        <label for="num_collection" class="col-sm-3">Nro de Parcela</label>
+        <div class="col-md-4">
+          <input required type="number" name="num_collection" id="num_collection" value="<?=set_value('num_collection', isset($collection->num_collection) ? $collection->num_collection : '')?>" class="form-control">
         </div>
       </div>
 
