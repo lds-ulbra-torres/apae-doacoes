@@ -177,7 +177,7 @@
       <div class="form-group row">
         <label for="term_route" class="col-sm-3 col-form-label">Banco</label>
         <div class="col-sm-8">
-          <select required class="form-control" name="term_route" id="term_route">
+          <select class="form-control" name="term_route" id="term_route">
               <option value="">Selecione um banco</option>
               <?php foreach ($banks as $bank) { ?>
               <option value="<?= $bank['term_bank_route']; ?>" <?= $bank['term_bank_route'] === $associate->term_route ? 'selected' : '' ?>>
