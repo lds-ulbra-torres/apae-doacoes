@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-$active_group = 'test';
+$active_group = 'dev';
 $query_builder = TRUE;
 
 $db['dev'] = array(
@@ -97,14 +97,14 @@ $db['dev'] = array(
 
 $db['test'] = array(
 	'dsn'	=> '',
-	'hostname' => 'doacoes_test.mysql.dbaas.com.br',
+	'hostname' => '',
 	'username' => 'doacoes_test',
-	'password' => 'Presidente*1',
+	'password' => '',
 	'database' => 'doacoes_test',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => FALSE,//(ENVIRONMENT !== 'production'),
+	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',
@@ -117,11 +117,11 @@ $db['test'] = array(
 	'save_queries' => TRUE
 );
 
-$db['production'] = array(
+$db['prod'] = array(
 	'dsn'	=> '',
-	'hostname' => 'www.apaetorres.org.br',
-	'username' => 'root',
-	'password' => 'root',
+	'hostname' => '',
+	'username' => 'apaetorres',
+	'password' => '',
 	'database' => 'apaedb',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
