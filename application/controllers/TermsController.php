@@ -11,13 +11,13 @@ class TermsController extends CI_Controller{
 	}
 
   function banrisul($id){
-    $data['associated'] = $this->AssociatedModel->getById($id)[0];
+    $data['associated'] = $this->AssociatedModel->getByIdLazy($id)[0];
     $data['frequency'] = $this->FrequencyModel->getOne($data['associated']->id_frequency)[0];
     $this->load->view('associated/bankTerms/banrisul',$data);
   }
 
   function bancoBrasil($id){
-    $data['associated'] = $this->AssociatedModel->getById($id)[0];
+    $data['associated'] = $this->AssociatedModel->getByIdLazy($id)[0];
     $this->load->view('associated/bankTerms/bancoBrasil',$data);
   }
 

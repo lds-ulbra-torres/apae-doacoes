@@ -11,8 +11,25 @@ class DashboardController extends CI_Controller{
   }
 
   function index() {
+    $baseUrl = base_url('donations/filter');
+    $filter = (object) [
+      'from_date'    => date('Y-m-01'),
+      'to_date'      => date('Y-m-t'),
+      'id_associate' => NULL,
+      'status'       => NULL
+    ];
+    $totalRows = $this->DashboardModel->totalCount($filter);
+    $perPage = 5;
+    $getPage = (int) $this->input->get("page");
+    $page = $getPage == 0 ? $getPage : ($getPage-1)*$perPage;
+    $config = PaginationHelper($baseUrl, $totalRows, $perPage);
+    $this->pagination->initialize($config);
+    $data['pagination'] = $this->pagination->create_links();
+
     $data['associated'] = $this->AssociatedModel->getAll();
-    $data['pagination'] = NULL;
+    $data['results'] = $this->DashboardModel->getFilteredResults($filter, $perPage, $page);
+    $data['sum'] = $this->DashboardModel->getSum($filter);
+    $data['filter'] = $filter;
     $this->template->load('template', 'dashboard/dashboard', $data);
   }
 

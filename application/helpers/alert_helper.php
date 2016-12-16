@@ -1,22 +1,22 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 function CreateEntityAlert($entityName, $params) {
-  $message = "Um(a) ". $entityName . " foi criado(a) com a identificação ". $params;
+  $message = "Um(a) ". $entityName . " é criado(a) com a identificação ". $params .".";
   return createAlert($message, "alert-success");
 }
 
 function DeleteEntityAlert($entityName, $params) {
-  $message = "Um(a) ". $entityName . " foi apagado(a) com a identificação ". $params;
+  $message = "Um(a) ". $entityName . " é apagado(a) com a identificação ". $params .".";
   return createAlert($message, "alert-warning");
 }
 
 function UpdateEntityAlert($entityName, $params) {
-  $message = "Um(a) ". $entityName . " foi alterado(a) com a identificação ". $params;
+  $message = "Um(a) ". $entityName . " é alterado(a) com a identificação ". $params .".";
   return createAlert($message, "alert-success");
 }
 
 function CreateErrorAlert($errorMessage, $params) {
-  $message = "Ocorreu um erro de ". $errorMessage;
+  $message = "Ocorreu um erro de ". $errorMessage .".";
   return createAlert($message, "alert-danger");
 }
 

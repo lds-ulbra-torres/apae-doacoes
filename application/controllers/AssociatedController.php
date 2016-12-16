@@ -58,6 +58,7 @@ class AssociatedController extends CI_Controller {
         $this->session->set_flashdata('alert', CreateEntityAlert("Associado", $id));
         redirect('associated/'. $id .'/collections','refresh');
       }else{
+        $this->session->set_flashdata('alert', CreateErrorAlert("Banco de Dados. Não foi possível salvar."));
         redirect('associated','refresh');
       }
 
@@ -101,9 +102,10 @@ class AssociatedController extends CI_Controller {
       $contacts = $this->input->post('contact');
 
       if ($this->AssociatedModel->update($associate,$contacts)) {
-        $this->session->set_flashdata('alert', UpdateEntityAlert("Associado", $associate->id_associate));
-        redirect('associated', 'refresh');
+        $this->session->set_flashdata('alert', UpdateEntityAlert("Associado", $associate['id_associate']));
+        redirect('associated');
       }else{
+        $this->session->set_flashdata('alert', CreateErrorAlert("Banco de Dados. Não foi possível alterar"));
         redirect('associated','refresh');
       }
     }
@@ -123,7 +125,7 @@ class AssociatedController extends CI_Controller {
       redirect('associated','refresh');
     }
     else {
-      $this->session->set_flashdata('alert', CreateErrorAlert("Violação de Integridade de Dados."));
+      $this->session->set_flashdata('alert', CreateErrorAlert("Violação de Integridade de Dados"));
       redirect('associated-detail/'. $id);
     }
   }

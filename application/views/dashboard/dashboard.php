@@ -87,7 +87,15 @@
               <td><?=$r->id_associate?></td>
               <td><?=$r->name_associate?></td>
               <td><?=date_format(date_create($r->duo_date_collection), 'd/m/y')?></td>
-              <td><?= $r->payday_collection != null ? "<span class='label label-success'>Pago dia ". date_format(date_create($r->payday_collection), 'd/m/y') ."</span>" : "<span class='label label-warning'>Pendente</span>" ?></td>
+              <td>
+                <?php if ($r->payday_collection != NULL) { ?>
+                  <span class="label label-success">Pago dia <?=date_format(date_create($r->payday_collection), 'd/m/y')?> </span>
+                <?php } else if ($r->payday_collection == NULL && $r->duo_date_collection < date('Y-m-d') ) { ?>
+                  <span class="label label-danger">Vencido há <?=date_create($r->duo_date_collection)->diff(new DateTime())->d?> dia(s)</span>
+                <?php } else { ?>
+                  <span class="label label-warning">Pendente</span>
+                <?php } ?>
+              </td>
               <td><?= 'R$ '. number_format($r->value_collection,2) ?></td>
               <td>
                 <div class="btn-group">

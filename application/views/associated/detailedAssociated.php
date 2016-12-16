@@ -49,7 +49,9 @@
       <hr>
       <dt>Valor de Contribuição</dt>
       <dd><?='R$ '. number_format($associate->value_frequency,2)?></dd>
-
+      <hr>
+      <dt>Observações</dt>
+      <dd><?=$associate->obs?></dd>
     </div>
 
     <!--
