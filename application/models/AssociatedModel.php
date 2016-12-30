@@ -5,7 +5,24 @@ class AssociatedModel extends CI_Model {
 
 	var $table = "associated";
 
-	public function getAll($limit=null, $offset=null) {
+	public function getAll($limit=NULL, $offset=NULL) {
+    return $this->db->get($this->table, $limit, $offset)->result();
+	}
+
+	public function searchAll($limit=NULL, $offset=NULL, $search=NULL) {
+		$this->db
+			->group_start()
+				->like('associated.name_associate', $search)
+				->or_group_start()
+					->like('associated.obs', $search)
+				->group_end()
+				->or_group_start()
+					->like('associated.rg', $search)
+				->group_end()
+				->or_group_start()
+					->like('associated.cpf', $search)
+				->group_end()
+			->group_end();
     return $this->db->get($this->table, $limit, $offset)->result();
 	}
 
@@ -19,6 +36,23 @@ class AssociatedModel extends CI_Model {
 
 	public function totalCount() {
     return $this->db->count_all($this->table);
+	}
+
+	public function searchTotalCount($search) {
+		return $this->db
+			->group_start()
+				->like('associated.name_associate', $search)
+				->or_group_start()
+					->like('associated.obs', $search)
+				->group_end()
+				->or_group_start()
+					->like('associated.rg', $search)
+				->group_end()
+				->or_group_start()
+					->like('associated.cpf', $search)
+				->group_end()
+			->group_end()
+			->count_all_results($this->table);
 	}
 
 	public function create($associate) {

@@ -7,8 +7,8 @@
   <div class="row col-sm-12">
     <div class="dl-horizontal row col-sm-8">
 
-      <dt>ID</dt>
-      <dd><?= $associate->id_associate ?></dd>
+      <dt>UUID</dt>
+      <dd><?= $associate->uuid_associate ?></dd>
       <hr>
       <dt>Nome</dt>
       <dd><?= $associate->name_associate ?></dd>

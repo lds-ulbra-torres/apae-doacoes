@@ -29,6 +29,7 @@ $lang['form_validation_regex_match'] = 'O campo {field} não está em um formato
 $lang['form_validation_matches'] = 'O campo {field} não é igual ao campo {param}.';
 $lang['form_validation_differs'] = 'O campo {field} deve ser diferente do campo {param}.';
 $lang['form_validation_is_unique'] = 'O campo {field} já existe, ele deve ser único.';
+$lang['form_validation_edit_unique'] = 'O campo {field} já existe, ele deve ser único.';
 $lang['form_validation_is_natural'] = 'O campo {field} deve conter um número natural.';
 $lang['form_validation_is_natural_no_zero'] = 'O campo {field} deve conter um número natural diferente de zero.';
 $lang['form_validation_decimal'] = 'O campo {field} deve conter um número decimal.';

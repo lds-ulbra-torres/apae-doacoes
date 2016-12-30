@@ -94,6 +94,7 @@ $route['banks/edit/(:num)'] = "BanksController/edit/$1";
 
 /** ASSOCIADOS */
 $route['associated'] = "AssociatedController";
+$route['associated/search'] = "AssociatedController/search";
 $route['associated/(:num)'] = "AssociatedController/index/$1";
 $route['associated-detail/(:num)'] = "AssociatedController/detailedAssociate/$1";
 $route['associated/new'] = "AssociatedController/newAssociate";

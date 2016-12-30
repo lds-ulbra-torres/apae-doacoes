@@ -2,6 +2,8 @@
 
 class CollectionsController extends CI_Controller {
 
+  const PER_PAGE = 10;
+
   public function __construct(){
 		parent::__construct();
 		if (!$this->ion_auth->logged_in()) {
@@ -14,12 +16,12 @@ class CollectionsController extends CI_Controller {
     $totalRows = $this->CollectionModel->totalCountByAssociateId($associateId);
     $perPage = 5;
     $getPage = (int) $this->input->get("page");
-    $page = $getPage == 0 ? $getPage : ($getPage-1)*$perPage;
-    $config = PaginationHelper($baseUrl, $totalRows, $perPage);
+    $page = $getPage == 0 ? $getPage : ($getPage-1) * self::PER_PAGE;
+    $config = PaginationHelper($baseUrl, $totalRows, self::PER_PAGE);
     $this->pagination->initialize($config);
     $data['pagination'] = $this->pagination->create_links();
     $data['name_associate'] = $this->AssociatedModel->getAssociateNameById($associateId);
-    $data['collections'] = $this->CollectionModel->getAllByAssociateId($associateId, $perPage, $page);
+    $data['collections'] = $this->CollectionModel->getAllByAssociateId($associateId, self::PER_PAGE, $page);
     $this->template->load('template', 'associated/collections/listCollections', $data);
   }
 
