@@ -2,7 +2,39 @@
 <div class="well well-lg">
   <div class="page-header">
     <h2>Associados</h2>
-    <a class="btn btn-success" href="<?= base_url('associated/new') ?>"><span class="glyphicon glyphicon-plus"></span> Cadastrar Associado</a>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <a class="btn btn-success" href="<?= base_url('associated/new') ?>">
+                  <span class="glyphicon glyphicon-plus"></span> Cadastrar Associado
+                </a>
+            </div>
+
+            <div class="col-xs-8 no-padding-right">
+                <form method="GET" action="<?=base_url('associated/search')?>" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control"
+                        name="q"
+                        value="<?=set_value('search', isset($search) ? $search : '')?>"
+                        placeholder="Buscar">
+                        <span  class="input-group-btn width-min" >
+                            <button type="submit" class="btn btn-info">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <?php if(isset($search)) { ?>
+                          <span  class="input-group-btn width-min" >
+                              <a href="<?=base_url('associated')?>" class="btn btn-info">
+                                  <span class="glyphicon glyphicon-trash"></span>
+                              </a>
+                          </span>
+                        <?php } ?>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
   </div>
 
   <div class="">
@@ -12,7 +44,7 @@
     <table class="table table-responsive table-striped table-hover">
       <thead>
         <tr>
-          <th>ID</th>
+          <th>UUID</th>
           <th>Nome</th>
           <th>Data Nascimento</th>
           <th>RG</th>
@@ -24,7 +56,7 @@
       <tbody>
         <?php foreach($associated as $associate): ?>
         <tr>
-          <td><a href="<?=base_url('associated/'. $associate->id_associate)?>"><?= $associate->id_associate ?></a></td>
+          <td><a href="<?=base_url('associated/'. $associate->id_associate)?>"><?= $associate->uuid_associate ?></a></td>
           <td><?= $associate->name_associate ?></td>
           <td><?= date_format(date_create($associate->birth_date), 'd/m/y')?></td>
           <td><?= $associate->rg ?></td>

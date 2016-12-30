@@ -7,10 +7,21 @@
     <form method="POST" action="<?= base_url('associated/create'); ?>" id="create_associate">
 
       <div class="row col-sm-8">
+
         <div class="form-group row">
-          <div id="validation_errors" class="container row">
-            <?= form_error('name_associate','<div id="error_name_associate" class="error col-sm-4 alert alert-warning alert-dismissible" role="alert">', '</div>') ?>
+          <?= form_error('uuid_associate','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+          <label for="name_associate" class="col-sm-3 col-form-label">UUID</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" onchange="close('#uuidError')"
+            id="uuid_associate" name="uuid_associate"
+            value="<?= set_value('uuid_associate', isset($associate->uuid_associate) ? $associate->uuid_associate:''); ?>"
+            placeholder="ID Universal Único"
+            required />
           </div>
+        </div>
+
+        <div class="form-group row">
+          <?= form_error('name_associate','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
           <label for="name_associate" class="col-sm-3 col-form-label">Nome</label>
           <div class="col-sm-8">
             <input type="text" class="form-control" onchange="close('#nameError')" id="name_associate" name="name_associate" value="<?= set_value('name_associate', isset($associate->name_associate) ? $associate->name_associate:''); ?>" placeholder="Nome Associado">
@@ -18,32 +29,36 @@
         </div>
 
         <div class="form-group row">
-         <div id="validation_errors" class="container row">
-           <?= form_error('birth_date','<div id="error_birth_date" class="col-sm-4 alert alert-warning alert-dismissible" role="alert">', '</div>') ?>
-         </div>
+          <?= form_error('birth_date','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
          <label for="birth_date" class="col-sm-3 col-form-label">Aniversário</label>
          <div class="col-sm-8">
-          <input type="date" class="form-control" onchange="close('#birthError')" id="birth_date" name="birth_date" value="<?= set_value('birth_date', isset($associate->birth_date) ? $associate->birth_date:''); ?>">
+          <input type="date" class="form-control" onchange="close('#birthError')"
+          id="birth_date" name="birth_date"
+          value="<?= set_value('birth_date', isset($associate->birth_date) ? $associate->birth_date:''); ?>"
+          required />
         </div>
       </div>
 
       <div class="form-group row">
-       <div id="validation_errors" class="container row">
-        <?= form_error('rg','<div id="error_rg" class="col-sm-4 alert alert-warning alert-dismissible" role="alert">', '</div>') ?>
-      </div>
+        <?= form_error('rg','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
       <label for="rg" class="col-sm-3 col-form-label">RG</label>
       <div class="col-sm-8">
-        <input type="number" class="form-control" id="rg" name="rg" placeholder="RG" onchange="close('#rgError')" value="<?= set_value('rg', isset($associate->rg) ? $associate->rg:''); ?>">
+        <input type="number" class="form-control"
+        id="rg" name="rg" placeholder="RG" onchange="close('#rgError')"
+        value="<?= set_value('rg', isset($associate->rg) ? $associate->rg:''); ?>" />
       </div>
     </div>
 
     <div class="form-group row">
-       <div id="validation_errors" class="container row">
-       <?= form_error('cpf','<div id="error_cpf" class="col-sm-4 alert alert-warning alert-dismissible" role="alert">', '</div>') ?>
-      </div>
+      <?= form_error('cpf','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
       <label for="cpf" class="col-sm-3 col-form-label">CPF</label>
       <div class="col-sm-8">
-        <input type="number" class="form-control" onchange="close('#cpf')" id="cpf" name="cpf" placeholder="CPF" value="<?= set_value('cpf', isset($associate->cpf) ? $associate->cpf:''); ?>">
+        <input type="number" class="form-control" onchange="close('#cpf')"
+        id="cpf" name="cpf" placeholder="CPF"
+        value="<?= set_value('cpf', isset($associate->cpf) ? $associate->cpf:''); ?>" />
       </div>
     </div>
 
@@ -82,6 +97,8 @@
     </div>
 
     <div class="form-group row">
+      <?= form_error('id_frequency','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
       <label for="id_frequency" class="col-sm-3 col-form-label">Frequência de Pagamento</label>
       <div class="col-sm-6">
         <select required class="form-control" name="id_frequency" id="id_frequency">
@@ -96,21 +113,33 @@
     </div>
 
     <div class="form-group row">
+      <?= form_error('duo_date','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
       <label for="duo_date" class="col-sm-3 col-form-label">Data Venc. 1a Doação</label>
       <div class="col-sm-8">
-        <input type="date" class="form-control" id="duo_date" name="duo_date" value="<?=date('Y-m-d', strtotime('+1 month'))?>">
+        <input type="date" class="form-control"
+        id="duo_date" name="duo_date"
+        value="<?=date('Y-m-d', strtotime('+1 month'))?>"
+        required />
       </div>
     </div>
 
     <div class="form-group row">
+      <?= form_error('value_frequency','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
       <label for="value_frequency" class="col-sm-3 col-form-label">Valor de Doação</label>
       <div class="col-sm-8">
-        <input type="text" class="form-control" id="value_frequency" name="value_frequency" placeholder="Valor" value="<?= set_value('value_frequency', isset($associate->value_frequency) ? $associate->value_frequency:''); ?>">
+        <input type="text" class="form-control"
+        id="value_frequency" name="value_frequency" placeholder="Valor"
+        value="<?= set_value('value_frequency', isset($associate->value_frequency) ? $associate->value_frequency:''); ?>"
+        required />
       </div>
     </div>
 
 
     <div class="form-group row">
+      <?= form_error('id_payment_type','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
       <label for="id_payment_type" class="col-sm-3 col-form-label">Tipo de Pagamento</label>
       <div class="col-sm-6">
         <select required class="form-control" name="id_payment_type" id="id_payment_type" >

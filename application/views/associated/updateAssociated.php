@@ -20,9 +20,21 @@
         </div>
 
         <div class="form-group row">
-          <div id="validation_errors" class="container row">
-            <?= form_error('name_associate','<div id="error_name_associate" class="error col-sm-4 alert-warning alert-dismissible" role="alert">', '</div>') ?>
+          <?= form_error('uuid_associate','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
+          <label for="uuid_associate" class="col-sm-3 col-form-label">UUID</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" onchange="close('#uuidError')"
+            id="uuid_associate" name="uuid_associate"
+            value="<?= set_value('uuid_associate', isset($associate->uuid_associate) ? $associate->uuid_associate:''); ?>"
+            placeholder="ID Universal Único"
+            required />
           </div>
+        </div>
+
+        <div class="form-group row">
+          <?= form_error('name_associate','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
           <label for="name_associate" class="col-sm-3 col-form-label">Nome</label>
           <div class="col-sm-8">
             <input type="text"
@@ -35,9 +47,8 @@
         </div>
 
         <div class="form-group row">
-         <div id="validation_errors" class="container row">
-           <?= form_error('birth_date','<div id="error_birth_date" class="col-sm-4 alert-warning alert-dismissible" role="alert">', '</div>') ?>
-         </div>
+          <?= form_error('birth_date','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
          <label for="birth_date" class="col-sm-3 col-form-label">Aniversário</label>
          <div class="col-sm-8">
           <input type="date"
@@ -49,9 +60,8 @@
       </div>
 
       <div class="form-group row">
-       <div id="validation_errors" class="container row">
-        <?= form_error('rg','<div id="error_rg" class="col-sm-4 alert-warning alert-dismissible" role="alert">', '</div>') ?>
-      </div>
+        <?= form_error('rg','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
       <label for="rg" class="col-sm-3 col-form-label">RG</label>
       <div class="col-sm-8">
         <input type="number"
@@ -64,9 +74,8 @@
     </div>
 
     <div class="form-group row">
-       <div id="validation_errors" class="container row">
-       <?= form_error('cpf','<div id="error_cpf" class="col-sm-4 alert-warning alert-dismissible" role="alert">', '</div>') ?>
-      </div>
+      <?= form_error('cpf','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
       <label for="cpf" class="col-sm-3 col-form-label">CPF</label>
       <div class="col-sm-8">
         <input type="number"
@@ -138,6 +147,8 @@
 
 
     <div class="form-group row">
+      <?= form_error('duo_date','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
       <label for="street" class="col-sm-3 col-form-label">Data Venc. 1a Doação</label>
       <div class="col-sm-8">
         <input type="date"
@@ -148,6 +159,8 @@
     </div>
 
     <div class="form-group row">
+      <?= form_error('value_frequency','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
       <label for="street" class="col-sm-3 col-form-label">Valor da Doação</label>
       <div class="col-sm-8">
         <input type="text"
@@ -160,6 +173,8 @@
 
 
     <div class="form-group row">
+      <?= form_error('id_payment_type','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
       <label for="id_payment_type" class="col-sm-3 col-form-label">Tipo de Pagamento</label>
       <div class="col-sm-6">
         <select required class="form-control" name="id_payment_type" id="id_payment_type">
@@ -214,6 +229,8 @@
 
 
     <div class="form-group row">
+      <?= form_error('id_frequency','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
       <label for="id_frequency" class="col-sm-3 col-form-label">Frequência de Pagamento</label>
       <div class="col-sm-6">
         <select required class="form-control" name="id_frequency" id="id_frequency">
