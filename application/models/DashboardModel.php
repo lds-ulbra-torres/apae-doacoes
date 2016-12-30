@@ -55,6 +55,28 @@ class DashboardModel extends CI_Model{
       ['collection.payday_collection !=' => NULL,
        'collection.payday_collection >=' => 'collection.duo_date_collection']);
     }
+
+    if ($filter->id_frequency != NULL && $filter->id_frequency != 0) {
+      $this->db->where('associated.id_frequency', $filter->id_frequency);
+    }
+
+    if ($filter->id_payment_type != NULL && $filter->id_payment_type != 0) {
+      $this->db->where('associated.id_payment_type', $filter->id_payment_type);
+    }
+
+    if ($filter->search != NULL && !empty($filter->search)) {
+      $s = $filter->search;
+      $this->db
+        ->group_start()
+          ->like('associated.name_associate', $s)
+          ->or_group_start()
+            ->like('associated.obs', $s)
+          ->group_end()
+          ->or_group_start()
+            ->like('collection.obs_collection', $s)
+          ->group_end()
+        ->group_end();
+    }
   }
 
 }

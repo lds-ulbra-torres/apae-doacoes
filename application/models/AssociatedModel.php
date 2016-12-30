@@ -160,7 +160,7 @@ class AssociatedModel extends CI_Model {
 	}
 
 	public function getAllPaymentTypes() {
-		return $this->db->get('payment_type')->result_array();
+		return $this->db->get('payment_type')->result();
 	}
 
 }

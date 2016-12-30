@@ -48,7 +48,7 @@
       <div class="form-group">
         <label for="obs_collection" class="col-sm-3">Observações</label>
         <div class="col-md-4">
-          <textarea name="obs_collection" value="<?=$collection->obs_collection?>" class="form-control"></textarea>
+          <textarea name="obs_collection" class="form-control"><?=$collection->obs_collection?></textarea>
         </div>
       </div>
 
