@@ -1,21 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class FrequencyModel extends CI_Model
-{
-    //Nome da tabela que ira modifcar.
+class FrequencyModel extends CI_Model {
     public $table = "frequency";
 
-    /**
-     * @author Leonardo S - 11-10-2016 - Busca todas as frequencias
-     * @return - se for vazio, retorna nulo, senão, retorna a busca do banco.
-     */
-    public function getAll()
-    {
-      //  $this->db->order_by('frequency_description','asc');
-        $this->db->from($this->table);
-        $query = $this->db->get()->result_array();
-        return empty($query) ? null : $query;
+    public function getAll($limit=NULL, $offset=NULL) {
+        //$this->db->order_by('frequency_description','asc');
+        return $this->db->get($this->table, $limit, $offset)->result();
     }
 
     /**

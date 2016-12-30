@@ -87,8 +87,8 @@
         <select required class="form-control" name="id_frequency" id="id_frequency">
             <option value="">Selecione uma frequencia</option>
             <?php foreach ($frequencias as $frequencia) { ?>
-            <option value="<?= $frequencia['id_frequency'] ?>">
-                <?= $frequencia['frequency_description'] ?>
+            <option value="<?= $frequencia->id_frequency ?>">
+                <?= $frequencia->frequency_description ?>
             </option>
             <?php } ?>
         </select>
@@ -116,8 +116,8 @@
         <select required class="form-control" name="id_payment_type" id="id_payment_type" >
             <option value="">Selecione um tipo</option>
             <?php foreach ($payment_types as $pay_type) { ?>
-              <option value="<?= $pay_type['id_payment_type'] ?>">
-                  <?= $pay_type['description_payment'] ?>
+              <option value="<?= $pay_type->id_payment_type ?>">
+                  <?= $pay_type->description_payment ?>
               </option>
             <?php } ?>
         </select>

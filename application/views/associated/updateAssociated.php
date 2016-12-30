@@ -164,8 +164,8 @@
       <div class="col-sm-6">
         <select required class="form-control" name="id_payment_type" id="id_payment_type">
             <?php foreach ($payment_types as $pay_type) { ?>
-            <option value="<?= $pay_type['id_payment_type']; ?>" <?= $associate->id_payment_type == $pay_type['id_payment_type'] ? 'selected' : '' ?>>
-                <?= $pay_type['description_payment'] ?>
+            <option value="<?= $pay_type->id_payment_type; ?>" <?= $associate->id_payment_type == $pay_type->id_payment_type ? 'selected' : '' ?>>
+                <?= $pay_type->description_payment ?>
             </option>
             <?php } ?>
         </select>
@@ -218,8 +218,8 @@
       <div class="col-sm-6">
         <select required class="form-control" name="id_frequency" id="id_frequency">
             <?php foreach ($frequencias as $frequencia) { ?>
-            <option value="<?= $frequencia['id_frequency'] ?>">
-                <?= $frequencia['frequency_description'] ?>
+            <option value="<?= $frequencia->id_frequency ?>">
+                <?= $frequencia->frequency_description ?>
             </option>
             <?php } ?>
         </select>

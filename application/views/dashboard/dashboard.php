@@ -2,30 +2,29 @@
 
   <div class="page-header">
     <h2>Doações</h2>
-
     <span class="text-info">
         <h3>Total: <?=isset($sum) ? 'R$ '. number_format($sum,2) : number_format(0,2) ?></h3>
     </span>
+    <?= $this->session->flashdata("alert") ?>
+    <div class="">
 
-    <div class="form-inline">
-
-      <form class="" action="<?=base_url('donations/filter')?>" method="post">
-        <div class="input-group">
+      <form class="form-inline" action="<?=base_url('donations/filter')?>" method="post">
+        <div class="input-group input-group-sm">
             <span class="input-group-addon">De</span>
-            <input type="date" class="input-md form-control"
+            <input type="date" class="form-control"
               name="from_date"
               value="<?= isset($filter->from_date) ? $filter->from_date : date('Y-m-01') ?>"
               required/>
             <span class="input-group-addon">Até</span>
-            <input type="date" class="input-md form-control"
+            <input type="date" class="form-control"
               name="to_date"
               value="<?= isset($filter->to_date) ? $filter->to_date : date('Y-m-t') ?>"
               required/>
 
-            <span class="input-group-addon">Status</span>
-            <select class="input-md form-control" name="status">
+            <span class="input-group-addon">Status de Pagamento</span>
+            <select class="form-control" name="status">
               <?php $s = isset($filter->status) ? $filter->status : 0; ?>
-              <option value="0">Status de Pagamento</option>
+              <option value="0">Selecione</option>
               <option value="1" <?=$s==1?'selected':''?>>Em aberto</option>
               <option value="2" <?=$s==2?'selected':''?>>Recebido</option>
               <option value="3" <?=$s==3?'selected':''?>>Vencido</option>
@@ -33,8 +32,8 @@
             </select>
 
             <span class="input-group-addon">Associado</span>
-            <select class="input-md form-control" name="id_associate">
-              <option value="0">Selecione um Associado</option>
+            <select class="form-control" name="id_associate">
+              <option value="0">Selecione</option>
               <?php foreach($associated as $a): ?>
                 <option value="<?=$a->id_associate?>" <?php if (isset($filter->id_associate)){echo $filter->id_associate == $a->id_associate ? 'selected':'';} ?> ><?=$a->name_associate?></option>
               <?php endforeach ?>
@@ -46,21 +45,46 @@
               <option value="2">Mais Antigo</option>
             </select>-->
 
-            <span class="input-group-btn">
-              <button type="submit" name="submit" class="btn btn-info">
-                <span class="glyphicon glyphicon-search"></span> Buscar
-              </button>
-            </span>
-
-            <?php if(isset($results)) { ?>
-              <span class="input-group-btn">
-                <a href="<?=base_url('donations')?>" name="submit" class="btn btn-info">
-                  <span class="glyphicon glyphicon-trash"></span>
-                </a>
-              </span>
-            <?php } ?>
-
         </div>
+        <p />
+        <div class="input-group input-group-sm">
+
+          <span class="input-group-addon">Frequência</span>
+          <select class="form-control" name="id_frequency">
+            <option value="0">Selecione</option>
+            <?php foreach($frequencies as $f): ?>
+              <option value="<?=$f->id_frequency?>" <?php if (isset($filter->id_frequency)){echo $filter->id_frequency == $f->id_frequency ? 'selected':'';} ?> ><?=$f->frequency_description?></option>
+            <?php endforeach ?>
+          </select>
+
+          <span class="input-group-addon">Tipo de Pagamento</span>
+          <select class="form-control" name="id_payment_type">
+            <option value="0">Selecione</option>
+            <?php foreach($payment_types as $pt): ?>
+              <option value="<?=$pt->id_payment_type?>" <?php if (isset($filter->id_payment_type)){echo $filter->id_payment_type == $pt->id_payment_type ? 'selected':'';} ?> ><?=$pt->description_payment?></option>
+            <?php endforeach ?>
+          </select>
+
+          <span class="input-group-addon">Texto</span>
+          <input type="text" class="form-control"
+            name="search"
+            value="<?= isset($filter->search) ? $filter->search : ''?>" />
+
+          <span class="input-group-btn">
+            <button type="submit" name="submit" class="btn btn-info">
+              <span class="glyphicon glyphicon-search"></span> Buscar
+            </button>
+          </span>
+
+          <?php if(isset($results)) { ?>
+            <span class="input-group-btn">
+              <a href="<?=base_url('donations')?>" name="submit" class="btn btn-info">
+                <span class="glyphicon glyphicon-trash"></span>
+              </a>
+            </span>
+          <?php } ?>
+        </div>
+
       </form>
 
     </div>
