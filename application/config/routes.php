@@ -121,3 +121,10 @@ $route['carteiras/create'] = "CarteiraController/create";
 $route['carteiras/edit/(:num)'] = 'CarteirasController/update/$1';
 $route['carteiras/delete/(:num)'] = 'CarteirasController/delete/$1';
 /** FIM CARTEIRAS */
+
+/** Ion Auth */
+$route['login'] = 'auth/login';
+$route['edit_user/(:num)'] = 'auth/edit_user/$1';
+$route['change_password'] = 'auth/change_password';
+$route['users'] = 'auth';
+/** FIM Ion Auth */

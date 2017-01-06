@@ -10,12 +10,12 @@
 
       <form class="form-inline" action="<?=base_url('donations/filter')?>" method="post">
         <div class="input-group input-group-sm">
-            <span class="input-group-addon">De</span>
+            <span class="input-group-addon">Data de</span>
             <input type="date" class="form-control"
               name="from_date"
               value="<?= isset($filter->from_date) ? $filter->from_date : date('Y-m-01') ?>"
               required/>
-            <span class="input-group-addon">Até</span>
+            <span class="input-group-addon">até</span>
             <input type="date" class="form-control"
               name="to_date"
               value="<?= isset($filter->to_date) ? $filter->to_date : date('Y-m-t') ?>"
