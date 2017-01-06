@@ -13,7 +13,7 @@ class DashboardController extends CI_Controller{
   }
 
   private function loadFormDependencies($data, $filter) {
-    $data['associated']    = $this->AssociatedModel->getAll();
+    /*$data['associated']    = $this->AssociatedModel->getAll();*/
     $data['payment_types'] = $this->AssociatedModel->getAllPaymentTypes();
     $data['frequencies']   = $this->FrequencyModel->getAll();
     $data['filter']        = $filter;
@@ -24,7 +24,7 @@ class DashboardController extends CI_Controller{
     $filter = (object) [
       'from_date'       => date('Y-m-01'),
       'to_date'         => date('Y-m-t'),
-      'id_associate'    => NULL,
+      /*'id_associate'    => NULL,*/
       'status'          => NULL,
       'id_frequency'    => NULL,
       'id_payment_type' => NULL,

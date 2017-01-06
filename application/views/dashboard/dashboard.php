@@ -31,13 +31,21 @@
               <option value="4" <?=$s==4?'selected':''?>>Pago Vencido</option>
             </select>
 
-            <span class="input-group-addon">Associado</span>
+            <span class="input-group-addon">Tipo de Pagamento</span>
+            <select class="form-control" name="id_payment_type">
+              <option value="0">Selecione</option>
+              <?php foreach($payment_types as $pt): ?>
+                <option value="<?=$pt->id_payment_type?>" <?php if (isset($filter->id_payment_type)){echo $filter->id_payment_type == $pt->id_payment_type ? 'selected':'';} ?> ><?=$pt->description_payment?></option>
+              <?php endforeach ?>
+            </select>
+
+            <!--<span class="input-group-addon">Associado</span>
             <select class="form-control" name="id_associate">
               <option value="0">Selecione</option>
               <?php foreach($associated as $a): ?>
                 <option value="<?=$a->id_associate?>" <?php if (isset($filter->id_associate)){echo $filter->id_associate == $a->id_associate ? 'selected':'';} ?> ><?=$a->name_associate?></option>
               <?php endforeach ?>
-            </select>
+            </select>-->
 
             <!--<select class="input-md form-control" name="status">
               <option value="0">Ordenado Por</option>
@@ -57,17 +65,9 @@
             <?php endforeach ?>
           </select>
 
-          <span class="input-group-addon">Tipo de Pagamento</span>
-          <select class="form-control" name="id_payment_type">
-            <option value="0">Selecione</option>
-            <?php foreach($payment_types as $pt): ?>
-              <option value="<?=$pt->id_payment_type?>" <?php if (isset($filter->id_payment_type)){echo $filter->id_payment_type == $pt->id_payment_type ? 'selected':'';} ?> ><?=$pt->description_payment?></option>
-            <?php endforeach ?>
-          </select>
-
-          <span class="input-group-addon">Texto</span>
+          <span class="input-group-addon">Busca</span>
           <input type="text" class="form-control"
-            name="search"
+            name="search" placeholder="Associados, Observações..."
             value="<?= isset($filter->search) ? $filter->search : ''?>" />
 
           <span class="input-group-btn">
@@ -76,13 +76,11 @@
             </button>
           </span>
 
-          <?php if(isset($results)) { ?>
-            <span class="input-group-btn">
-              <a href="<?=base_url('donations')?>" name="submit" class="btn btn-info">
-                <span class="glyphicon glyphicon-trash"></span>
-              </a>
-            </span>
-          <?php } ?>
+          <span class="input-group-btn">
+            <a href="<?=base_url('donations')?>" name="submit" class="btn btn-info">
+              <span class="glyphicon glyphicon-trash"></span>
+            </a>
+          </span>
         </div>
 
       </form>
