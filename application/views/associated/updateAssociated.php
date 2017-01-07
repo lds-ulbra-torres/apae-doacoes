@@ -91,12 +91,20 @@
       <label for="id_city" class="col-sm-3 col-form-label">Cidade</label>
       <div class="col-sm-6">
         <select required class="form-control" name="id_city" id="id_city">
+            <option value="" disabled selected>Selecione uma cidade</option>
             <?php foreach ($cidades as $cidade) { ?>
             <option value="<?= $cidade['id_city'] ?>">
                 <?= $cidade['name_city'] ?>
             </option>
             <?php } ?>
         </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="street" class="col-sm-3 col-form-label">CEP</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="cep" name="cep" placeholder="Rua" value="<?= set_value('cep', isset($associate->cep) ? $associate->cep:''); ?>">
       </div>
     </div>
 
