@@ -25,6 +25,8 @@ INSERT INTO apaedb.payment_type (id_payment_type, description_payment) VALUES
 (2, 'Boleto'),
 (3, 'Depósito');
 
+INSERT INTO `apaedb`.`banks` (`name_bank`, `phone_bank`, `agency_number`, `term_bank_route`) VALUES ('Banrisul', '0', '0', '/terms/banrisul');
+INSERT INTO `apaedb`.`banks` (`name_bank`, `phone_bank`, `agency_number`, `term_bank_route`) VALUES ('Banco do Brasil', '0', '0', '/terms/banco-brasil');
 
 INSERT INTO apaedb.state VALUES (1,  'AC', 'Acre')
 ,(2,  'AL', 'Alagoas')
