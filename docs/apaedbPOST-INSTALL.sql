@@ -1,16 +1,15 @@
-USE apaedb;
-INSERT INTO apaedb.groups (id, name, description) VALUES
+INSERT INTO groups (id, name, description) VALUES
      (1,'admin','Administrator'),
      (2,'members','General User');
 
-INSERT INTO apaedb.users (id, ip_address, username, password, salt, email, activation_code, forgotten_password_code, created_on, last_login, active, first_name, last_name, company, phone) VALUES
+INSERT INTO users (id, ip_address, username, password, salt, email, activation_code, forgotten_password_code, created_on, last_login, active, first_name, last_name, company, phone) VALUES
     ('1','127.0.0.1','administrator','$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36','','admin@admin.com','',NULL,'1268889823','1268889823','1', 'Admin','istrator','ADMIN','0');
 
-INSERT INTO apaedb.users_groups (id, user_id, group_id) VALUES
+INSERT INTO users_groups (id, user_id, group_id) VALUES
      (1,1,1),
      (2,1,2);
 
-INSERT INTO apaedb.contact_type (id_contact_type, description_contact_type) VALUES
+INSERT INTO contact_type (id_contact_type, description_contact_type) VALUES
 (1, 'Facebook'),
 (2, 'Email'),
 (3, 'Telefone'),
@@ -20,7 +19,7 @@ INSERT INTO apaedb.contact_type (id_contact_type, description_contact_type) VALU
 (7, 'WhatsApp'),
 (8, 'Twitter');
 
-INSERT INTO apaedb.payment_type (id_payment_type, description_payment) VALUES
+INSERT INTO payment_type (id_payment_type, description_payment) VALUES
 (1, 'Débito em Conta'),
 (2, 'Boleto'),
 (3, 'Depósito');
@@ -28,7 +27,7 @@ INSERT INTO apaedb.payment_type (id_payment_type, description_payment) VALUES
 INSERT INTO `apaedb`.`banks` (`name_bank`, `phone_bank`, `agency_number`, `term_bank_route`) VALUES ('Banrisul', '0', '0', '/terms/banrisul');
 INSERT INTO `apaedb`.`banks` (`name_bank`, `phone_bank`, `agency_number`, `term_bank_route`) VALUES ('Banco do Brasil', '0', '0', '/terms/banco-brasil');
 
-INSERT INTO apaedb.state VALUES (1,  'AC', 'Acre')
+INSERT INTO state VALUES (1,  'AC', 'Acre')
 ,(2,  'AL', 'Alagoas')
 ,(3,  'AM', 'Amazonas')
 ,(4,  'AP', 'Amapá')
@@ -56,7 +55,7 @@ INSERT INTO apaedb.state VALUES (1,  'AC', 'Acre')
 ,(26, 'SP', 'São Paulo')
 ,(27, 'TO', 'Tocantins');
 
-INSERT INTO apaedb.city VALUES (1, 1, 'ACRELANDIA')
+INSERT INTO city VALUES (1, 1, 'ACRELANDIA')
 ,(2, 1, 'ASSIS BRASIL')
 ,(3, 1, 'BRASILEIA')
 ,(4, 1, 'BUJARI')
