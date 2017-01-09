@@ -91,9 +91,9 @@
       <label for="id_city" class="col-sm-3 col-form-label">Cidade</label>
       <div class="col-sm-6">
         <select required class="form-control" name="id_city" id="id_city">
-            <option value="" disabled selected>Selecione uma cidade</option>
+            <option value="0">Selecione uma cidade</option>
             <?php foreach ($cidades as $cidade) { ?>
-            <option value="<?= $cidade['id_city'] ?>">
+            <option value="<?= $cidade['id_city'] ?>" <?= $associate->id_city == $cidade['id_city'] ? 'selected' : '' ?>>
                 <?= $cidade['name_city'] ?>
             </option>
             <?php } ?>
@@ -243,7 +243,7 @@
       <div class="col-sm-6">
         <select required class="form-control" name="id_frequency" id="id_frequency">
             <?php foreach ($frequencias as $frequencia) { ?>
-            <option value="<?= $frequencia->id_frequency ?>">
+            <option value="<?= $frequencia->id_frequency ?>" <?= $associate->id_frequency == $frequencia->id_frequency ? 'selected' : '' ?>>
                 <?= $frequencia->frequency_description ?>
             </option>
             <?php } ?>
