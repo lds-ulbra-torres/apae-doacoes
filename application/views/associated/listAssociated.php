@@ -56,7 +56,7 @@
       <tbody>
         <?php foreach($associated as $associate): ?>
         <tr>
-          <td><a href="<?=base_url('associated/'. $associate->id_associate)?>"><?= $associate->uuid_associate ?></a></td>
+          <td><a href="<?=base_url('associated-detail/'. $associate->id_associate)?>"><?= $associate->uuid_associate ?></a></td>
           <td><?= $associate->name_associate ?></td>
           <td><?= date_format(date_create($associate->birth_date), 'd/m/y')?></td>
           <td><?= $associate->rg ?></td>
