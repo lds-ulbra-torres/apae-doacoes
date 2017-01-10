@@ -31,9 +31,9 @@ class DashboardModel extends CI_Model{
     ->where('collection.duo_date_collection >=', $filter->from_date)
     ->where('collection.duo_date_collection <=', $filter->to_date);
 
-    if ($filter->id_associate != NULL && $filter->id_associate != 0) {
+    /*if ($filter->id_associate != NULL && $filter->id_associate != 0) {
       $this->db->where('associated.id_associate', $filter->id_associate);
-    }
+    }*/
 
     if ($filter->status == 1) {
       //em aberto

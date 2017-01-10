@@ -6,7 +6,6 @@
   <?php $baseUrl = base_url('associated/'. $collection->id_associate .'/collections') ?>
 
   <div class="form-horizontal">
-
     <form class="" action="<?=$baseUrl .'/update'?>" method="post">
       <div class="form-group">
         <label for="id_associate" class="col-sm-3">ID Associado</label>

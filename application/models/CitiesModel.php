@@ -5,6 +5,6 @@ class CitiesModel extends CI_Model {
 
   public function GetAllCities() {
     $this->db->order_by('name_city', 'ASC');
-      return $this->db->get('city')->result_array();
+      return $this->db->get('city')->result();
   }
 }
