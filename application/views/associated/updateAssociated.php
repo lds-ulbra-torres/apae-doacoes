@@ -22,12 +22,12 @@
         <div class="form-group row">
           <?= form_error('uuid_associate','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
 
-          <label for="uuid_associate" class="col-sm-3 col-form-label">UUID</label>
+          <label for="uuid_associate" class="col-sm-3 col-form-label">Código Único</label>
           <div class="col-sm-8">
             <input type="text" class="form-control" onchange="close('#uuidError')"
             id="uuid_associate" name="uuid_associate"
             value="<?= set_value('uuid_associate', isset($associate->uuid_associate) ? $associate->uuid_associate:''); ?>"
-            placeholder="ID Universal Único"
+            placeholder="Código Universal Único"
             required />
           </div>
         </div>

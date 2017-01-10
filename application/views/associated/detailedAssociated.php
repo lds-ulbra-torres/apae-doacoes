@@ -7,7 +7,7 @@
   <div class="row col-sm-12">
     <div class="dl-horizontal row col-sm-8">
 
-      <dt>UUID</dt>
+      <dt>Código Único</dt>
       <dd><?= $associate->uuid_associate ?></dd>
       <hr>
       <dt>Nome</dt>

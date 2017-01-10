@@ -108,7 +108,7 @@
         <?php if(isset($results)) { ?>
           <?php foreach($results as $r): ?>
             <tr>
-              <td><?=$r->id_associate?></td>
+              <td><?=$r->uuid_associate?></td>
               <td><?=$r->name_associate?></td>
               <td><?=date_format(date_create($r->duo_date_collection), 'd/m/y')?></td>
               <td>

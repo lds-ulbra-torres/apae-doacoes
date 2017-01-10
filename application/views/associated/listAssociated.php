@@ -44,7 +44,7 @@
     <table class="table table-responsive table-striped table-hover">
       <thead>
         <tr>
-          <th>UUID</th>
+          <th>Código Único</th>
           <th>Nome</th>
           <th>Data Nascimento</th>
           <th>RG</th>
