@@ -30,6 +30,18 @@
         </div>
 
         <div class="form-group row">
+          <?= form_error('name_in_card','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+          <label for="name_in_card" class="col-sm-3 col-form-label">Nome na Carteirinha</label>
+          <div class="col-sm-8">
+            <input type="text"
+            class="form-control"
+            id="name_in_card" name="name_in_card"
+            placeholder="Nome na Carteirinha"
+            value="<?= set_value('name_in_card', isset($associate->name_in_card) ? $associate->name_in_card:''); ?>">
+          </div>
+        </div>
+
+        <div class="form-group row">
           <?= form_error('birth_date','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
           <label for="birth_date" class="col-sm-3 col-form-label">Aniversário</label>
           <div class="col-sm-8">

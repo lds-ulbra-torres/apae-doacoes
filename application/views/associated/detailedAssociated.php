@@ -1,7 +1,7 @@
 <div class="well well-lg container">
 
   <div class="page-header">
-    <h2>Associado [<strong><?=$associate->name_associate?></strong>] <?php if($associate->disable == 1){ echo '<span class="label label-danger">Inativo</span>'; } ?></h2>
+    <h2>Associado <strong><?=$associate->name_associate?></strong> <?php if($associate->disable == 1){ echo '<span class="label label-danger">Inativo</span>'; } ?></h2>
   </div>
   <?= $this->session->flashdata('alert') ?>
   <div class="row col-sm-12">
@@ -10,8 +10,11 @@
       <dt>Código Único</dt>
       <dd><?= $associate->uuid_associate ?></dd>
       <hr>
-      <dt>Nome</dt>
+      <dt>Nome Completo</dt>
       <dd><?= $associate->name_associate ?></dd>
+      <hr>
+      <dt>Nome na Carteirinha</dt>
+      <dd><?= $associate->name_in_card ?></dd>
       <hr>
       <dt>Data de Nascimento</dt>
       <dd><?= $associate->birth_date ?></dd>

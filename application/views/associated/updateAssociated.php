@@ -2,7 +2,7 @@
 
 <div class="well well-lg container">
   <div class="page-header">
-    <h2>Alterar Associado [<strong><?=$associate->name_associate?></strong>]</h2>
+    <h2>Alterar Associado <strong><?=$associate->name_associate?></strong></h2>
   </div>
   <div class="row col-sm-12">
     <form method="POST" action="<?= base_url('associated/update'); ?>">
@@ -33,7 +33,7 @@
         <div class="form-group row">
           <?= form_error('name_associate','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
 
-          <label for="name_associate" class="col-sm-3 col-form-label">Nome</label>
+          <label for="name_associate" class="col-sm-3 col-form-label">Nome Completo</label>
           <div class="col-sm-8">
             <input type="text"
             class="form-control"
@@ -41,6 +41,17 @@
             id="name_associate" name="name_associate"
             value="<?= set_value('name_associate', isset($associate->name_associate) ? $associate->name_associate:''); ?>"
             placeholder="Nome Associado">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="name_in_card" class="col-sm-3 col-form-label">Nome na Carteirinha</label>
+          <div class="col-sm-8">
+            <input type="text"
+            class="form-control"
+            id="name_in_card" name="name_in_card"
+            placeholder="Nome na Carteirinha"
+            value="<?= set_value('name_in_card', isset($associate->name_in_card) ? $associate->name_in_card:''); ?>">
           </div>
         </div>
 
@@ -140,19 +151,6 @@
             value="<?= set_value('neighborhood', isset($associate->neighborhood) ? $associate->neighborhood:''); ?>">
           </div>
         </div>
-
-
-        <div class="form-group row">
-          <label for="street" class="col-sm-3 col-form-label">Nome no Cartão</label>
-          <div class="col-sm-8">
-            <input type="text"
-            class="form-control"
-            id="name_in_card" name="name_in_card"
-            placeholder="Rua"
-            value="<?= set_value('name_in_card', isset($associate->name_in_card) ? $associate->name_in_card:''); ?>">
-          </div>
-        </div>
-
 
         <div class="form-group row">
           <?= form_error('duo_date','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
