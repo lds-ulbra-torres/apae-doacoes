@@ -162,7 +162,7 @@
             <input type="date"
             class="form-control"
             id="duo_date" name="duo_date"
-            value="<?= date('Y-m-d', strtotime("+1 year")); ?>">
+            value="<?= set_value('duo_date', isset($associate->duo_date) ? $associate->duo_date:''); ?>">
           </div>
         </div>
 

@@ -32,6 +32,7 @@ class AssociatedController extends CI_Controller {
     $this->form_validation->set_rules('id_payment_type', 'Tipo de Pagamento', 'required');
   }
 
+/* GET /associated */
   public function index($searchText=NULL) {
     $baseUrl = base_url('associated');
     $totalRows = $this->AssociatedModel->totalCount();
@@ -44,6 +45,7 @@ class AssociatedController extends CI_Controller {
     $this->template->load('template', 'associated/listAssociated', $data);
   }
 
+/* GET /associated?q={queryString} */
   public function search() {
     $searchText = $this->input->get('q');
     $getPage = (int) $this->input->get("page");
@@ -58,11 +60,13 @@ class AssociatedController extends CI_Controller {
     $this->template->load('template', 'associated/listAssociated', $data);
   }
 
+/* GET /associated/new */
   public function newAssociate() {
     $data = $this->loadFormDependencies();
     $this->template->load('template', 'associated/createAssociated', $data);
   }
 
+/* POST /associated/create */
   public function createAssociate() {
     $this->loadFormRules();
 
@@ -85,6 +89,7 @@ class AssociatedController extends CI_Controller {
     }
   }
 
+/* GET /associated-detail/{associatedId} */
   public function detailedAssociate() {
     $id = $this->uri->segment(2);
     $data['associate'] = $this->AssociatedModel->getByIdEager($id)[0];
@@ -92,6 +97,7 @@ class AssociatedController extends CI_Controller {
     $this->template->load('template', 'associated/detailedAssociated', $data);
   }
 
+/* GET /associated/edit/{associatedId} */
   public function editAssociate() {
     $id = $this->uri->segment(3);
     $data['user_contacts'] = $this->AssociatedModel->getUserContacts($id);
@@ -100,6 +106,7 @@ class AssociatedController extends CI_Controller {
     $this->template->load('template', 'associated/updateAssociated', $data);
   }
 
+/* POST /associated/update */
   public function updateAssociate() {
     $this->loadFormRules();
     $associate = $this->input->post();
@@ -126,6 +133,7 @@ class AssociatedController extends CI_Controller {
     }
   }
 
+/* GET /associated/delete/{associatedId} */
   public function deleteAssociate() {
     $id = $this->uri->segment(3);
     //$this->CollectionModel->deleteByAssociateId($id);
@@ -139,6 +147,7 @@ class AssociatedController extends CI_Controller {
     }
   }
 
+/* GET /associated/inactive/{associatedId} */
   public function inactiveAssociate() {
     $id = $this->uri->segment(3);
     $this->AssociatedModel->inactive($id);
@@ -146,6 +155,7 @@ class AssociatedController extends CI_Controller {
     redirect('associated-detail/'. $id, 'refresh');
   }
 
+/* GET /associated/active/{associatedId} */
   public function activeAssociate() {
     $id = $this->uri->segment(3);
     $this->AssociatedModel->active($id);

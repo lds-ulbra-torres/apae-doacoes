@@ -7,9 +7,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand logo" href="<?=base_url()?>" ng-click="vm.collapseNavbar()">
+      <a class="navbar-brand logo" href="<?=base_url()?>" >
           <img class="logo-img" src="<?=base_url('assets/img/logo_apae.png')?>"/>
-          <span>APAE Doações</span>
+          <span><?= APP_NAME ?></span>
+          <span class="navbar-version">v<?= APP_VERSION ?></span>
       </a>
     </div>
 

@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+defined('APP_VERSION') OR define('APP_VERSION', '1.0.90');
+defined('APP_NAME') OR define('APP_NAME', 'APAE Doações');
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace

@@ -5,7 +5,7 @@ class DashboardController extends CI_Controller{
 
   const PER_PAGE = 10;
 
-  public function __construct(){
+  public function __construct() {
     parent::__construct();
     if (!$this->ion_auth->logged_in()) {
         redirect('/auth', 'refresh');
@@ -20,6 +20,7 @@ class DashboardController extends CI_Controller{
     return $data;
   }
 
+/* GET /donations */
   function index() {
     $filter = (object) [
       'from_date'       => date('Y-m-01'),
@@ -29,6 +30,7 @@ class DashboardController extends CI_Controller{
       'id_frequency'    => NULL,
       'id_payment_type' => NULL,
       'search'          => NULL];
+    $this->session->set_userdata('filter', $filter);
     $baseUrl = base_url('donations/filter');
     $totalRows = $this->DashboardModel->totalCount($filter);
     $getPage = (int) $this->input->get("page");
@@ -43,6 +45,7 @@ class DashboardController extends CI_Controller{
     $this->template->load('template', 'dashboard/dashboard', $data);
   }
 
+/* POST /donations/filter */
   function filter() {
     $filter = (object) $this->input->post();
     foreach ($filter as $i => $v) {
@@ -69,6 +72,7 @@ class DashboardController extends CI_Controller{
     $this->template->load('template', 'dashboard/dashboard', $data);
   }
 
+/* POST /donations/edit-collection/{collectionId} */
   public function editCollection($collectionId) {
     $data['collection'] = $this->CollectionModel->getById($collectionId);
     $data['returnUrl'] = base_url('donations/filter');

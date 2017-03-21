@@ -26,3 +26,8 @@
   .navbar-brand.logo .logo-img {
     height: 45px;
     display: inline-block; }
+
+.navbar-version {
+  font-size: 10px;
+  color: #ccc
+}
