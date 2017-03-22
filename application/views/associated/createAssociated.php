@@ -120,7 +120,7 @@
           <label for="id_frequency" class="col-sm-3 col-form-label">Frequência de Pagamento</label>
           <div class="col-sm-8">
             <select required class="form-control" name="id_frequency" id="id_frequency">
-                <option value="">Selecione uma frequencia</option>
+                <option value="">Selecione</option>
                 <?php foreach ($frequencias as $frequencia) { ?>
                 <option value="<?= $frequencia->id_frequency ?>">
                     <?= $frequencia->frequency_description ?>

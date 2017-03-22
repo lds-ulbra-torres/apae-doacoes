@@ -89,7 +89,7 @@
           <label for="id_city" class="col-sm-3 col-form-label">Cidade</label>
           <div class="col-sm-8">
             <select required class="form-control" name="id_city" id="id_city">
-                <option value="0">Selecione uma cidade</option>
+                <option value="">Selecione</option>
                 <?php foreach ($cidades as $cidade) { ?>
                 <option value="<?= $cidade->id_city ?>" <?= $associate->id_city == $cidade->id_city ? 'selected' : '' ?>>
                     <?= $cidade->name_city ?>
@@ -142,6 +142,21 @@
         </div>
 
         <div class="form-group row">
+          <?= form_error('id_frequency','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+          <label for="id_frequency" class="col-sm-3 col-form-label">Frequência de Pagamento</label>
+          <div class="col-sm-8">
+            <select required class="form-control" name="id_frequency" id="id_frequency">
+                <option value="">Selecione</option>
+                <?php foreach ($frequencias as $frequencia) { ?>
+                  <option value="<?= $frequencia->id_frequency ?>" <?= $associate->id_frequency == $frequencia->id_frequency ? 'selected' : '' ?>>
+                      <?= $frequencia->frequency_description ?>
+                  </option>
+                <?php } ?>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
           <?= form_error('duo_date','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
 
           <label for="street" class="col-sm-3 col-form-label">Data Venc. 1ª Doação</label>
@@ -172,10 +187,11 @@
           <label for="id_payment_type" class="col-sm-3 col-form-label">Tipo de Pagamento</label>
           <div class="col-sm-8">
             <select required class="form-control" name="id_payment_type" id="id_payment_type">
+                <option value="">Selecione</option>
                 <?php foreach ($payment_types as $pay_type) { ?>
-                <option value="<?= $pay_type->id_payment_type; ?>" <?= $associate->id_payment_type == $pay_type->id_payment_type ? 'selected' : '' ?>>
-                    <?= $pay_type->description_payment ?>
-                </option>
+                  <option value="<?= $pay_type->id_payment_type; ?>" <?= $associate->id_payment_type == $pay_type->id_payment_type ? 'selected' : '' ?>>
+                      <?= $pay_type->description_payment ?>
+                  </option>
                 <?php } ?>
             </select>
           </div>
@@ -187,7 +203,7 @@
             <label for="term_route" class="col-sm-3 col-form-label">Banco</label>
             <div class="col-sm-8">
               <select class="form-control" name="term_route" id="term_route">
-                  <option value="0">Selecione</option>
+                  <option value="">Selecione</option>
                   <?php foreach ($banks as $bank) { ?>
                   <option value="<?= $bank['term_bank_route']; ?>" <?= $bank['term_bank_route'] === $associate->term_route ? 'selected' : '' ?>>
                       <?= $bank['name_bank']; ?>
@@ -230,22 +246,6 @@
             </div>
           </div>
 
-        </div>
-
-        <div class="form-group row">
-          <?= form_error('id_frequency','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
-
-          <label for="id_frequency" class="col-sm-3 col-form-label">Frequência de Pagamento</label>
-          <div class="col-sm-8">
-            <select required class="form-control" name="id_frequency" id="id_frequency">
-                <?php foreach ($frequencias as $frequencia) { ?>
-                  <option value="0">Selecione</option>
-                  <option value="<?= $frequencia->id_frequency ?>" <?= $associate->id_frequency == $frequencia->id_frequency ? 'selected' : '' ?>>
-                      <?= $frequencia->frequency_description ?>
-                  </option>
-                <?php } ?>
-            </select>
-          </div>
         </div>
 
         <div class="form-group row">
