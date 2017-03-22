@@ -13,9 +13,11 @@
       <dt>Nome Completo</dt>
       <dd><?= $associate->name_associate ?></dd>
       <hr>
+<!--
       <dt>Nome na Carteirinha</dt>
       <dd><?= $associate->name_in_card ?></dd>
       <hr>
+-->
       <dt>Data de Nascimento</dt>
       <dd><?= $associate->birth_date ?></dd>
       <hr>
