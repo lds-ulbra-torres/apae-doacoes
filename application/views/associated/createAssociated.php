@@ -8,7 +8,7 @@
       <div class="row col-sm-8">
         <div class="form-group row">
           <?= form_error('uuid_associate','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
-          <label for="name_associate" class="col-sm-3 col-form-label">Código Único</label>
+          <label for="uuid_associate" class="col-sm-3 col-form-label">Código Único</label>
           <div class="col-sm-8">
             <input type="text" class="form-control" onchange="close('#uuidError')"
             id="uuid_associate" name="uuid_associate"
@@ -231,7 +231,6 @@
       </div>
 
       <div class="pull-right">
-        <a class="btn btn-info" href="#" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
         <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
       </div>
 
