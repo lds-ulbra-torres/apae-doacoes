@@ -55,10 +55,7 @@
           <?= form_error('cpf','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
           <label for="cpf" class="col-sm-3 col-form-label">CPF</label>
           <div class="col-sm-8">
-            <input type="number" class="form-control" onchange="close('#cpf')"
-            id="cpf" name="cpf" placeholder="CPF"
-            value="<?= set_value('cpf', isset($associate->cpf) ? $associate->cpf:''); ?>"
-            placeholder="CPF" />
+            <input type="text" class="form-control" id="cpf" class="cpf" name="cpf" placeholder="CPF" value="<?= set_value('cpf', isset($associate->cpf) ? $associate->cpf:''); ?>"/>
           </div>
         </div>
 
@@ -226,7 +223,7 @@
 
       <div class="row col-sm-4">
         <label class="lead">Contatos</label>
-        <button type="button" id="addContact" class="btn btn-sucess btn-sm" data-toggle="modal" data-target="#contact_modal"><i class="glyphicon glyphicon-plus"></i> Adicionar</button>
+        <button type="button" id="addContact" class="btn btn-sucess btn-sm" data-toggle="modal" data-target="#contact_modal"><i class="glyphicon glyphiconLight glyphicon-plus"></i> Adicionar</button>
         <div id="contacts" class="well"></div>
       </div>
 
@@ -277,5 +274,5 @@
 <script>
   $('#addContact').click(function(){
     $('#contact_description').val(""); // Zerar campo contact_description, toda vez que o Modal -> contact_modal for aberto
-});
+  });
 </script>

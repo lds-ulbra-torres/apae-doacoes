@@ -93,6 +93,10 @@ agency - account
       <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#delete_modal" class="btn btn-danger" href="#">
         <span class="glyphicon glyphicon-trash"></span> Apagar
       </a>
+
+      <form class="alinhamentoRenovar" action="<?= base_url('renew/associated'); ?>/<?= $associate->id_associate ?>">
+        <button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Renovar</button>
+      </form>
       <?php if(strlen($associate->term_route) > 0){ ?>
         <a class="btn btn-primary" target="_blank" href="<?= base_url($associate->term_route.'/'.$associate->id_associate) ?>">
           <span class="glyphicon glyphicon-file"></span> Imprimir autorização

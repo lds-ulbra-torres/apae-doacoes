@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
   if($('#id_payment_type').val() == 1){
     $('#div_bank').removeClass('hide');
   }else{

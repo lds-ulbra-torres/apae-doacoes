@@ -22,10 +22,13 @@
 }
 
 .navbar-brand.logo {
-  padding: 5px 15px; }
-  .navbar-brand.logo .logo-img {
+  padding: 5px 15px; 
+}
+
+ .navbar-brand.logo .logo-img {
     height: 45px;
-    display: inline-block; }
+    display: inline-block; 
+}
 
 .navbar-version {
   font-size: 10px;
@@ -34,4 +37,8 @@
 
 .contact{
   padding-bottom:1% !important;
+}
+
+.alinhamentoRenovar{
+  display:inline;
 }
