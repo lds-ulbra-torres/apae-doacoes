@@ -76,7 +76,7 @@
 
           <label for="cpf" class="col-sm-3 col-form-label">CPF</label>
           <div class="col-sm-8">
-            <input type="number"
+            <input type="text"
             class="form-control"
             onchange="close('#cpf')"
             id="cpf" name="cpf"
