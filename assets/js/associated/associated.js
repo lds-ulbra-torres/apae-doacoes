@@ -10,10 +10,6 @@ $(document).ready(function(){
     $("#error_" + $(this).attr('id')).addClass('hide');
   });
 
-  $(".close").on('click', function() {
-    this.parentNode.parentNode.removeChild(this.parentNode);
-  });
-
   $('#id_payment_type').change(function(e){
     if(this.value == 1){
       $('#div_bank').removeClass('hide');
@@ -29,7 +25,6 @@ $('#contact_modal').ready(function() {
   contacts = [];
 
   $('#create_contact').on("click", function() {
-
     contact_value = $('#contact_description').val();
     id_contact_type = $("#contact_type").val();
     name_contact_type = $("#contact_type").find("option[value='"+id_contact_type+"']").data("name");
@@ -44,7 +39,7 @@ $('#contact_modal').ready(function() {
       this.parentNode.parentNode.removeChild(this.parentNode);
     };
     $div.append($btn);
-    $div.append('<input type="hidden" name="contact[]" value="'+ id_contact_type +'/'+contact_value+'"><strong>'+name_contact_type+': </strong>'+contact_value);
+    $div.append('<input type="hidden" name="contact[]" value="'+id_contact_type+'/'+contact_value+'"><strong>'+name_contact_type+':</strong>'+contact_value);
     $contacts.append($div);
     $div.data("type",id_contact_type);
     $div.data("value",contact_value);

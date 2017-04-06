@@ -230,7 +230,7 @@
         <div id="contacts" class="well"></div>
       </div>
 
-      <div class="pull-right">
+      <div class="pull-left">
         <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
       </div>
 
@@ -263,16 +263,11 @@
         <div class="form-group row">
           <label for="contact_description" class="col-sm-2 col-form-label">Descrição</label>
           <div class="col-sm-8">
-            <input type="text"
-            class="form-control"
-            id="contact_description" name="contact_description"
-            value=""
-            placeholder="Descrição">
+            <input type="text" class="form-control" id="contact_description" name="contact_description" value="" placeholder="Descrição">
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
         <button id="create_contact" type="button" class="btn btn-success" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
       </div>
     </div>
