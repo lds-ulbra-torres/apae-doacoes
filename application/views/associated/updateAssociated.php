@@ -259,7 +259,7 @@
 
       <div class="row col-sm-4">
         <label class="lead">Contatos</label>
-        <a data-toggle="modal" data-target="#contact_modal" class="label label-success" href="#"><span class="glyphicon glyphicon-plus"></span> Contato</a>
+        <button type="button" id="addContact" class="btn btn-sucess btn-sm" data-toggle="modal" data-target="#contact_modal"><i class="glyphicon glyphicon-plus"></i> Adicionar</button>
         <div id="contacts" class="well">
           <?php foreach ($user_contacts as $contact) :?>
             <div class="contact">
@@ -274,8 +274,7 @@
         </div>
       </div>
 
-      <div class="pull-right">
-        <a class="btn btn-info" href="#" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
+      <div class="pull-left">
         <button  type="submit" id="create_associate" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
       </div>
     </form>
@@ -315,9 +314,14 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
         <button id="create_contact" type="button" class="btn btn-success" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  $('#addContact').click(function(){
+    $('#contact_description').val(""); // Zerar campo contact_description, toda vez que o Modal -> contact_modal for aberto
+  });
+</script>

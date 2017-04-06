@@ -226,7 +226,7 @@
 
       <div class="row col-sm-4">
         <label class="lead">Contatos</label>
-        <a data-toggle="modal" data-target="#contact_modal" class="label label-success" href="#"><span class="glyphicon glyphicon-plus"></span> Contato</a>
+        <button type="button" id="addContact" class="btn btn-sucess btn-sm" data-toggle="modal" data-target="#contact_modal"><i class="glyphicon glyphicon-plus"></i> Adicionar</button>
         <div id="contacts" class="well"></div>
       </div>
 
@@ -273,3 +273,9 @@
     </div>
   </div>
 </div>
+
+<script>
+  $('#addContact').click(function(){
+    $('#contact_description').val(""); // Zerar campo contact_description, toda vez que o Modal -> contact_modal for aberto
+});
+</script>
