@@ -19,7 +19,7 @@
         $('#cpf').focusout(function (e) {
             var query = $(this).val().replace(/[^a-zA-Z 0-9]+/g,'');;
             if (query.length == 11) {
-                $("#cpf").mask("999.999.999-99?99999");
+                $("#cpf").mask("999.999.999-99?999");
             }
             if (query.length == 14) {
                 $("#cpf").mask("99.999.999/9999-99");
