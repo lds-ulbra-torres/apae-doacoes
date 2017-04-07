@@ -90,6 +90,5 @@ class CollectionsController extends CI_Controller {
       $associate = $this->AssociatedModel->getByIdLazy($id_associated);
       $this->CollectionModel->createCollections($associate[0]);
       redirect('associated/'.$id_associated.'/collections','refresh');
-     
   }
 }
