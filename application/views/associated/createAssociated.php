@@ -31,18 +31,18 @@
         </div>
 
         <div class="form-group row">
-          <?= form_error('rg','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
-          <label for="rg" class="col-sm-3 col-form-label">RG</label>
+          <?= form_error('cpf','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+          <label for="cpf" class="col-sm-3 col-form-label">CPF / CNPJ</label>
           <div class="col-sm-8">
-            <input type="number" class="form-control" id="rg" name="rg" placeholder="RG" onchange="close('#rgError')" value="<?= set_value('rg', isset($associate->rg) ? $associate->rg:''); ?>" placeholder="RG" />
+            <input type="text" class="form-control" id="cpf" class="cpf" name="cpf" placeholder="CPF ou CNPJ" value="<?= set_value('cpf', isset($associate->cpf) ? $associate->cpf:''); ?>"/>
           </div>
         </div>
 
         <div class="form-group row">
-          <?= form_error('cpf','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
-          <label for="cpf" class="col-sm-3 col-form-label">CPF</label>
+          <?= form_error('rg','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+          <label for="rg" class="col-sm-3 col-form-label">RG / Inscr. Estadual</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="cpf" class="cpf" name="cpf" placeholder="CPF" value="<?= set_value('cpf', isset($associate->cpf) ? $associate->cpf:''); ?>"/>
+            <input type="text" class="form-control" id="rg" name="rg" placeholder="RG ou Inscrição Estadual" onchange="close('#rgError')" value="<?= set_value('rg', isset($associate->rg) ? $associate->rg:''); ?>" placeholder="RG" />
           </div>
         </div>
 

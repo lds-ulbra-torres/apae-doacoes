@@ -21,10 +21,10 @@
       <dt>Data de Nascimento</dt>
       <dd><?= $associate->birth_date ?></dd>
       <hr>
-      <dt>RG</dt>
+      <dt>RG / Inscr. Estadual</dt>
       <dd><?= $associate->rg ?></dd>
       <hr>
-      <dt>CPF</dt>
+      <dt>CPF / CNPJ</dt>
       <dd><?= $associate->cpf ?></dd>
       <hr>
       <dt>Endereço</dt>

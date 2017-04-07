@@ -3,7 +3,6 @@
         $("#date").mask("99/99/9999",{placeholder:"mm/dd/yyyy",completed:function(){alert("completed!");}});
         $(".phone").mask("(999) 999-9999");
         $("#phoneExt").mask("(999) 999-9999? x99999");
-        $('#cpf').mask("999.999.999-99");
         $('#cep').mask("99999-99");
         $("#iphone").mask("+33 999 999 999");
         $("#tin").mask("99-9999999");
@@ -15,13 +14,24 @@
         $("#phoneAutoclearFalse").mask("(999) 999-9999", { autoclear: false, completed:function(){alert("completed autoclear!");} });
         $("#phoneExtAutoclearFalse").mask("(999) 999-9999? x99999", { autoclear: false });
 
+
+        $("#cpf").mask("999.999.999-99?99999");
+        $('#cpf').focusout(function (e) {
+            var query = $(this).val().replace(/[^a-zA-Z 0-9]+/g,'');;
+            if (query.length == 11) {
+                $("#cpf").mask("999.999.999-99?99999");
+            }
+            if (query.length == 14) {
+                $("#cpf").mask("99.999.999/9999-99");
+            }
+        });
+
         $("input").blur(function() {
             $("#info").html("Unmasked value: " + $(this).mask());
         }).dblclick(function() {
             $(this).unmask();
         });
     });
-
 
 $(document).ready(function(){
   if($('#id_payment_type').val() == 1){
