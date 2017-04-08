@@ -50,7 +50,7 @@
           <label for="id_city" class="col-sm-3 col-form-label">Cidade</label>
           <div class="col-sm-8">
             <select required class="form-control" name="id_city" id="id_city">
-                <option value="0">Selecione</option>
+                <option value="">Selecione</option>
                 <?php foreach ($cidades as $cidade) { ?>
                 <option value="<?= $cidade->id_city ?>">
                     <?= $cidade->name_city ?>
@@ -124,7 +124,7 @@
           <label for="id_payment_type" class="col-sm-3 col-form-label">Tipo de Pagamento</label>
           <div class="col-sm-8">
             <select required class="form-control" name="id_payment_type" id="id_payment_type" >
-                <option value="0">Selecione</option>
+                <option value="">Selecione</option>
                 <?php foreach ($payment_types as $pay_type) { ?>
                   <option value="<?= $pay_type->id_payment_type ?>">
                       <?= $pay_type->description_payment ?>

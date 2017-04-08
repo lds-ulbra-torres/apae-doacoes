@@ -3,7 +3,7 @@
         $("#date").mask("99/99/9999",{placeholder:"mm/dd/yyyy",completed:function(){alert("completed!");}});
         $(".phone").mask("(999) 999-9999");
         $("#phoneExt").mask("(999) 999-9999? x99999");
-        $('#cep').mask("99999-99");
+        $('#cep').mask("99999-999");
         $("#iphone").mask("+33 999 999 999");
         $("#tin").mask("99-9999999");
         $("#ssn").mask("999-99-9999");

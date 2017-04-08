@@ -94,7 +94,7 @@ agency - account
         <span class="glyphicon glyphicon-trash"></span> Apagar
       </a>
 
-      <form class="alinhamentoRenovar" action="<?= base_url('renew/associated'); ?>/<?= $associate->id_associate ?>">
+      <form class="alinhamentoRenovar" action="<?= base_url('associated/'.$associate->id_associate.'/collections/renew') ?>">
         <button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Renovar</button>
       </form>
       <?php if(strlen($associate->term_route) > 0){ ?>
