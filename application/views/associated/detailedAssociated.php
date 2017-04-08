@@ -69,7 +69,7 @@ agency - account
       <label for="">Contatos</label>
       <br>
         <?php foreach ($contacts as $contact) : ?>
-         <label><b><?= $contact['description_contact_type']; ?>:</b></label> <?= $contact['description_contact']; ?>
+         <label><b><?= $contact['description_contact_type']; ?>: </b></label> <?= $contact['description_contact']; ?>
         <?php endforeach; ?>
     </div>
   </div>

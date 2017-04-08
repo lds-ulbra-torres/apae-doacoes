@@ -14,8 +14,7 @@
         $("#phoneAutoclearFalse").mask("(999) 999-9999", { autoclear: false, completed:function(){alert("completed autoclear!");} });
         $("#phoneExtAutoclearFalse").mask("(999) 999-9999? x99999", { autoclear: false });
 
-
-        $("#cpf").mask("999.999.999-99?99999");
+        $("#cpf").mask("999.999.999-99?999");
         $('#cpf').focusout(function (e) {
             var query = $(this).val().replace(/[^a-zA-Z 0-9]+/g,'');;
             if (query.length == 11) {
@@ -73,7 +72,7 @@ $('#contact_modal').ready(function() {
       this.parentNode.parentNode.removeChild(this.parentNode);
     };
     $div.append($btn);
-    $div.append('<input type="hidden" name="contact[]" value="'+id_contact_type+'/'+contact_value+'"><strong>'+name_contact_type+':</strong>'+contact_value);
+    $div.append('<input type="hidden" name="contact[]" value="'+id_contact_type+'/'+contact_value+'"><strong>'+name_contact_type+':</strong>  '+contact_value);
     $contacts.append($div);
     $div.data("type",id_contact_type);
     $div.data("value",contact_value);

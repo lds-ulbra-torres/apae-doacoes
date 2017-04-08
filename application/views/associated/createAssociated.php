@@ -115,7 +115,10 @@
           <?= form_error('value_frequency','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
           <label for="value_frequency" class="col-sm-3 col-form-label">Valor de Doação</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="value_frequency" name="value_frequency" placeholder="Valor" value="<?= set_value('value_frequency', isset($associate->value_frequency) ? $associate->value_frequency:''); ?>" required />
+            <div class="input-group">
+              <span class="input-group-addon">R$</span>
+              <input type="text" class="form-control" id="value_frequency" name="value_frequency" placeholder="Valor" value="<?= set_value('value_frequency', isset($associate->value_frequency) ? $associate->value_frequency:''); ?>" required />
+            </div>
           </div>
         </div>
 
@@ -181,8 +184,9 @@
       </div>
 
       <div class="row col-sm-4">
-        <label class="lead">Contatos</label>
-        <button type="button" id="addContact" class="btn btn-sucess btn-sm" data-toggle="modal" data-target="#contact_modal"><i class="glyphicon glyphiconLight glyphicon-plus"></i> Adicionar</button>
+        <button type="button" id="addContact" class="btn btn-info btn-md" data-toggle="modal" data-target="#contact_modal">
+          <i class="glyphicon glyphiconLight glyphicon-plus"></i> CONTATOS
+        </button>
         <div id="contacts" class="well"></div>
       </div>
 
@@ -208,6 +212,7 @@
           <label for="contact_description" class="col-sm-2 col-form-label">Tipo</label>
           <div class="col-sm-8 form-group">
             <select class="form-control" name="contact_type" id="contact_type">
+              <option value="">Selecione</option>
               <?php foreach($contact_types as $type): ?>
                 <option value="<?= $type["id_contact_type"] ?>" data-name="<?= $type["description_contact_type"] ?>"><?= $type["description_contact_type"] ?></option>
               <?php endforeach ?>
@@ -231,5 +236,6 @@
 <script>
   $('#addContact').click(function(){
     $('#contact_description').val(""); // Zerar campo contact_description, toda vez que o Modal -> contact_modal for aberto
+    $('.form-control').val("");
   });
 </script>

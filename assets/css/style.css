@@ -42,3 +42,15 @@
 .alinhamentoRenovar{
   display:inline;
 }
+
+textarea{
+  resize: none;
+}
+
+#addContact{
+  margin-bottom: 2% !important;
+}
+
+table.text-center thead tr th{
+  text-align: center;
+}

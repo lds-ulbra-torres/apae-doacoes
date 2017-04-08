@@ -77,8 +77,8 @@
           </span>
 
           <span class="input-group-btn">
-            <a href="<?=base_url('donations')?>" name="submit" class="btn btn-info">
-              <span class="glyphicon glyphicon-trash"></span>
+            <a href="<?=base_url('donations')?>" name="submit" class="btn btn-danger">
+              <span class="glyphicon glyphicon-trash"></span> Limpar
             </a>
           </span>
         </div>
@@ -91,7 +91,7 @@
 
 
   <div class="">
-    <table class="table table-responsive table-hover">
+    <table class="table table-responsive table-striped table-hover text-center">
       <thead>
         <tr>
           <th>Código Associado</th>
