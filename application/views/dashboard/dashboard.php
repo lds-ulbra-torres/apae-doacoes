@@ -82,13 +82,10 @@
             </a>
           </span>
         </div>
-
+        
       </form>
-
     </div>
-
   </div>
-
 
   <div class="">
     <table class="table table-responsive table-striped table-hover text-center">
