@@ -258,16 +258,18 @@
       </div>
 
       <div class="row col-sm-4">
-        <label class="lead">Contatos</label>
-        <button type="button" id="addContact" class="btn btn-sucess btn-sm" data-toggle="modal" data-target="#contact_modal"><i class="glyphicon glyphicon-plus"></i> Adicionar</button>
+        <button type="button" id="addContact" class="btn btn-info btn-md" data-toggle="modal" data-target="#contact_modal">
+          <i class="glyphicon glyphiconLight glyphicon-plus"></i> CONTATOS
+        </button>
         <div id="contacts" class="well">
           <?php foreach ($user_contacts as $contact) :?>
             <div class="contact">
-              <button class="close" type="button">
-                <span>&times;</span></button>
-                <input type="hidden" name="contact[]" value="<?= $contact['id_contact_type'];?>/<?= $contact['description_contact']; ?>">
-                <strong><?= $contact['description_contact_type']; ?>: </strong>
-                <?= $contact['description_contact']; ?>
+              <button class="close closeContact" type="button">
+                  <span>&times;</span>
+              </button>
+              <input type="hidden" name="contact[]" value="<?= $contact['id_contact_type'];?>/<?= $contact['description_contact']; ?>">
+              <strong><?= $contact['description_contact_type']; ?>: </strong>
+              <?= $contact['description_contact']; ?>
             </div>
           <?php endforeach; ?>
 
