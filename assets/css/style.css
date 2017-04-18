@@ -22,12 +22,12 @@
 }
 
 .navbar-brand.logo {
-  padding: 5px 15px; 
+  padding: 5px 15px;
 }
 
  .navbar-brand.logo .logo-img {
     height: 45px;
-    display: inline-block; 
+    display: inline-block;
 }
 
 .navbar-version {

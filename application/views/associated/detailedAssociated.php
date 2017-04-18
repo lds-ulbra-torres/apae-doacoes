@@ -11,7 +11,7 @@
       <dd><?= $associate->uuid_associate ?></dd>
       <dt>Nome Completo</dt>
       <dd><?= $associate->name_associate ?></dd>
-      <dt>E-Mail</dt>
+      <dt>E-mail</dt>
       <dd><?= $associate->email_associate ?></dd>
       <hr>
       <dt>Data de Nascimento</dt>
@@ -53,18 +53,17 @@
       <dd><?=$associate->obs?></dd>
     </div>
 
-    <div class="row col-sm-4">
-      <label for="">Contatos</label>
-      <br>
+    <div class="row col-sm-3">
+      <h4>Contatos</h4>
         <?php foreach ($contacts as $contact) : ?>
-         <label><b><?= $contact['description_contact_type']; ?>: </b></label> <?= $contact['description_contact']; ?>
+         <b><?= $contact['description_contact_type'] ?></b> <?= $contact['description_contact'] ?>
         <?php endforeach; ?>
     </div>
   </div>
 
   <div class="row col-sm-8">
     <br>
-    <a class="btn btn-info" href="<?= base_url('associated') ?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
+    <a class="btn btn-default" href="<?= base_url('associated') ?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
     <div class="pull-right">
       <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate->id_associate) ?>">
         <span class="glyphicon glyphicon-edit"></span> Alterar
