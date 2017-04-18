@@ -21,10 +21,10 @@
       <dt>Data de Nascimento</dt>
       <dd><?= $associate->birth_date ?></dd>
       <hr>
-      <dt>RG</dt>
+      <dt>RG / Inscr. Estadual</dt>
       <dd><?= $associate->rg ?></dd>
       <hr>
-      <dt>CPF</dt>
+      <dt>CPF / CNPJ</dt>
       <dd><?= $associate->cpf ?></dd>
       <hr>
       <dt>Endereço</dt>
@@ -69,7 +69,7 @@ agency - account
       <label for="">Contatos</label>
       <br>
         <?php foreach ($contacts as $contact) : ?>
-         <label><b><?= $contact['description_contact_type']; ?>:</b></label> <?= $contact['description_contact']; ?>
+         <label><b><?= $contact['description_contact_type']; ?>: </b></label> <?= $contact['description_contact']; ?>
         <?php endforeach; ?>
     </div>
   </div>
@@ -93,6 +93,10 @@ agency - account
       <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#delete_modal" class="btn btn-danger" href="#">
         <span class="glyphicon glyphicon-trash"></span> Apagar
       </a>
+
+      <form class="alinhamentoRenovar" action="<?= base_url('associated/'.$associate->id_associate.'/collections/renew') ?>">
+        <button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Renovar</button>
+      </form>
       <?php if(strlen($associate->term_route) > 0){ ?>
         <a class="btn btn-primary" target="_blank" href="<?= base_url($associate->term_route.'/'.$associate->id_associate) ?>">
           <span class="glyphicon glyphicon-file"></span> Imprimir autorização

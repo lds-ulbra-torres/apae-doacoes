@@ -22,12 +22,35 @@
 }
 
 .navbar-brand.logo {
-  padding: 5px 15px; }
-  .navbar-brand.logo .logo-img {
+  padding: 5px 15px; 
+}
+
+ .navbar-brand.logo .logo-img {
     height: 45px;
-    display: inline-block; }
+    display: inline-block; 
+}
 
 .navbar-version {
   font-size: 10px;
   color: #ccc
+}
+
+.contact{
+  padding-bottom:1% !important;
+}
+
+.alinhamentoRenovar{
+  display:inline;
+}
+
+textarea{
+  resize: none;
+}
+
+#addContact{
+  margin-bottom: 2% !important;
+}
+
+table.text-center thead tr th{
+  text-align: center;
 }

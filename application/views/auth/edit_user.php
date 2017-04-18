@@ -53,8 +53,8 @@
                       }
                   }
               ?>
-              <input type="checkbox" name="groups[]" value="<?php echo $group['id'];?>"<?php echo $checked;?>>
-              <?php echo htmlspecialchars($group['name'],ENT_QUOTES,'UTF-8');?>
+              <input type="checkbox" id="<?echo $group['id'];?>" name="groups[]" value="<?php echo $group['id'];?>"<?php echo $checked;?>>
+              <label for="<?echo $group['id'];?>"><?php echo htmlspecialchars($group['name'],ENT_QUOTES,'UTF-8');?></label>
 
             <?php endforeach?>
 

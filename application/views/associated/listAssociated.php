@@ -25,7 +25,7 @@
                         </span>
                         <?php if(isset($search)) { ?>
                           <span  class="input-group-btn width-min" >
-                              <a href="<?=base_url('associated')?>" class="btn btn-info">
+                              <a href="<?=base_url('associated')?>" class="btn btn-danger">
                                   <span class="glyphicon glyphicon-trash"></span>
                               </a>
                           </span>
@@ -41,7 +41,7 @@
 
     <?= $this->session->flashdata('alert') ?>
 
-    <table class="table table-responsive table-striped table-hover">
+    <table class="table table-responsive table-striped table-hover text-center">
       <thead>
         <tr>
           <th>Código Único</th>

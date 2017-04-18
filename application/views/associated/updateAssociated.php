@@ -60,9 +60,9 @@
         <div class="form-group row">
           <?= form_error('rg','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
 
-          <label for="rg" class="col-sm-3 col-form-label">RG</label>
+        <label for="rg" class="col-sm-3 col-form-label">RG / Inscr. Estadual</label>
           <div class="col-sm-8">
-            <input type="number"
+            <input type="text"
             class="form-control"
             id="rg" name="rg"
             placeholder="RG"
@@ -74,9 +74,9 @@
         <div class="form-group row">
           <?= form_error('cpf','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
 
-          <label for="cpf" class="col-sm-3 col-form-label">CPF</label>
+          <label for="cpf" class="col-sm-3 col-form-label">CPF / CNPJ</label>
           <div class="col-sm-8">
-            <input type="number"
+            <input type="text"
             class="form-control"
             onchange="close('#cpf')"
             id="cpf" name="cpf"
@@ -258,25 +258,26 @@
       </div>
 
       <div class="row col-sm-4">
-        <label class="lead">Contatos</label>
-        <a data-toggle="modal" data-target="#contact_modal" class="label label-success" href="#"><span class="glyphicon glyphicon-plus"></span> Contato</a>
+        <button type="button" id="addContact" class="btn btn-info btn-md" data-toggle="modal" data-target="#contact_modal">
+          <i class="glyphicon glyphiconLight glyphicon-plus"></i> CONTATOS
+        </button>
         <div id="contacts" class="well">
           <?php foreach ($user_contacts as $contact) :?>
             <div class="contact">
-              <button class="close" type="button">
-                <span>&times;</span></button>
-                <input type="hidden" name="contact[]" value="<?= $contact['id_contact_type'];?>/<?= $contact['description_contact']; ?>">
-                <strong><?= $contact['description_contact_type']; ?>: </strong>
-                <?= $contact['description_contact']; ?>
+              <button class="close closeContact" type="button">
+                  <span>&times;</span>
+              </button>
+              <input type="hidden" name="contact[]" value="<?= $contact['id_contact_type'];?>/<?= $contact['description_contact']; ?>">
+              <strong><?= $contact['description_contact_type']; ?>: </strong>
+              <?= $contact['description_contact']; ?>
             </div>
           <?php endforeach; ?>
 
         </div>
       </div>
 
-      <div class="pull-right">
-        <a class="btn btn-info" href="#" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
-        <button  type="submit" id="create_associate" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
+      <div class="pull-left">
+        <button type="submit" id="create_associate" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
       </div>
     </form>
   </div>
@@ -306,18 +307,19 @@
         <div class="form-group row">
           <label for="contact_description" class="col-sm-2 col-form-label">Descrição</label>
           <div class="col-sm-8">
-            <input type="text"
-            class="form-control"
-            id="contact_description" name="contact_description"
-            value=""
-            placeholder="Descrição">
+            <input type="text" class="form-control" id="contact_description" name="contact_description" value="" placeholder="Descrição">
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
         <button id="create_contact" type="button" class="btn btn-success" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  $('#addContact').click(function(){
+    $('#contact_description').val(""); // Zerar campo contact_description, toda vez que o Modal -> contact_modal for aberto
+  });
+</script>
