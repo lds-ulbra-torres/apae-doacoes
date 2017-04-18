@@ -91,4 +91,5 @@ class CollectionsController extends CI_Controller {
       $this->CollectionModel->createCollections($associate[0]);
       redirect('associated/'.$id_associated.'/collections','refresh');
   }
+
 }

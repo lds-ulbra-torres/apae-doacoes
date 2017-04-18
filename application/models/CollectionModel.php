@@ -29,6 +29,15 @@ class CollectionModel extends CI_Model {
     return $this->db->get_where($this->table, array('associate_id'=>$associateId), $limit, $offset)->result_array();
   }
 
+  public function getLastCollectionByAssociateId($associateId, $limit=null, $offset=null) {
+    $this->db->limit(1);
+    $r = $this->db
+      ->order_by('duo_date_collection', 'DESC')
+      ->get_where($this->table, ['id_associate'=>$associateId], $limit, $offset)
+      ->result();
+    return isset($r[0]) ? $r[0] : null;
+  }
+
   /**
    * @author Gabriel Dewes, 29 nov, 2016
    * Cria um array de cobranças para o associado determinado pela quantia de parcelas.
@@ -38,8 +47,9 @@ class CollectionModel extends CI_Model {
    * @param associate->value_frequency
    * @param associate->duo_date
    * @return insert_batch result
+   * Modificado em 16-04-2017, refatorado para aceitar renovação - Leonardo Machado
    */
-  public function createCollections($associate) {
+  /*public function createCollections($associate) {
     $countFrequency = $this->FrequencyModel->getCountFrequencyByFrequencyId($associate->id_frequency);
     if ($countFrequency != null && $countFrequency != 0) {
       $collections = array();
@@ -50,6 +60,37 @@ class CollectionModel extends CI_Model {
           'duo_date_collection' => $duoDate,
           'id_associate' => $associate->id_associate,
           'num_collection' => $i+1
+        ];
+        array_push($collections, $collection);
+      }
+      $this->CollectionModel->saveBatch($collections);
+    }
+  }*/
+  public function createCollections($associate) {
+    $countFrequency = $this->FrequencyModel->getCountFrequencyByFrequencyId($associate->id_frequency);
+    $lastCollection = $this->getLastCollectionByAssociateId($associate->id_associate);
+    @$monthCollectionInicialize = date('Y-m-d',strtotime($lastCollection->duo_date_collection));
+    if ($lastCollection == null) {
+      $monthCollectionInicialize = $associate->duo_date;
+      @$lastCollection->num_collection = 0;
+    }
+
+    if ($countFrequency != null && $countFrequency != 0) {
+      $collections = array();
+      for ($i=0;$i<$countFrequency;$i++) {
+        $duoDate = date('Y-m-d', strtotime($i ." months", strtotime($associate->duo_date)));
+
+        if (!isset($lastCollection->duo_date_collection)) {
+          $duoDate = date('Y-m-d', strtotime($i ." months", strtotime($monthCollectionInicialize)));
+        }else{
+          $duoDate = date('Y-m-d', strtotime($i + 1 ." months", strtotime($monthCollectionInicialize)));
+        }
+
+         $collection = (object) [
+          'value_collection' => $associate->value_frequency,
+          'duo_date_collection' => $duoDate,
+          'id_associate' => $associate->id_associate,
+          'num_collection' => $i + 1
         ];
         array_push($collections, $collection);
       }
