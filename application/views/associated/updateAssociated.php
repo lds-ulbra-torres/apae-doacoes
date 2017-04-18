@@ -45,6 +45,17 @@
         </div>
 
         <div class="form-group row">
+          <?= form_error('email_associate','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+          <label for="email_associate" class="col-sm-3 col-form-label">E-Mail</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" onchange="close('#emailError')"
+              id="email_associate" name="email_associate"
+              value="<?= set_value('email_associate', isset($associate->email_associate) ? $associate->email_associate:''); ?>"
+              placeholder="E-Mail">
+          </div>
+        </div>
+
+        <div class="form-group row">
           <?= form_error('birth_date','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
 
            <label for="birth_date" class="col-sm-3 col-form-label">Aniversário</label>
@@ -138,6 +149,16 @@
             id="neighborhood" name="neighborhood"
             placeholder="Bairro"
             value="<?= set_value('neighborhood', isset($associate->neighborhood) ? $associate->neighborhood:''); ?>">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="complement" class="col-sm-3 col-form-label">Complemento</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control"
+              id="complement" name="complement"
+              placeholder="Complemento"
+              value="<?= set_value('complement', isset($associate->complement) ? $associate->complement:''); ?>">
           </div>
         </div>
 

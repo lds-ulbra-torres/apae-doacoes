@@ -9,61 +9,49 @@
 
       <dt>Código Único</dt>
       <dd><?= $associate->uuid_associate ?></dd>
-      <hr>
       <dt>Nome Completo</dt>
       <dd><?= $associate->name_associate ?></dd>
+      <dt>E-Mail</dt>
+      <dd><?= $associate->email_associate ?></dd>
       <hr>
-<!--
-      <dt>Nome na Carteirinha</dt>
-      <dd><?= $associate->name_in_card ?></dd>
-      <hr>
--->
       <dt>Data de Nascimento</dt>
       <dd><?= $associate->birth_date ?></dd>
-      <hr>
       <dt>RG / Inscr. Estadual</dt>
       <dd><?= $associate->rg ?></dd>
-      <hr>
       <dt>CPF / CNPJ</dt>
       <dd><?= $associate->cpf ?></dd>
       <hr>
-      <dt>Endereço</dt>
-      <dd>
-          <?= $associate->street .' '. $associate->number .', '. $associate->neighborhood .' '. $associate->complement ?>
-      </dd>
-      <hr>
+      <h4>Endereço</h4>
+      <dt>Rua</dt>
+      <dd><?= $associate->street ?></dd>
+      <dt>Número</dt>
+      <dd><?= $associate->number ?></dd>
+      <dt>Bairro</dt>
+      <dd><?= $associate->neighborhood ?></dd>
+      <dt>Complemento</dt>
+      <dd><?= $associate->complement ?></dd>
       <dt>Cidade/Estado</dt>
       <dd><?= $associate->name_city .' - '. $associate->uf_state ?></dd>
       <hr>
       <dt>Método de Pagamento</dt>
       <dd><?=$associate->description_payment?></dd>
-      <hr>
       <?php if ( (int) $associate->id_payment_type === 1) { ?>
         <dt>Nome no Cartão</dt>
         <dd><?= $associate->name_in_card ?></dd>
-        <hr>
         <dt>Agência/Conta</dt>
         <dd><?=$associate->agency_number .' - '. $associate->account_number ?></dd>
         <hr>
       <?php } ?>
       <dt>Frequência</dt>
       <dd><?=$associate->frequency_description?></dd>
-      <hr>
       <dt>Vencimento de Parcelas</dt>
       <dd><?=date_format(date_create($associate->duo_date), 'd/m/Y')?></dd>
-      <hr>
       <dt>Valor de Contribuição</dt>
       <dd><?='R$ '. number_format($associate->value_frequency,2)?></dd>
       <hr>
       <dt>Observações</dt>
       <dd><?=$associate->obs?></dd>
     </div>
-
-    <!--
-payment type
-value
-agency - account
-    -->
 
     <div class="row col-sm-4">
       <label for="">Contatos</label>
