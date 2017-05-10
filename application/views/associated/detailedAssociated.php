@@ -51,6 +51,15 @@
       <hr>
       <dt>Observações</dt>
       <dd><?=$associate->obs?></dd>
+      <hr>
+      <dt>Criado por</dt>
+      <dd><?=$associate->createdBy?></dd>
+      <dt>Criado em</dt>
+      <dd><?=date_format(date_create($associate->createdDate), 'd/m/Y á\s\ H:i:s')?></dd>
+      <dt>Última modificação por</dt>
+      <dd><?=$associate->lastModifiedBy?></dd>
+      <dt>Última modificação em</dt>
+      <dd><?=date_format(date_create($associate->lastModifiedDate), 'd/m/Y á\s\ H:i:s')?></dd>
     </div>
 
     <div class="row col-sm-3">

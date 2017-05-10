@@ -43,9 +43,10 @@
               <li class="<?=$page === 'banks' ? 'active':''?>">
                 <a href="<?= base_url('banks') ?>">
                   <span class="glyphicon glyphicon-usd"></span> Bancos</a></li>
-              <li class="<?=$page === 'cedentes' ? 'active':''?>">
+              <!--<li class="<?=$page === 'cedentes' ? 'active':''?>">
                 <a href="<?= base_url('cedentes') ?>">
                   <span class="glyphicon glyphicon-user"></span> Cedentes</a></li>
+                -->
               <li class="<?=$page === 'associated' ? 'active':''?>">
                 <a href="<?= base_url('associated') ?>">
                   <span class="glyphicon glyphicon-thumbs-up"></span> Associados</a></li>
