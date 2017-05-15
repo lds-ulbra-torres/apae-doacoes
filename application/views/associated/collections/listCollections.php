@@ -1,11 +1,11 @@
 <div class="well well-lg">
+  <?= $this->session->flashdata('alert') ?>
   <div class="page-header">
     <h2>Doações <strong><?=$name_associate?></strong></h2>
     <a class="btn btn-default" href="<?=base_url('associated')?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
     <a class="btn btn-success" href="collections/new"><span class="glyphicon glyphicon-plus"></span> Cadastrar Cobrança</a>
   </div>
 
-  <?= $this->session->flashdata('alert') ?>
   <table class="table table-responsive table-hover">
     <thead>
       <tr>
