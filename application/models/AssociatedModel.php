@@ -203,4 +203,8 @@ class AssociatedModel extends CI_Model {
 		return $this->db->get('payment_type')->result();
 	}
 
+	public function getAllEmails(){
+		return $this->db->get('email_associate')->result_array();
+	}
+
 }

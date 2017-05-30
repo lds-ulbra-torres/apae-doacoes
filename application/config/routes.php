@@ -129,3 +129,13 @@ $route['edit_user/(:num)'] = 'auth/edit_user/$1';
 $route['change_password'] = 'auth/change_password';
 $route['users'] = 'auth';
 /** FIM Ion Auth */
+
+/** EMAILS */
+$route['emails'] = "EmailsController";
+$route['emails/add'] = "EmailsController/add";
+$route['emails/create'] = "EmailsController/create";
+$route['emails/delete/(:num)'] = "EmailsController/delete/$1";
+$route['emails/update/(:num)'] = "EmailsController/update/$1";
+$route['emails/edit/(:num)'] = "EmailsController/edit/$1";
+$route['emails/detail/(:num)'] = "EmailsController/detail/$1";
+/** FIM EMAILS */

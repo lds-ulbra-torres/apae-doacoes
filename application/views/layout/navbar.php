@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu-principal" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only">Toggle navigation</span> 
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -49,6 +49,9 @@
               <li class="<?=$page === 'associated' ? 'active':''?>">
                 <a href="<?= base_url('associated') ?>">
                   <span class="glyphicon glyphicon-thumbs-up"></span> Associados</a></li>
+              <li class="<?=$page === 'emails' ? 'active':''?>">
+                <a href="<?= base_url('emails') ?>">
+                  <span class="glyphicon glyphicon-envelope"></span> Emails</a></li>
             </ul>
           </li>
 

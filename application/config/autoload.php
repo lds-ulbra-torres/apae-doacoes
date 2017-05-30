@@ -135,4 +135,5 @@ $autoload['language'] = array();
 */
 $autoload['model'] = array(
   'AssociatedModel', 'BanksModel',     'CarteiraModel', 'CedenteModel',
-  'CollectionModel', 'FrequencyModel', 'CitiesModel',   'DashboardModel');
+  'CollectionModel', 'FrequencyModel', 'CitiesModel',   'DashboardModel',
+  'EmailsModel', 'EmailConfigModel');

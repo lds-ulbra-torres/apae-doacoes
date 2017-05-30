@@ -14,6 +14,7 @@
 	<script src="<?= base_url('assets/js/jquery-3.1.1.min.js') ?>"></script>
 	<script src="<?= base_url('assets/bootstrap/js/bootstrap.min.js') ?>"></script>
 	<script src="<?= base_url('assets/js/jquery.mask.js')?>"></script>
+	<script type="text/javascript" src="<?= base_url('assets/ckeditor/ckeditor.js') ?>"></script>
 </head>
 <body>
 	<?php $page = $this->uri->segment(1); require_once('layout/navbar.php') ?>
