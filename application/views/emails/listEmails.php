@@ -1,27 +1,26 @@
 <div class="well">
 	<div class="page-header">
 		<h2>Emails</h2>
-		<a class="btn btn-success" href="<?= site_url('emails/add');?>"><span class="glyphicon glyphicon-plus"></span>Novo Email</a>
+		<a class="btn btn-success" href="<?= site_url('emails/add');?>"><span class="glyphicon glyphicon-plus"></span> Novo Email</a>
 	</div>
 	<?= $this->session->flashdata('alert') ?>
-	<table class="table table-responsive table-hover style-table">
-		<thead>
-			<tr>
-				<th width="15%">Assunto</th>
-				<th width="60%">Email</th>
-				<th width="10%">Data</th>
-				<th width="15%">Ações</th>
-			</tr>
-		</thead>
+	<table class="table table-responsive table-striped table-hover text-center table-emails">
+    	<thead>
+        	<tr>
+				<th>Assunto</th>
+				<th>Data</th>
+				<th>Ações</th>
+        	</tr>
+      	</thead>
+		
 		<tbody>
 		<?php
 			if(count($emails)>=1){
 			foreach($emails as $email){
 		?>
 			<tr>
-				<td class="style-td"><?= $email['subject_email']; ?></td>
-				<td class="style-td"><?= $email['body_email']; ?></td>
-				<td><?= $email['date_email']; ?></td>
+				<td><p><?= $email['subject_email']; ?></p></td>
+				<td><?= $email['datetime_email']; ?></td>
 				<td>
 					<div class="btn-group">
 						<a class="btn btn-info btn-sm" href="<?= site_url('emails/detail')."/".$email['id_email'];?>"><span class="glyphicon glyphicon-eye-open"></span></a>

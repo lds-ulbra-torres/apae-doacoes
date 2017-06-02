@@ -21,7 +21,7 @@ class EmailsModel extends CI_Model {
 		return empty($email) ? FALSE : $email;
 	}
 
-	public function create($email, $idList){
+	public function create($email){
 
 	}
 

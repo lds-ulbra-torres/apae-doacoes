@@ -54,3 +54,13 @@ textarea{
 table.text-center thead tr th{
   text-align: center;
 }
+
+table.table-emails tr td:first-child, 
+table.table-emails th:first-child{
+  text-align: left;
+  width: 50%;
+}
+
+table.table-emails tr td:first-child p {
+  margin: 0 auto;
+}
