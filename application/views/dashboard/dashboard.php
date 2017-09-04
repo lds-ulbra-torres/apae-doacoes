@@ -2,9 +2,13 @@
 
   <div class="page-header">
     <h2>Doações</h2>
+
+    <!--
     <span class="text-info">
         <h3>Total: <?=isset($sum) ? 'R$ '. number_format($sum,2) : number_format(0,2) ?></h3>
     </span>
+
+    -->
     <?= $this->session->flashdata("alert") ?>
     <div class="">
 
@@ -88,14 +92,19 @@
   </div>
 
   <div class="">
-    <table class="table table-responsive table-striped table-hover text-center">
+    <table class="table table-donations table-responsive table-striped table-hover text-center">
       <thead>
         <tr>
           <th>Código Associado</th>
           <th>Nome Associado</th>
           <th>Data Vencimento</th>
           <th>Data Pagamento</th>
-          <th>Valor Pagamento</th>
+          <th>
+            <ul>
+              <li><h3 class="text-info">Total: <?=isset($sum) ? 'R$ '. number_format($sum, 2, ',', '.') : number_format(0,2, ',', '.') ?></h3></li>
+              <li>Valor Pagamento</li>
+            </ul>
+          </th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -115,7 +124,7 @@
                   <span class="label label-warning">Pendente</span>
                 <?php } ?>
               </td>
-              <td><?= 'R$ '. number_format($r->value_collection,2) ?></td>
+              <td><?= 'R$ '. number_format($r->value_collection,2, ',', '.') ?></td>
               <td>
                 <div class="btn-group">
                   <a class="btn btn-primary btn-sm" title="Alterar Cobrança" href="<?=base_url('donations/edit-collection/'. $r->id_collection)?>"><span class="glyphicon glyphicon-edit"></span></a>

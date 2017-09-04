@@ -41,7 +41,7 @@
 
     <?= $this->session->flashdata('alert') ?>
 
-    <table class="table table-responsive table-striped table-hover text-center">
+    <table class="table table-associated table-responsive table-striped table-hover text-center">
       <thead>
         <tr>
           <th>Código Único</th>

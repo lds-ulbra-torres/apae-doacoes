@@ -54,3 +54,30 @@ textarea{
 table.text-center thead tr th{
   text-align: center;
 }
+
+table.table-donations tbody tr td:nth-child(2), 
+table.table-associated tbody tr td:nth-child(2),
+table.table-donations thead tr th:nth-child(2), 
+table.table-associated thead tr th:nth-child(2)
+{text-align: left !important}
+
+
+table.table-donations tbody tr td:nth-child(5),
+table.table-donations thead tr th:nth-child(5)
+{text-align: right !important}
+
+table.table-donations ul li{
+  list-style: none;
+}
+
+table.table-collections thead tr th:nth-child(2),
+table.table-collections thead tr th:nth-child(3),
+table.table-collections tbody tr td:nth-child(2),
+table.table-collections tbody tr td:nth-child(3)
+{text-align: center !important;}
+
+table.table-collections thead tr th:nth-child(4),
+table.table-collections tbody tr td:nth-child(4)
+{text-align: right !important;}
+
+.no-padding-left{padding-left: 0;}

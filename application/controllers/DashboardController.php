@@ -36,6 +36,7 @@ class DashboardController extends CI_Controller{
     $getPage = (int) $this->input->get("page");
     $page = $getPage == 0 ? $getPage : ($getPage-1) * self::PER_PAGE;
     $config = PaginationHelper($baseUrl, $totalRows, self::PER_PAGE);
+    $config['per_page'] = 5;
     $this->pagination->initialize($config);
     $data['pagination'] = $this->pagination->create_links();
     $data['results'] = $this->DashboardModel->getFilteredResults($filter, self::PER_PAGE, $page);
@@ -78,5 +79,5 @@ class DashboardController extends CI_Controller{
     $data['returnUrl'] = base_url('donations/filter');
     $this->template->load('template', 'associated/collections/updateCollection', $data);
   }
-
+  
 }

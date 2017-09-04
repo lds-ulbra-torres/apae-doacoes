@@ -6,7 +6,7 @@
   </div>
 
   <?= $this->session->flashdata('alert') ?>
-  <table class="table table-responsive table-hover">
+  <table class="table table-collections table-responsive table-hover">
     <thead>
       <tr>
         <th>ID</th>
@@ -23,7 +23,7 @@
           <td><a href="<?=$baseUrl .'/'. $c->id_collection?>"><?= $c->id_collection ?></a></td>
           <td><?= date_format(date_create($c->duo_date_collection), 'd/m/y') ?></td>
           <td><?= $c->num_collection ?></td>
-          <td><?= 'R$ '. number_format($c->value_collection,2) ?></td>
+          <td><?= 'R$ '. number_format($c->value_collection, 2, ',', '.')?></td>
           <td>
             <?php if ($c->payday_collection != NULL) { ?>
               <span class="label label-success">Pago dia <?=date_format(date_create($c->payday_collection), 'd/m/y')?> </span>
