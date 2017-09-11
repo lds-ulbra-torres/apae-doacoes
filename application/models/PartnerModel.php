@@ -8,8 +8,7 @@ class PartnerModel extends CI_Model {
 	public function create($partner){
 
 		$this->db->insert('partners', $partner);
-		$id = $this->db->insert_id();
-		return isset($id) ? $id : 0;
+		return $this->db->insert_id();
 	}
 
 	public function update($partner){
@@ -52,7 +51,7 @@ class PartnerModel extends CI_Model {
 
 	public function getPartnerById($id){
 		$this->db->where('id_partner', $id);
-		$this->db->join('city', 'partners.id_city = city.id_city');	
+		$this->db->join('city', 'partners.id_city = city.id_city');
 		$this->db->join('state', 'city.id_state = state.id_state');
 		return $this->db->get('partners')->result_array()[0];
 	}

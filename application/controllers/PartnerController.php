@@ -26,7 +26,7 @@ class PartnerController extends CI_Controller {
 	}
 
 	public function index($searchText=NULL)
-	{ 
+	{
 		$baseUrl = base_url('partner');
 		$totalRows = $this->PartnerModel->totalCount();
 		$getPage = (int) $this->input->get("page");
@@ -55,60 +55,45 @@ class PartnerController extends CI_Controller {
 	public function newPartner(){
 		$data = $this->loadFormDependencies();
 		$this->template->load('template', 'partner/createPartner', $data);
-	}	
+	}
 
 	public function createPartner(){
 
 		$this->loadFormRules();
 
 		$route = null;
-		if(isset($_FILES)){
+		if (isset($_FILES)) {
 			$tmp = $_FILES['photo_partner']['tmp_name'];
 			$name = $_FILES['photo_partner']['name'];
 			$type = substr($name, -4, 4);
 			$new_name = md5($name.microtime());
-			$route ='./uploads/'.$new_name.$type;
+			$dir = './uploads/';
+			$route = $dir . $new_name . $type;
+			if (!file_exists($dir)) {
+	    	mkdir($dir, 0777, true);
+			}
 			move_uploaded_file($tmp, $route);
 		}
-		
-		if($this->form_validation->run()){
+
+		if ($this->form_validation->run()) {
 			$partner = $this->input->post();
 			$partner['photo_partner'] = substr($route, 1);
 
 			$id = $this->PartnerModel->create($partner);
-			if($id !== 0){
+			if($id !== 0) {
+				$message = [
+					"title" => "Novo parceiro da APAE Torres",
+					"message" => $partner['fantasy_name_partner'] . " é o novo parceiro da APAE Torres! Confira os benefícios."
+				];
+				$this->notifyFcm($message);
 
-				$message = array("message" => $this->input->post('fantasy_name_partner')." é o novo parceiro da APAE-Torres",
-				    "title" => "Novo parceiro da APAE-Torres");
-				$url = 'https://fcm.googleapis.com/fcm/send';
-				$fields = array(
-				    'to' => '/topics/new-partner',
-				    'data' => $message
-				);
-
-				$headers = array('Content-Type: application/json',
-				    'Authorization:key=AAAA2MHj0hc:APA91bFeklIhDriYGY_ETK3MNfOJShYFbxk4LIsUP5XgaNy3DSvLBzJNeyYg6FQNYo65MuDlnUrC_F6wf3PQrBXJota-9-ReojTGs418f6DokvGNkSTshgtdG0QWaR7ctFz2VDG4q2sq'
-				);
-				
-				$ch = curl_init($url);
-				curl_setopt($ch, CURLOPT_POST, true);
-				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-				curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-				curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
-				$result = curl_exec($ch);
-				if ($result == FALSE)
-				    die('Curl failed: ' . curl_error($ch));
-				curl_close($ch);
-
-				redirect('partner/partner-detail/'.$id ,'refresh');
-			}else{
+				redirect('partner/partner-detail/' . $id,'refresh');
+			} else {
 				unlink($route);
 				$this->session->set_flashdata('alert', CreateErrorAlert("Banco de Dados. Não foi possível salvar."));
 				redirect('partner','refresh');
 			}
-		}else{
+		} else {
 			$data = $this->loadFormDependencies();
 			$this->template->load('template', 'partner/createPartner', $data);
 		}
@@ -129,7 +114,7 @@ class PartnerController extends CI_Controller {
 			$name = $_FILES['photo_partner']['name'];
 			$type = substr($name, -4, 4);
 			$new_name = md5($name.microtime());
-			$route ='./uploads/'.$new_name.$type;
+			$route ='./uploads/' . $new_name . $type;
 			move_uploaded_file($tmp, $route);
 		}
 
@@ -138,7 +123,7 @@ class PartnerController extends CI_Controller {
 		if(!empty($_FILES['photo_partner']['size'])){
 			$partner['photo_partner'] = substr($route, 1);
 		}
-		
+
 		if($this->form_validation->run()){
 			if ($this->PartnerModel->update($partner)){
 				$this->session->set_flashdata('alert', UpdateEntityAlert("Parceiro", $partner['id_partner']));
@@ -186,6 +171,31 @@ class PartnerController extends CI_Controller {
 			header('Content-Type: application/json');
 			echo json_encode($data);
 		}
+	}
+
+	private function notifyFcm($message) {
+		$url = 'https://fcm.googleapis.com/fcm/send';
+		$fields = array(
+				'to' => '/topics/new-partner',
+				'data' => $message
+		);
+
+		$headers = array('Content-Type: application/json',
+				'Authorization:key=AAAA2MHj0hc:APA91bFeklIhDriYGY_ETK3MNfOJShYFbxk4LIsUP5XgaNy3DSvLBzJNeyYg6FQNYo65MuDlnUrC_F6wf3PQrBXJota-9-ReojTGs418f6DokvGNkSTshgtdG0QWaR7ctFz2VDG4q2sq'
+		);
+
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
+		$result = curl_exec($ch);
+		if ($result == FALSE) {
+			die('Curl failed: ' . curl_error($ch));
+		}
+		curl_close($ch);
 	}
 }
 
