@@ -50,8 +50,13 @@
               <li class="<?=$page === 'associated' ? 'active':''?>">
                 <a href="<?= base_url('associated') ?>">
                   <span class="glyphicon glyphicon-thumbs-up"></span> Associados</a></li>
+              <li class="<?=$page === 'partner' ? 'active' : '' ?>">
+                 <a href="<?= base_url('partner') ?>">
+                  <span class="glyphicon glyphicon-heart"></span> Parceiros</a></li>
+              </li>
             </ul>
           </li>
+
 
           <li class="dropdown <?=$page==='edit_user'||$page==='change_password' ? 'active':''?>">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-lock"></span> Conta <span class="caret"></span></a>

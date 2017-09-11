@@ -115,6 +115,20 @@ $route['associated/(:num)/collections/delete/(:num)'] = "CollectionsController/d
 $route['associated/(:num)/collections/renew'] = "CollectionsController/renewCollection/$1";
 /** Fim Associados */
 
+/** Parceiros */
+$route['partner'] = "PartnerController";
+$route['partner/search'] = "PartnerController/search";
+$route['partner/new'] = "PartnerController/newPartner";
+$route['partner/create'] = "PartnerController/createPartner";
+$route['partner/edit/(:num)'] = "PartnerController/editPartner/$1";
+$route['partner/update'] = "PartnerController/updatePartner";
+$route['partner/delete/(:num)'] = "PartnerController/deletePartner/$1";
+$route['partner/partner-detail/(:num)'] = "PartnerController/detailPartner/$1";
+
+$route['v1/partner/get'] = "PartnerApiController/getPartnersAPI";
+$route['v1/partner/get/(:num)'] = "PartnerApiController/getPartnersByIdAPI/$1";
+/** FIM Parceiros */
+
 /** CARTEIRAS */
 $route['carteiras'] = "CarteiraController";
 $route['carteiras/add'] = "CarteiraController/add";
