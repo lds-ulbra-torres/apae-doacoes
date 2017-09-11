@@ -22,12 +22,62 @@
 }
 
 .navbar-brand.logo {
-  padding: 5px 15px; }
-  .navbar-brand.logo .logo-img {
+  padding: 5px 15px;
+}
+
+ .navbar-brand.logo .logo-img {
     height: 45px;
-    display: inline-block; }
+    display: inline-block;
+}
 
 .navbar-version {
   font-size: 10px;
   color: #ccc
 }
+
+.contact{
+  padding-bottom:1% !important;
+}
+
+.alinhamentoRenovar{
+  display:inline;
+}
+
+textarea{
+  resize: none;
+}
+
+#addContact{
+  margin-bottom: 2% !important;
+}
+
+table.text-center thead tr th{
+  text-align: center;
+}
+
+table.table-donations tbody tr td:nth-child(2), 
+table.table-associated tbody tr td:nth-child(2),
+table.table-donations thead tr th:nth-child(2), 
+table.table-associated thead tr th:nth-child(2)
+{text-align: left !important}
+
+
+table.table-donations tbody tr td:nth-child(5),
+table.table-donations thead tr th:nth-child(5)
+{text-align: right !important}
+
+table.table-donations ul li{
+  list-style: none;
+}
+
+table.table-collections thead tr th:nth-child(2),
+table.table-collections thead tr th:nth-child(3),
+table.table-collections tbody tr td:nth-child(2),
+table.table-collections tbody tr td:nth-child(3)
+{text-align: center !important;}
+
+table.table-collections thead tr th:nth-child(4),
+table.table-collections tbody tr td:nth-child(4)
+{text-align: right !important;}
+
+.no-padding-left{padding-left: 0;}

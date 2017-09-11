@@ -27,7 +27,7 @@ class DashboardModel extends CI_Model{
 
   private function buildFilter($filter) {
     $this->db->from('collection')
-    ->join('associated', 'collection.id_associate = associated.id_associate', 'inner')
+    ->join('associated', 'collection.id_associate = associated.id_associate','', 'inner')
     // NUNCA MOSTRAR INATIVOS NA LISTAGEM, added in 21-mar-2017 by Gabriel Dewes
     ->where('associated.disable !=', TRUE)
     ->where('collection.duo_date_collection >=', $filter->from_date)

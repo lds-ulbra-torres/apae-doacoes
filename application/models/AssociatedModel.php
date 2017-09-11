@@ -14,6 +14,9 @@ class AssociatedModel extends CI_Model {
 			->group_start()
 				->like('associated.name_associate', $search)
 				->or_group_start()
+					->like('associated.uuid_associate', $search)
+				->group_end()
+				->or_group_start()
 					->like('associated.obs', $search)
 				->group_end()
 				->or_group_start()
@@ -43,6 +46,9 @@ class AssociatedModel extends CI_Model {
 			->group_start()
 				->like('associated.name_associate', $search)
 				->or_group_start()
+					->like('associated.uuid_associate', $search)
+				->group_end()
+				->or_group_start()
 					->like('associated.obs', $search)
 				->group_end()
 				->or_group_start()
@@ -56,18 +62,25 @@ class AssociatedModel extends CI_Model {
 	}
 
 	public function create($associate) {
-		$this->db->trans_begin();
-
-		if(isset($associate['contact'])){
+		if(isset($associate['contact'])) {
 			$contacts = $associate['contact'];
 			unset($associate['contact']);
 		}
 
+		$currentUserUsername = $this->ion_auth->user()->row()->username;
+		$currDate = gmdate('Y-m-d h:i:s', time());
+
+		$associate['createdBy'] = $currentUserUsername;
+		$associate['createdDate'] = $currDate;
+		$associate['lastModifiedBy'] = $currentUserUsername;
+		$associate['lastModifiedDate'] = $currDate;
+
+		$this->db->trans_begin();
 		$this->db->insert($this->table, $associate);
 		$id = $this->db->insert_id();
 
 
-		if(isset($contacts)){
+		if(isset($contacts)) {
 			foreach($contacts as $contact){
 				$idContact = substr($contact, 0, strpos($contact, '/'));
 				$valueContact = substr($contact, strpos($contact, '/') + 1, strlen($contact));
@@ -119,14 +132,15 @@ class AssociatedModel extends CI_Model {
 	}
 
 	public function update($associate,$contacts) {
-		if(isset($associate['contact'])){
+		if(isset($associate['contact'])) {
 			$contacts = $associate['contact'];
 			unset($associate['contact']);
 		}
+		$associate['lastModifiedBy'] = $this->ion_auth->user()->row()->username;
+		$associate['lastModifiedDate'] = gmdate('Y-m-d h:i:s', time());
 
 		$this->db->trans_begin();
 		$this->db->where('id_associate', $associate['id_associate']);
-
 		$this->db->update($this->table, $associate);
 
 		$this->db->where('id_associate',$associate['id_associate']);

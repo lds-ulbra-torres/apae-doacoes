@@ -85,4 +85,11 @@ class CollectionsController extends CI_Controller {
   public function deleteCollection($collectionId) {
     $this->CollectionModel->delete($collectionId);
   }
+
+  public function renewCollection($id_associated){
+      $associate = $this->AssociatedModel->getByIdLazy($id_associated);
+      $this->CollectionModel->createCollections($associate[0]);
+      redirect('associated/'.$id_associated.'/collections','refresh');
+  }
+
 }

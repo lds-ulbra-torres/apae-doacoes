@@ -112,6 +112,7 @@ $route['associated/(:num)/collections/(:num)'] = "CollectionsController/detailCo
 $route['associated/(:num)/collections/new'] = "CollectionsController/newCollection";
 $route['associated/(:num)/collections/create'] = "CollectionsController/createCollection";
 $route['associated/(:num)/collections/delete/(:num)'] = "CollectionsController/deleteCollection/$2";
+$route['associated/(:num)/collections/renew'] = "CollectionsController/renewCollection/$1";
 /** Fim Associados */
 
 /** Parceiros */
