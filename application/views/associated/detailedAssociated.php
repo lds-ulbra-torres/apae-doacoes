@@ -2,7 +2,21 @@
 
   <div class="page-header">
     <h2>Associado <strong><?=$associate->name_associate?></strong> <?php if($associate->disable == 1){ echo '<span class="label label-danger">Inativo</span>'; } ?></h2>
+    <small style="color:gray">
+      <?php $a = "Criado por <strong>"
+        . $associate->createdBy
+        ."</strong> em "
+        . date_format(date_create($associate->createdDate), '\<\s\t\r\o\n\g\>d/m/Y\<\/\s\t\r\o\n\g\> á\s\ \<\s\t\r\o\n\g\>H:i:s\<\/\s\t\r\o\n\g\>')
+        .", última modificação por <strong>"
+        . $associate->lastModifiedBy
+        ."</strong> em "
+        . date_format(date_create($associate->lastModifiedDate), '\<\s\t\r\o\n\g\>d/m/Y\<\/\s\t\r\o\n\g\> á\s\ \<\s\t\r\o\n\g\>H:i:s\<\/\s\t\r\o\n\g\>');
+          echo $a;
+      ?>
+    </small>
+
   </div>
+
   <?= $this->session->flashdata('alert') ?>
   <div class="row col-sm-12">
     <div class="dl-horizontal row col-sm-8">
@@ -33,6 +47,7 @@
       <dt>Cidade/Estado</dt>
       <dd><?= $associate->name_city .' - '. $associate->uf_state ?></dd>
       <hr>
+      <h4>Financeiro</h4>
       <dt>Método de Pagamento</dt>
       <dd><?=$associate->description_payment?></dd>
       <?php if ( (int) $associate->id_payment_type === 1) { ?>
@@ -51,6 +66,7 @@
       <hr>
       <dt>Observações</dt>
       <dd><?=$associate->obs?></dd>
+      <hr>
     </div>
 
     <div class="row col-sm-3">
@@ -62,7 +78,6 @@
   </div>
 
   <div class="row col-sm-8">
-    <br>
     <a class="btn btn-default" href="<?= base_url('associated') ?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
     <div class="pull-right">
       <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate->id_associate) ?>">

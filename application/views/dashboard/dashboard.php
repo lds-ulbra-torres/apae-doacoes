@@ -1,13 +1,12 @@
 <div class="well well-lg">
-
+  <?= $this->session->flashdata("alert") ?>
   <div class="page-header">
     <h2>Doações</h2>
     <span class="text-info">
         <h3>Total: <?=isset($sum) ? 'R$ '. number_format($sum,2) : number_format(0,2) ?></h3>
     </span>
-    <?= $this->session->flashdata("alert") ?>
-    <div class="">
 
+    <div class="">
       <form class="form-inline" action="<?=base_url('donations/filter')?>" method="post">
         <div class="input-group input-group-sm">
             <span class="input-group-addon">Data de</span>
@@ -82,7 +81,7 @@
             </a>
           </span>
         </div>
-        
+
       </form>
     </div>
   </div>

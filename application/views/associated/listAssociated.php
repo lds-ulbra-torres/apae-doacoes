@@ -1,5 +1,5 @@
-
 <div class="well well-lg">
+  <?= $this->session->flashdata('alert') ?>
   <div class="page-header">
     <h2>Associados</h2>
 
@@ -38,9 +38,6 @@
   </div>
 
   <div class="">
-
-    <?= $this->session->flashdata('alert') ?>
-
     <table class="table table-responsive table-striped table-hover text-center">
       <thead>
         <tr>

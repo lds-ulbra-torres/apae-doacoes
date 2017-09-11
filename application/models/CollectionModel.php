@@ -77,6 +77,8 @@ class CollectionModel extends CI_Model {
 
     if ($countFrequency != null && $countFrequency != 0) {
       $collections = array();
+      $currentUserUsername = $this->ion_auth->user()->row()->username;
+  		$currDate = gmdate('Y-m-d h:i:s', time());
       for ($i=0;$i<$countFrequency;$i++) {
         $duoDate = date('Y-m-d', strtotime($i ." months", strtotime($associate->duo_date)));
 
@@ -90,7 +92,11 @@ class CollectionModel extends CI_Model {
           'value_collection' => $associate->value_frequency,
           'duo_date_collection' => $duoDate,
           'id_associate' => $associate->id_associate,
-          'num_collection' => $i + 1
+          'num_collection' => $i + 1,
+          'createdBy' => $currentUserUsername,
+          'createdDate' => $currDate,
+          'lastModifiedBy' => $currentUserUsername,
+          'lastModifiedDate' => $currDate
         ];
         array_push($collections, $collection);
       }
@@ -103,11 +109,19 @@ class CollectionModel extends CI_Model {
   }
 
   public function save($collection) {
+    $currentUserUsername = $this->ion_auth->user()->row()->username;
+    $currDate = gmdate('Y-m-d h:i:s', time());
+    $collection->createdBy = $currentUserUsername;
+    $collection->createdDate = $currDate;
+    $collection->lastModifiedBy = $currentUserUsername;
+    $collection->lastModifiedDate = $currDate;
     $this->db->insert($this->table, $collection);
     return $this->db->insert_id();
   }
 
   public function update($collection) {
+    $collection->lastModifiedBy = $this->ion_auth->user()->row()->username;
+    $collection->lastModifiedDate = gmdate('Y-m-d h:i:s', time());
     $this->db->where('id_collection', $collection->id_collection);
     $this->db->update($this->table, $collection);
     return $collection->id_collection;
