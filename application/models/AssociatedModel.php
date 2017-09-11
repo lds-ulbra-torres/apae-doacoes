@@ -6,7 +6,7 @@ class AssociatedModel extends CI_Model {
 	var $table = "associated";
 
 	public function getAll($limit=NULL, $offset=NULL) {
-    return $this->db->get($this->table, $limit, $offset)->result();
+    	return $this->db->get($this->table, $limit, $offset)->result();
 	}
 
 	public function searchAll($limit=NULL, $offset=NULL, $search=NULL) {
@@ -38,7 +38,7 @@ class AssociatedModel extends CI_Model {
 	}
 
 	public function totalCount() {
-    return $this->db->count_all($this->table);
+    	return $this->db->count_all($this->table);
 	}
 
 	public function searchTotalCount($search) {
