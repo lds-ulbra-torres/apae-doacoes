@@ -14,8 +14,8 @@ function PaginationHelper($baseUrl, $totalRows, $perPage) {
   $config['page_query_string'] = TRUE;
   $config['query_string_segment'] = 'page';
   $config['use_page_numbers'] = TRUE;
-  $config["num_links"] = floor($config["total_rows"]/$config["per_page"]);
-  //bootstrap dom
+  $config["num_links"] = 5; // floor($config["total_rows"]/$config["per_page"]);
+  // bootstrap dom
   $config['full_tag_open'] = '<ul class="pagination">';
   $config['full_tag_close'] = '</ul>';
   $config['first_link'] = false;
