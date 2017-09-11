@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-defined('APP_VERSION') OR define('APP_VERSION', '1.0.127');
+defined('APP_VERSION') OR define('APP_VERSION', '1.0.131');
 defined('APP_NAME') OR define('APP_NAME', 'APAE Doações');
 /*
 |--------------------------------------------------------------------------
