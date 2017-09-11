@@ -62,7 +62,7 @@
       <dt>Vencimento de Parcelas</dt>
       <dd><?=date_format(date_create($associate->duo_date), 'd/m/Y')?></dd>
       <dt>Valor de Contribuição</dt>
-      <dd><?='R$ '. number_format($associate->value_frequency,2)?></dd>
+      <dd><?='R$ '. number_format($associate->value_frequency,2, ',', '.')?></dd>
       <hr>
       <dt>Observações</dt>
       <dd><?=$associate->obs?></dd>
@@ -99,7 +99,7 @@
       <form class="alinhamentoRenovar" action="<?= base_url('associated/'.$associate->id_associate.'/collections/renew') ?>">
         <button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Renovar</button>
       </form>
-      <?php if(strlen($associate->term_route) > 0){ ?>
+      <?php if($associate->term_route != "0"){ ?>
         <a class="btn btn-primary" target="_blank" href="<?= base_url($associate->term_route.'/'.$associate->id_associate) ?>">
           <span class="glyphicon glyphicon-file"></span> Imprimir autorização
         </a>
