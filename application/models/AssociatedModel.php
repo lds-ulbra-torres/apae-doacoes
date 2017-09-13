@@ -70,10 +70,10 @@ class AssociatedModel extends CI_Model {
 		$currentUserUsername = $this->ion_auth->user()->row()->username;
 		$currDate = gmdate('Y-m-d h:i:s', time());
 
-		$associate['createdBy'] = $currentUserUsername;
-		$associate['createdDate'] = $currDate;
-		$associate['lastModifiedBy'] = $currentUserUsername;
-		$associate['lastModifiedDate'] = $currDate;
+		$associate['created_by'] = $currentUserUsername;
+		$associate['created_at'] = $currDate;
+		$associate['last_modified_by'] = $currentUserUsername;
+		$associate['last_modified_at'] = $currDate;
 
 		$this->db->trans_begin();
 		$this->db->insert($this->table, $associate);
@@ -136,8 +136,8 @@ class AssociatedModel extends CI_Model {
 			$contacts = $associate['contact'];
 			unset($associate['contact']);
 		}
-		$associate['lastModifiedBy'] = $this->ion_auth->user()->row()->username;
-		$associate['lastModifiedDate'] = gmdate('Y-m-d h:i:s', time());
+		$associate['last_modified_by'] = $this->ion_auth->user()->row()->username;
+		$associate['last_modified_at'] = gmdate('Y-m-d h:i:s', time());
 
 		$this->db->trans_begin();
 		$this->db->where('id_associate', $associate['id_associate']);

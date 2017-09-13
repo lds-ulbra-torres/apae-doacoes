@@ -4,13 +4,13 @@
     <h2>Associado <strong><?=$associate->name_associate?></strong> <?php if($associate->disable == 1){ echo '<span class="label label-danger">Inativo</span>'; } ?></h2>
     <small style="color:gray">
       <?php $a = "Criado por <strong>"
-        . $associate->createdBy
+        . $associate->created_by
         ."</strong> em "
-        . date_format(date_create($associate->createdDate), '\<\s\t\r\o\n\g\>d/m/Y\<\/\s\t\r\o\n\g\> á\s\ \<\s\t\r\o\n\g\>H:i:s\<\/\s\t\r\o\n\g\>')
+        . date_format(date_create($associate->created_at), '\<\s\t\r\o\n\g\>d/m/Y\<\/\s\t\r\o\n\g\> á\s\ \<\s\t\r\o\n\g\>H:i:s\<\/\s\t\r\o\n\g\>')
         .", última modificação por <strong>"
-        . $associate->lastModifiedBy
+        . $associate->last_modified_by
         ."</strong> em "
-        . date_format(date_create($associate->lastModifiedDate), '\<\s\t\r\o\n\g\>d/m/Y\<\/\s\t\r\o\n\g\> á\s\ \<\s\t\r\o\n\g\>H:i:s\<\/\s\t\r\o\n\g\>');
+        . date_format(date_create($associate->last_modified_at), '\<\s\t\r\o\n\g\>d/m/Y\<\/\s\t\r\o\n\g\> á\s\ \<\s\t\r\o\n\g\>H:i:s\<\/\s\t\r\o\n\g\>');
           echo $a;
       ?>
     </small>

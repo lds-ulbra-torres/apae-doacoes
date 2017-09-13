@@ -4,13 +4,13 @@
     <h2>Cobrança</h2>
     <small style="color:gray">
       <?php $a = "Criado por <strong>"
-        . $collection->createdBy
+        . $collection->created_by
         ."</strong> em "
-        . date_format(date_create($collection->createdDate), '\<\s\t\r\o\n\g\>d/m/Y\<\/\s\t\r\o\n\g\> á\s\ \<\s\t\r\o\n\g\>H:i:s\<\/\s\t\r\o\n\g\>')
+        . date_format(date_create($collection->created_at), '\<\s\t\r\o\n\g\>d/m/Y\<\/\s\t\r\o\n\g\> á\s\ \<\s\t\r\o\n\g\>H:i:s\<\/\s\t\r\o\n\g\>')
         .", última modificação por <strong>"
-        . $collection->lastModifiedBy
+        . $collection->last_modified_by
         ."</strong> em "
-        . date_format(date_create($collection->lastModifiedDate), '\<\s\t\r\o\n\g\>d/m/Y\<\/\s\t\r\o\n\g\> á\s\ \<\s\t\r\o\n\g\>H:i:s\<\/\s\t\r\o\n\g\>');
+        . date_format(date_create($collection->last_modified_at), '\<\s\t\r\o\n\g\>d/m/Y\<\/\s\t\r\o\n\g\> á\s\ \<\s\t\r\o\n\g\>H:i:s\<\/\s\t\r\o\n\g\>');
           echo $a;
       ?>
     </small>

@@ -93,10 +93,10 @@ class CollectionModel extends CI_Model {
           'duo_date_collection' => $duoDate,
           'id_associate' => $associate->id_associate,
           'num_collection' => $i + 1,
-          'createdBy' => $currentUserUsername,
-          'createdDate' => $currDate,
-          'lastModifiedBy' => $currentUserUsername,
-          'lastModifiedDate' => $currDate
+          'created_by' => $currentUserUsername,
+          'created_at' => $currDate,
+          'last_modified_by' => $currentUserUsername,
+          'last_modified_at' => $currDate
         ];
         array_push($collections, $collection);
       }
@@ -111,17 +111,17 @@ class CollectionModel extends CI_Model {
   public function save($collection) {
     $currentUserUsername = $this->ion_auth->user()->row()->username;
     $currDate = gmdate('Y-m-d h:i:s', time());
-    $collection->createdBy = $currentUserUsername;
-    $collection->createdDate = $currDate;
-    $collection->lastModifiedBy = $currentUserUsername;
-    $collection->lastModifiedDate = $currDate;
+    $collection->created_by = $currentUserUsername;
+    $collection->created_at = $currDate;
+    $collection->last_modified_by = $currentUserUsername;
+    $collection->last_modified_at = $currDate;
     $this->db->insert($this->table, $collection);
     return $this->db->insert_id();
   }
 
   public function update($collection) {
-    $collection->lastModifiedBy = $this->ion_auth->user()->row()->username;
-    $collection->lastModifiedDate = gmdate('Y-m-d h:i:s', time());
+    $collection->last_modified_by = $this->ion_auth->user()->row()->username;
+    $collection->last_modified_at = gmdate('Y-m-d h:i:s', time());
     $this->db->where('id_collection', $collection->id_collection);
     $this->db->update($this->table, $collection);
     return $collection->id_collection;
