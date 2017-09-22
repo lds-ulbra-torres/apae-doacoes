@@ -4,7 +4,7 @@
     <h2>Parceiro <strong><?=$partner['fantasy_name_partner'] ?></strong> </h2>
   </div>
   <?= $this->session->flashdata('alert') ?>
-  <div class="row col-sm-12">
+  <div class="row">
     <div class="dl-horizontal row col-sm-8">
 
       <dt>Nome do Proprietário</dt>
@@ -33,6 +33,14 @@
       <dt>Cidade/Estado</dt>
       <dd><?= $partner['name_city'].' '.$partner['uf_state'] ?></dd>
       <br>
+
      <a class="btn btn-info" href="#" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
     </div>
+
+      <div class="dl-horizontal row col-sm-4">
+        <div class="full-center">
+          <img class="partner_img" src="<?= base_url($partner['photo_partner'])?>" alt="<?= $partner['fantasy_name_partner'] ?>">
+        </div>
+      </div>
+
   </div>

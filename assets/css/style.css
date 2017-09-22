@@ -81,3 +81,62 @@ table.table-collections tbody tr td:nth-child(4)
 {text-align: right !important;}
 
 .no-padding-left{padding-left: 0;}
+
+.full-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.partner_img{
+  width: 70%;
+}
+
+.well.donations .page-header,
+.well.donations .page-header h2{
+  margin: 0px !important; 
+}
+
+/*Filter*/
+
+.filter{
+  padding: 15px;
+}
+
+.filter-plus{
+  display: none;
+}
+
+.filter span{
+  font-size: 1.6rem;
+}
+
+.filter input,
+.filter select{
+  width: 200px !important;
+}
+
+
+.filter .input-group{
+  display: grid;
+}
+
+.filter .btn-group{
+  display: table;
+  vertical-align: middle;
+  margin-top: 15px;
+}
+
+.filter .btn{
+  padding: 8px 10px;
+  width: 92px;
+}
+
+.filter .button-groups{
+  padding-top: 1.3em;
+}
+
+.content-filter [class *= 'col-lg']{
+  width: 20% !important;
+}

@@ -6,18 +6,10 @@
   </div>
   <div class="row col-sm-12">
     <form method="POST" action="<?= base_url('partner/update'); ?>" enctype="multipart/form-data">
-      <div class="col-sm-8">
+      <div class="row col-sm-8">
 
         <div class="form-group row">
           <?= form_error('fantasy_name_partner','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
-          
-          <div class="row col-sm-12">
-            <div class="col-sm-2">  
-              <img id="partner_image" src="<?= isset($partner['photo_partner']) ? base_url($partner['photo_partner']):'http://www.filecluster.com/howto/wp-content/uploads/2014/07/User-Default.jpg'; ?>" width=150 height=150>
-              <br>
-              <br>
-            </div>
-          </div>
 
           <div class="row">
             <div class="col-sm-3">
@@ -184,7 +176,16 @@
           <a class="btn btn-info" href="#" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
           <button  type="submit" id="create_partner" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
         </div>
-      </form>
-    </div>
+
+      </div>
+      
+      <div class="row">
+        <div class="full-center">
+          <img id="partner_image" src="<?= isset($partner['photo_partner']) ? base_url($partner['photo_partner']):'http://www.filecluster.com/howto/wp-content/uploads/2014/07/User-Default.jpg'; ?>" width=250 height=>
+        </div>
+      </div>
+
+    </form>
   </div>
+</div>
 

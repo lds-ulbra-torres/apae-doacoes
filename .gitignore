@@ -10,6 +10,7 @@ application/logs/*
 !application/logs/.htaccess
 
 user_guide/
+uploads/
 
 # IDE Files
 #-------------------------
