@@ -114,6 +114,12 @@ class AssociatedModel extends CI_Model {
 		return $this->db->get_where($this->table, array($this->table.'.id_associate' => $id))->result();
 	}
 
+	public function getByUuidLazy($uuid) {
+		return $this->db
+			->get_where($this->table, array($this->table . '.uuid_associate' => $uuid))
+			->row();
+	}
+
 	public function getByIdEager($id) {
 		$this->db->join('frequency', 'associated.id_frequency = frequency.id_frequency', 'inner');
 		$this->db->join('payment_type', 'associated.id_payment_type = payment_type.id_payment_type', 'inner');

@@ -15,7 +15,7 @@
       <form class="form-inline filter" action="<?=base_url('donations/filter')?>" method="post">
       <div class="row">
         <div class="col-lg-2">
-          <div class="input-group">
+          <div class="">
               <span>Data de</span>
               <input type="date" class="form-control"
                 name="from_date"
@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="input-group">
+          <div class="">
               <span>até</span>
               <input type="date" class="form-control"
                 name="to_date"
@@ -33,7 +33,7 @@
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="input-group">
+          <div class="">
               <span>Status de Pagamento</span>
               <select class="form-control" name="status">
                 <?php $s = isset($filter->status) ? $filter->status : 0; ?>
@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="col-lg-2">
-          <div class="input-group">
+          <div class="">
               <span>Tipo de Pagamento</span>
               <select class="form-control" name="id_payment_type">
                 <option value="0">Selecione</option>
@@ -66,8 +66,8 @@
           </span>
         </div>
       </div>
-        
-        
+
+
 
             <!--
               <div class="input-group">

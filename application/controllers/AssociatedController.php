@@ -73,7 +73,9 @@ class AssociatedController extends CI_Controller {
     if ($this->form_validation->run()) {
 
       $associate = $this->input->post();
-      $id = $this->AssociatedModel->create($associate);
+      var_dump($associate);
+      die();
+      // $id = $this->AssociatedModel->create($associate);
       if($id !== 0){
         $associate['id_associate'] = $id;
         $this->CollectionModel->createCollections((object) $associate);

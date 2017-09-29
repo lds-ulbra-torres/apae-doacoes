@@ -143,3 +143,6 @@ $route['edit_user/(:num)'] = 'auth/edit_user/$1';
 $route['change_password'] = 'auth/change_password';
 $route['users'] = 'auth';
 /** FIM Ion Auth */
+
+/** Testes */
+$route['testes'] = 'TestesController';
