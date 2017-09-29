@@ -145,4 +145,5 @@ $route['users'] = 'auth';
 /** FIM Ion Auth */
 
 /** Testes */
-$route['testes'] = 'TestesController';
+$route['tests'] = 'tests/TestsController';
+$route['tests/associated'] = 'tests/AssociatedTestController';
