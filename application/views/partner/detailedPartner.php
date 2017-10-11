@@ -34,7 +34,7 @@
       <dd><?= $partner['name_city'].' '.$partner['uf_state'] ?></dd>
       <br>
 
-     <a class="btn btn-info" href="#" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
+     <a class="btn btn-info" href="#" onclick="history.go(-2)"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
     </div>
 
       <div class="dl-horizontal row col-sm-4">
