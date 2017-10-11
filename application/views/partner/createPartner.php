@@ -72,7 +72,7 @@
 				<div class="form-group row">
 					<label for="commercial_phone_partner" class="col-sm-3 col-form-label">Telefone Comercial</label>
 					<div class="col-sm-8">
-						<input type="text" class="form-control"
+						<input type="number" class="form-control"
 						id="commercial_phone_partner" name="commercial_phone_partner" placeholder="Telefone"
 						value="<?= set_value('commercial_phone_partner', isset($partner->commercial_phone_partner) ? $partner->commercial_phone_partner:''); ?>">
 					</div>
