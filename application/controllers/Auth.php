@@ -731,6 +731,9 @@ class Auth extends CI_Controller {
 				// redirect them back to the admin page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
 				redirect("auth", 'refresh');
+			} else if(!$new_group_id){
+				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				redirect("auth/create_group");
 			}
 		}
 		else
