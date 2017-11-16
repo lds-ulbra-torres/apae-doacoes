@@ -89,3 +89,20 @@
 		})
 	})();
 </script>
+
+<script type="text/javascript">
+
+	var id, button, nome;
+
+	$('#modalExcluirDoar').on('show.bs.modal', function(e) {
+		button = $(e.relatedTarget);
+		id = button.data('petid');
+		nome = button.data('petnome');
+		console.warn('O pet que eu quero excluir tem id ', id , 'e nome:', nome);
+		$("#testando").text("Texto q eu quero substituir com o nome do pet que é " + nome);
+	});
+
+	$('#confirmaExcluirPet').on('click', function() {
+		window.location.href = "<?= base_url('excluirAnimal') ?>"+ "/" + id;
+	});
+</script>
