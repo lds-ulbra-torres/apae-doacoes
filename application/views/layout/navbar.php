@@ -40,6 +40,10 @@
                 <a href="<?= base_url('frequency') ?>">
                   <span class="glyphicon glyphicon-signal"></span> Frequência</a>
               </li>
+              <li class="<?=$page === 'category' ? 'active':''?>">
+                <a href="<?= base_url('category') ?>">
+                  <span class="glyphicon glyphicon-menu-hamburger"></span> Categorias</a>
+              </li>
               <li class="<?=$page === 'banks' ? 'active':''?>">
                 <a href="<?= base_url('banks') ?>">
                   <span class="glyphicon glyphicon-usd"></span> Bancos</a></li>

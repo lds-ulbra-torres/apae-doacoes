@@ -97,10 +97,10 @@ $db['dev'] = array(
 
 $db['test'] = array(
 	'dsn'	=> '',
-	'hostname' => '',
-	'username' => 'doacoes_test',
+	'hostname' => 'localhost',
+	'username' => 'root',
 	'password' => '',
-	'database' => 'doacoes_test',
+	'database' => 'apae_doacoes',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

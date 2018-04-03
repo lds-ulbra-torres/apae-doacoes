@@ -92,6 +92,15 @@ $route['banks/update/(:num)'] = "BanksController/update/$1";
 $route['banks/edit/(:num)'] = "BanksController/edit/$1";
 /** FIM BANCOS */
 
+/** CATEGORIAS */
+$route['category'] = 'CategoryController';
+$route['category/add'] = 'CategoryController/add';
+$route['category/create'] = 'CategoryController/create';
+$route['category/edit/(:num)'] = 'CategoryController/edit/$1';
+$route['category/update/(:num)'] = 'CategoryController/update/$1';
+$route['category/delete/(:num)'] = '/CategoryController/delete/$1';
+/** FIM CATEGORIAS */
+
 /** ASSOCIADOS */
 $route['associated'] = "AssociatedController";
 $route['associated/search'] = "AssociatedController/search";
