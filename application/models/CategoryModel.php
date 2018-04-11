@@ -7,7 +7,10 @@ class CategoryModel extends CI_Model {
     public function getAll($limit=NULL, $offset=NULL) {
         return $this->db->get($this->table, $limit, $offset)->result();
     }
-
+    public function getAllCategoryName() {
+        $this->db->order_by('name_category', 'ASC');
+          return $this->db->get('category')->result();
+      }
     /**
      * @author Joziel O. Santos  - 03-04-2018 - Busca especifica de categoria.
      * @param pIdCategory - id da categoria que será buscado.

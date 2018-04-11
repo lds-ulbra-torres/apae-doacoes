@@ -6,22 +6,19 @@
 	<div class="row col-sm-12">
 		<form method="POST" action="<?= base_url('partner/create'); ?>" id="create_partner" enctype="multipart/form-data">
 			<div class="row col-sm-8">
-
+				
 				<div class="form-group row">
-					<?= form_error('fantasy_name_partner','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
-
-					<div class="row">
-						<div class="col-sm-3">
-							<label for="fantasy_name_partner" class="col-sm-12 col-form-label">Imagem da Empresa</label>
-						</div>
-						<div class="col-sm-7 form-group">
-							<input type="file" class="file col-sm-12" onchange="close('#photo_partner')"
-							id="photo_partner" name="photo_partner"
-							value="<?= set_value('photo_partner', isset($partner->photo_partner) ? $partner->photo_partner:''); ?>"
-							placeholder="Nome da empresa"/>
-						</div>
+					<label for="neighborhood_partner" class="col-sm-3 col-form-label">Categoria</label>
+					<div class="col-sm-8">
+						<select required class="form-control" name="category_id_category" id="category_id_category">
+							<option selected disabled>Selecione</option>
+							<?php foreach ($categories as $category) { ?>
+								<option value="<?= $category->id_category ?>">
+									<?= $category->name_category ?>
+								</option>
+							<?php } ?>
+						</select>
 					</div>
-					
 				</div>
 
 				<div class="form-group row">
@@ -36,6 +33,8 @@
 					</div>
 				</div>
 
+
+				
 				<div class="form-group row">
 					<?= form_error('owner_name_partner','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
 					<label for="owner_name_partner" class="col-sm-3 col-form-label">Nome do Proprietário</label>
@@ -143,12 +142,26 @@
 							<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
 						</div>
 					</div>
-				</div>      
+				</div>
+				            
 			</div>
 
 			<div class="row">
 					<div class="full-center">
 						<img id="partner_image" src="http://www.filecluster.com/howto/wp-content/uploads/2014/07/User-Default.jpg" width=250 height=>
+					</div>
+					<div class="form-group row">
+						<?= form_error('fantasy_name_partner','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+						<div class="row">
+						<div class="col-sm-4">
+							<label for="fantasy_name_partner" class="col-sm-12 col-form-label">Imagem da Empresa</label>
+							<div class=" form-group">
+							<input type="file" class="file col-sm-12"
+							id="photo_partner" name="photo_partner"
+							placeholder="Nome da empresa"/>
+							</div>
+						</div>
+						</div>
 					</div>
 				</div>
 			</div>

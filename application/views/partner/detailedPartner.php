@@ -6,7 +6,9 @@
   <?= $this->session->flashdata('alert') ?>
   <div class="row">
     <div class="dl-horizontal row col-sm-8">
-
+    <dt>Categoria</dt>
+      <dd><?= $partner['name_category']?></dd>
+      <hr>
       <dt>Nome do Proprietário</dt>
       <dd><?= $partner['owner_name_partner'] ?></dd>
       <hr>
@@ -39,7 +41,7 @@
 
       <div class="dl-horizontal row col-sm-4">
         <div class="full-center">
-          <img class="partner_img" src="<?= base_url($partner['photo_partner'])?>" alt="<?= $partner['fantasy_name_partner'] ?>">
+          <img class="partner_img" src="<?= base_url($partner['photo_partner'])?>" alt="<?= base_url($partner['photo_partner']) ?>">
         </div>
       </div>
 

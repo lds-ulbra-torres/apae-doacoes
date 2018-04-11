@@ -46,6 +46,7 @@
       <tr>
         <th>ID</th>
         <th>Nome da Empresa</th>
+        <th>Categoria</th>
         <th>CNPJ/CPF</th>
         <th>Telefone</th>
         <th>Ações</th>
@@ -56,6 +57,7 @@
       <tr>
         <td><?= $partner->id_partner ?></td>
         <td><?= $partner->fantasy_name_partner ?></td>
+        <td><?= $category[$partner->category_id_category-1]->name_category?></td>
         <td><?= $partner->cnpj_cpf_partner ?></td>
         <td><?= $partner->commercial_phone_partner ?></td>
         <td>  <div class="btn-group">

@@ -14,6 +14,7 @@ class PartnerController extends CI_Controller {
 
 	private function loadFormDependencies($data=NULL) {
 		$data['cidades'] = $this->CitiesModel->GetAllCities();
+		$data['categories'] = $this->CategoryModel->getAllCategoryName();
 		return $data;
 	}
 
@@ -23,6 +24,7 @@ class PartnerController extends CI_Controller {
 		$this->form_validation->set_rules('rg_inscription_partner', 'RG/Inscrição estadual', 'required');
 		$this->form_validation->set_rules('cnpj_cpf_partner', 'CPF/CNPJ', 'required');
 		$this->form_validation->set_rules('id_city', 'Cidade', 'required');
+		$this->form_validation->set_rules('category_id_category', 'Categoria', 'required');
 	}
 
 	public function index($searchText=NULL)
@@ -32,6 +34,7 @@ class PartnerController extends CI_Controller {
 		$getPage = (int) $this->input->get("page");
 		$page = $getPage == 0 ? $getPage : ($getPage-1) * self::PER_PAGE;
 		$data['partners'] = $this->PartnerModel->getAll(self::PER_PAGE, $page);
+		$data['category'] = $this->CategoryModel->getAllCategoryName();
 		$config = PaginationHelper($baseUrl, $totalRows, self::PER_PAGE);
 		$this->pagination->initialize($config);
 		$data['pagination'] = $this->pagination->create_links();
@@ -46,6 +49,7 @@ class PartnerController extends CI_Controller {
 		$totalRows = $this->AssociatedModel->searchTotalCount($searchText);
 		$page = $getPage == 0 ? $getPage : ($getPage-1) * self::PER_PAGE;
 		$data['partners'] = $this->PartnerModel->searchAll(self::PER_PAGE, $page, $searchText);
+		$data['category'] = $this->CategoryModel->getAllCategoryName();
 		$config = PaginationHelper($baseUrl, $totalRows, self::PER_PAGE);
 		$this->pagination->initialize($config);
 		$data['pagination'] = $this->pagination->create_links();
