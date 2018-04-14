@@ -56,7 +56,15 @@ class PartnerModel extends CI_Model {
 		$this->db->join('category', 'partners.category_id_category = category.id_category');
 		return $this->db->get('partners')->result_array()[0];
 	}
-
+	/**
+     * @author Joziel O. Santos  - 13-04-2018 - deleta categoria.
+     * @param id - id da categoria a ser apagada
+     * @return - retorna os parceiros por categoria;
+     */
+	public function getPartnerByCategory($id){
+		$this->db->where('category_id_category', $id);
+		return $this->db->get('partners')->result();
+	}
 	public function delete($id){
 		$this->db->where('id_partner', $id);
 		return $this->db->delete('partners');

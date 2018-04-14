@@ -34,7 +34,7 @@ class PartnerController extends CI_Controller {
 		$getPage = (int) $this->input->get("page");
 		$page = $getPage == 0 ? $getPage : ($getPage-1) * self::PER_PAGE;
 		$data['partners'] = $this->PartnerModel->getAll(self::PER_PAGE, $page);
-		$data['category'] = $this->CategoryModel->getAllCategoryName();
+		$data['category'] = $this->CategoryModel->getAll();
 		$config = PaginationHelper($baseUrl, $totalRows, self::PER_PAGE);
 		$this->pagination->initialize($config);
 		$data['pagination'] = $this->pagination->create_links();
@@ -113,7 +113,7 @@ class PartnerController extends CI_Controller {
 		$this->loadFormRules();
 
 		$route = null;
-		if(!empty($_FILES['photo_partner']['size'])){
+		if(isset($_FILES)){
 			$tmp = $_FILES['photo_partner']['tmp_name'];
 			$name = $_FILES['photo_partner']['name'];
 			$type = substr($name, -4, 4);

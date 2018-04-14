@@ -133,9 +133,6 @@ $route['partner/edit/(:num)'] = "PartnerController/editPartner/$1";
 $route['partner/update'] = "PartnerController/updatePartner";
 $route['partner/delete/(:num)'] = "PartnerController/deletePartner/$1";
 $route['partner/partner-detail/(:num)'] = "PartnerController/detailPartner/$1";
-
-$route['v1/partner/get'] = "PartnerApiController/getPartnersAPI";
-$route['v1/partner/get/(:num)'] = "PartnerApiController/getPartnersByIdAPI/$1";
 /** FIM Parceiros */
 
 /** CARTEIRAS */
@@ -152,6 +149,13 @@ $route['edit_user/(:num)'] = 'auth/edit_user/$1';
 $route['change_password'] = 'auth/change_password';
 $route['users'] = 'auth';
 /** FIM Ion Auth */
+
+/** API */
+$route['api/partner/(:num)'] = "PartnerApiController/getPartnersByIdAPI/$1";
+$route['api/category'] = "CategoryApiController/getCategories";
+$route['api/partnerByCategory/(:num)'] = "PartnerApiController/getPartnersByCategoryAPI/$1";
+/**FIM API */
+
 
 /** Testes */
 $route['tests'] = 'tests/TestsController';
