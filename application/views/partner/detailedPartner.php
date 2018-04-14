@@ -41,7 +41,7 @@
 
       <div class="dl-horizontal row col-sm-4">
         <div class="full-center">
-          <img class="partner_img" src="<?= base_url($partner['photo_partner'])?>" alt="<?= base_url($partner['photo_partner']) ?>">
+          <img class="partner_img" src="<?= base_url($partner['photo_partner'])?>" alt="<?= $partner['fantasy_name_partner']  ?>">
         </div>
       </div>
 
