@@ -53,11 +53,13 @@
       </tr>
     </thead>
     <tbody>
-     <?php foreach ($partners as $partner) : ?>
+     <?php foreach ($partners as $partner) : 
+        $idCategory = array_search($partner->category_id_category, array_column($category, 'id_category'));
+      ?>
       <tr>
         <td><?= $partner->id_partner ?></td>
         <td><?= $partner->fantasy_name_partner ?></td>
-        <td><?= $category[$partner->category_id_category-1]->name_category?></td>
+        <td><?= $category[$idCategory]->name_category ?></td>
         <td><?= $partner->cnpj_cpf_partner ?></td>
         <td><?= $partner->commercial_phone_partner ?></td>
         <td>  <div class="btn-group">
