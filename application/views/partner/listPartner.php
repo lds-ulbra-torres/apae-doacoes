@@ -38,7 +38,7 @@
     </div>
   </div>
 
-  <div class="">
+  
    <?= $this->session->flashdata('alert') ?>
 
    <table class="table table-responsive table-striped table-hover">
@@ -68,34 +68,32 @@
           <a class="btn btn-danger btn-sm delete-partner-btn" id="<?= $partner->id_partner ?>" data-toggle="modal" data-target="#delete_modal" href="#"><span class="glyphicon glyphicon-trash"></span></a>
         </div></td>
       </tr>
-    <?php endforeach; ?>
-  </tbody>
-</table>
- <div class="row">
+      <?php endforeach; ?>
+   </tbody>
+  </table>
+  <div class="row">
         <div class="col-md-12 text-center">
             <?= $pagination ?>
         </div>
-    </div>
+  </div>
 
-<div class="modal fade" id="delete_modal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title">Confirmar Exclusão</h4>
-      </div>
-      <div class="modal-body">
-        <p>Tem certeza que deseja apagar este parceiro?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
-        <a href="#" id="confirmDelete" type="button" class="btn btn-danger">Apagar</a>
+  <div class="modal fade" id="delete_modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">Confirmar Exclusão</h4>
+        </div>
+        <div class="modal-body">
+          <p>Tem certeza que deseja apagar este parceiro?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+          <a href="#" id="confirmDelete" type="button" class="btn btn-danger">Apagar</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
-
 </div>

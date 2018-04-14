@@ -27,7 +27,7 @@
             </div>
             <div class="col-sm-12 col-md-4">
                 <div class="row">
-                    <img id="category_image" src=src="<?= isset($category[0]['photo_category']) ? base_url($category[0]['photo_category']):'http://www.filecluster.com/howto/wp-content/uploads/2014/07/User-Default.jpg'; ?>" width=250 height=> 
+                    <img id="category_image" src="<?= isset($category[0]['photo_category']) ? base_url($category[0]['photo_category']):'http://www.filecluster.com/howto/wp-content/uploads/2014/07/User-Default.jpg'; ?>" width=250 height=> 
                     <div class="form-group row">
                         <?= form_error('fantasy_name_partner','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
                         <div class="row">

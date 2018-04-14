@@ -4,7 +4,7 @@
 		<a class="btn btn-success" href="<?= site_url('category/add'); ?>" title="Cadastrar"><span class="glyphicon glyphicon-plus"></span> Cadastrar Categoria</a>
 
 	</div>
-
+	<?= $this->session->flashdata('alert');?>
 	<table id="Tcategory" class="table table-responsive table-hover">
 		<thead>
 			<tr>
@@ -75,9 +75,4 @@
 		<span class="glyphicon glyphicon-trash"></span>  Cadastro Exlcuido!
 	</div>
 </div>
-<?php 
-					if($this->session){
-						echo $this->session->flashdata('alert');
-					}else{
-						echo "Não";
-				}?>
+			

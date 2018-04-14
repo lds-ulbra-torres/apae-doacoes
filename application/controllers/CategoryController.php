@@ -113,7 +113,7 @@ class CategoryController extends CI_Controller
     }
 
     /**
-     * @author Joziel O. Santos - 13-04-2018 - chama a função que ira deletar a categoria do banco
+     * @author Joziel O. Santos - 14-04-2018 - chama a função que ira deletar a categoria do banco
      * @param pId - id do usuario a ser deletado
      * @return - se deletar, retorna pra lista, se não chama a view de error
      */
@@ -125,7 +125,7 @@ class CategoryController extends CI_Controller
             }
         }
         else {
-            $this->session->set_flashdata('alert', CreateErrorAlert("Violação de Integridade de Dados",$pId));
+            $this->session->set_flashdata('alert', CreateErrorAlert("Não foi possivel excluir pois há dados com esta categoria",$pId));
         }
 
         redirect('category',$dataa);
