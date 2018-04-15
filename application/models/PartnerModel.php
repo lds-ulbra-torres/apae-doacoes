@@ -53,7 +53,7 @@ class PartnerModel extends CI_Model {
 		$this->db->where('id_partner', $id);
 		$this->db->join('city', 'partners.id_city = city.id_city');
 		$this->db->join('state', 'city.id_state = state.id_state');
-		$this->db->join('category', 'partners.category_id_category = category.id_category');
+		$this->db->join('category', 'partners.category_id_category = category.id_category','left');
 		return $this->db->get('partners')->result_array()[0];
 	}
 	/**

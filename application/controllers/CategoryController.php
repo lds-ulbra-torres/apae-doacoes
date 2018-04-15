@@ -125,7 +125,7 @@ class CategoryController extends CI_Controller
             }
         }
         else {
-            $this->session->set_flashdata('alert', CreateErrorAlert("Não foi possivel excluir pois há dados com esta categoria",$pId));
+            $this->session->set_flashdata('alert', CreateErrorAlert("Violação de Integridade de Dados",$pId));
         }
 
         redirect('category',$dataa);

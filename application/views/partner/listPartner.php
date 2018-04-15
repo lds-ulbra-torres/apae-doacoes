@@ -53,13 +53,18 @@
       </tr>
     </thead>
     <tbody>
-     <?php foreach ($partners as $partner) : 
-        $idCategory = array_search($partner->category_id_category, array_column($category, 'id_category'));
+     <?php foreach ($partners as $partner) :
+                if($partner->category_id_category != null){ 
+                  $idCategory = array_search($partner->category_id_category, array_column($category, 'id_category'));
+                  $categoria = $category[$idCategory]->name_category;
+                }else{
+                  $categoria = 'Sem categoria';
+                }
       ?>
       <tr>
         <td><?= $partner->id_partner ?></td>
         <td><?= $partner->fantasy_name_partner ?></td>
-        <td><?= $category[$idCategory]->name_category ?></td>
+        <td><?= $categoria ?></td>
         <td><?= $partner->cnpj_cpf_partner ?></td>
         <td><?= $partner->commercial_phone_partner ?></td>
         <td>  <div class="btn-group">

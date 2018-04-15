@@ -1,5 +1,11 @@
 <div class="well well-lg container">
-
+<?php
+  if($partner['name_category'] != null){
+    $categoria = $partner['name_category'];
+  }else{
+    $categoria= 'Sem Categoria';
+  }
+?>
   <div class="page-header">
     <h2>Parceiro <strong><?=$partner['fantasy_name_partner'] ?></strong> </h2>
   </div>
@@ -7,7 +13,7 @@
   <div class="row">
     <div class="dl-horizontal row col-sm-8">
     <dt>Categoria</dt>
-      <dd><?= $partner['name_category']?></dd>
+      <dd><?= $categoria?></dd>
       <hr>
       <dt>Nome do Proprietário</dt>
       <dd><?= $partner['owner_name_partner'] ?></dd>
