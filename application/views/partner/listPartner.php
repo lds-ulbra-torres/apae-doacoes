@@ -54,23 +54,22 @@
     </thead>
     <tbody>
      <?php foreach ($partners as $partner) :
-                if($partner->category_id_category != null){ 
-                  $idCategory = array_search($partner->category_id_category, array_column($category, 'id_category'));
-                  $categoria = $category[$idCategory]->name_category;
+                if($partner['category_id_category'] != null){ 
+                 $categoria = $partner['name_category'];
                 }else{
                   $categoria = 'Sem categoria';
                 }
       ?>
       <tr>
-        <td><?= $partner->id_partner ?></td>
-        <td><?= $partner->fantasy_name_partner ?></td>
+        <td><?= $partner['id_partner'] ?></td>
+        <td><?= $partner['fantasy_name_partner'] ?></td>
         <td><?= $categoria ?></td>
-        <td><?= $partner->cnpj_cpf_partner ?></td>
-        <td><?= $partner->commercial_phone_partner ?></td>
+        <td><?= $partner['cnpj_cpf_partner'] ?></td>
+        <td><?= $partner['commercial_phone_partner'] ?></td>
         <td>  <div class="btn-group">
-          <a class="btn btn-info btn-sm" href="<?= base_url('partner/partner-detail/'. $partner->id_partner) ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
-          <a class="btn btn-primary btn-sm" href="<?= base_url('partner/edit/'.  $partner->id_partner) ?>"><span class="glyphicon glyphicon-edit"></span></a>
-          <a class="btn btn-danger btn-sm delete-partner-btn" id="<?= $partner->id_partner ?>" data-toggle="modal" data-target="#delete_modal" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+          <a class="btn btn-info btn-sm" href="<?= base_url('partner/partner-detail/'. $partner['id_partner']) ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
+          <a class="btn btn-primary btn-sm" href="<?= base_url('partner/edit/'.  $partner['id_partner']) ?>"><span class="glyphicon glyphicon-edit"></span></a>
+          <a class="btn btn-danger btn-sm delete-partner-btn" id="<?= $partner['id_partner'] ?>" data-toggle="modal" data-target="#delete_modal" href="#"><span class="glyphicon glyphicon-trash"></span></a>
         </div></td>
       </tr>
       <?php endforeach; ?>

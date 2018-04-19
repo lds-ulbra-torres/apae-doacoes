@@ -33,8 +33,7 @@ class PartnerController extends CI_Controller {
 		$totalRows = $this->PartnerModel->totalCount();
 		$getPage = (int) $this->input->get("page");
 		$page = $getPage == 0 ? $getPage : ($getPage-1) * self::PER_PAGE;
-		$data['partners'] = $this->PartnerModel->getAll(self::PER_PAGE, $page);
-		$data['category'] = $this->CategoryModel->getAll();
+		$data['partners'] = $this->PartnerModel->getPartners(self::PER_PAGE, $page);
 		$config = PaginationHelper($baseUrl, $totalRows, self::PER_PAGE);
 		$this->pagination->initialize($config);
 		$data['pagination'] = $this->pagination->create_links();
@@ -156,24 +155,6 @@ class PartnerController extends CI_Controller {
 		else {
 			$this->session->set_flashdata('alert', CreateErrorAlert("Violação de Integridade de Dados"));
 			redirect('partner/partner-detail/'. $id);
-		}
-	}
-
-	public function getPartnersAPI(){
-		$data['partners'] = $this->PartnerModel->getPartners();
-		header('Content-Type: application/json');
-		echo json_encode($data);
-	}
-
-	public function getPartnersByIdAPI($id){
-		$data['partners'] = $this->PartnerModel->getPartnerById($id);
-		if($data['partners'] != null){
-			header('Content-Type: application/json');
-			echo json_encode($data);
-		}else{
-			$data['error'] = '{error: "Não há parceiros com à id fornecida!"}';
-			header('Content-Type: application/json');
-			echo json_encode($data);
 		}
 	}
 

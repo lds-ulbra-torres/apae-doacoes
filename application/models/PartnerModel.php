@@ -39,10 +39,12 @@ class PartnerModel extends CI_Model {
     	return $this->db->count_all($this->table);
 	}
 
-	public function getPartners(){
+	public function getPartners($limit=NULL, $offset=NULL){
 		$this->db->join('city', 'partners.id_city = city.id_city');
 		$this->db->join('state', 'city.id_state = state.id_state');
-		return $this->db->get('partners')->result_array();
+		$this->db->join('category', 'partners.category_id_category = category.id_category','left');
+		return $this->db->get('partners', $limit, $offset)->result_array();
+
 	}
 
 	public function getAll($limit=NULL, $offset=NULL) {
