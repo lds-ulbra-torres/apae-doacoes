@@ -19,12 +19,12 @@ class PartnerApiController extends CI_Controller {
 		}
 	}
 	/**
-     * @author Joziel O. Santos  - 13-04-2018 - pega paceiros.
+     * @author Joziel O. Santos  - 19-04-2018 - pega paceiros.
      * @param id - id do parceiro
      * @return - retorna paceiros;
      */
 	public function getPartnersByIdAPI($id){
-		$data['partners'] = $this->PartnerModel->getPartnerById($id);
+		$data['partners'] = $this->PartnerModel->getPartnerByIdAPI($id);
 		if($data['partners'] != null){
 			header('Content-Type: application/json');
 			echo json_encode($data);

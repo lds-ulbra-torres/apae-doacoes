@@ -57,7 +57,18 @@ class PartnerModel extends CI_Model {
 		return $this->db->get('partners')->result_array()[0];
 	}
 	/**
-     * @author Joziel O. Santos  - 13-04-2018 - deleta categoria.
+     * @author Joziel O. Santos  - 19-04-2018 - pega parceiros .
+     * @param id - id do parceiro
+     * @return - retorna o parceiro;
+     */
+	public function getPartnerByIdAPI($id){
+		$this->db->where('id_partner', $id);
+		$this->db->join('city', 'partners.id_city = city.id_city');
+		$this->db->join('state', 'city.id_state = state.id_state');
+		return $this->db->get('partners')->result_array()[0];
+	}
+	/**
+     * @author Joziel O. Santos  - 13-04-2018 - pega parceiros por categoria.
      * @param id - id da categoria a ser apagada
      * @return - retorna os parceiros por categoria;
      */
