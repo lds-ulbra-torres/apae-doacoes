@@ -19,8 +19,7 @@ class PartnerModel extends CI_Model {
 	}
 
 	public function searchAll($limit=NULL, $offset=NULL, $search=NULL) {
-		$this->db
-			->group_start()
+		$this->db->join('category', 'partners.category_id_category = category.id_category','left')			->group_start()
 				->like('partners.owner_name_partner', $search)
 				->or_group_start()
 					->like('partners.cnpj_cpf_partner', $search)
@@ -32,7 +31,8 @@ class PartnerModel extends CI_Model {
 					->like('partners.fantasy_name_partner', $search)
 				->group_end()
 			->group_end();
-    return $this->db->get($this->table, $limit, $offset)->result();
+
+    return $this->db->get($this->table, $limit, $offset)->result_array();
 	}
 
 	public function totalCount() {
