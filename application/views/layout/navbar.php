@@ -24,6 +24,12 @@
       </form>-->
       <ul class="nav navbar-nav navbar-right">
         <?php if ($this->ion_auth->logged_in()) { ?>
+
+          <li class="<?=$page === 'notification' ? 'active':''?>"  style="color: red">
+              <a href="<?= base_url('notification') ?>" <?= $this->ion_auth->notification()?>>
+                    <span class="glyphicon glyphicon-bell"></span> Notificação</a>
+          </li>
+
           <li class="<?=$page === 'donations' ? 'active':''?>">
             <a href="<?= base_url('donations') ?>">
               <span class="glyphicon glyphicon-dashboard"></span> Doações</a></li>
