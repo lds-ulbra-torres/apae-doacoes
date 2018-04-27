@@ -7,6 +7,23 @@ class NotificationApiController extends CI_Controller {
      */
     public function postPrePartner(){
         $data = $this->input->post();
-        $this->NotificationModel->create($data);
+        if($this->validacao($data)){
+            $this->NotificationModel->create($data);
+            $msg['msg'] = '{success:"Sua mensagem foi enviada com sucesso!"}';
+			header('Content-Type: application/json');
+			echo json_encode($msg);
+        }else{
+            $msg['msg'] = '{error: "name_partner,name_contact, phone and email is required!"}';
+			header('Content-Type: application/json');
+			echo json_encode($msg);
+        }
+    }
+    public function validacao($data){
+        if(($data['name_partner'] != "") &&($data['name_contact'] != "") &&($data['phone'] != "") &&($data['email'] != "") &&($data['message'] != "")){ 
+            return true;
+        }else{
+            return false;
+        }
+
     }
 }
