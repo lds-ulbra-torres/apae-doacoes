@@ -2,6 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class PartnerApiController extends CI_Controller {
+	public function __construct(){
+		header('Access-Control-Allow-Origin: *');
+		header("Access-Control-Allow-Methods: GET");
+		parent::__construct();
+	}	
 	/**
      * @author Joziel O. Santos  - 13-04-2018 - pega paceiros da categoria.
      * @param id - id da categoria de paceiros
