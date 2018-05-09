@@ -21,7 +21,6 @@ class PartnerController extends CI_Controller {
 	private function loadFormRules() {
 		$this->form_validation->set_rules('fantasy_name_partner', 'Nome da empresa', 'required');
 		$this->form_validation->set_rules('owner_name_partner', 'Nome do proprietário', 'required');
-		$this->form_validation->set_rules('rg_inscription_partner', 'RG/Inscrição estadual', 'required');
 		$this->form_validation->set_rules('cnpj_cpf_partner', 'CPF/CNPJ', 'required');
 		$this->form_validation->set_rules('id_city', 'Cidade', 'required');
 		$this->form_validation->set_rules('category_id_category', 'Categoria', 'required');
