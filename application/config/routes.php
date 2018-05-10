@@ -135,6 +135,14 @@ $route['partner/delete/(:num)'] = "PartnerController/deletePartner/$1";
 $route['partner/partner-detail/(:num)'] = "PartnerController/detailPartner/$1";
 /** FIM Parceiros */
 
+/** Notificacoes */
+$route['notification'] = "NotificationController";
+$route['notification/detailPartner/(:num)'] = "NotificationController/detailPartner/$1";
+$route['notification/became-partner/(:num)'] = "NotificationController/becamePartner/$1";
+$route['notification/refused-partner/(:num)'] = "NotificationController/refusedPartner/$1";
+$route['api/pre_partner']['post'] = "NotificationApiController/postPrePartner";
+/** FIM Notificacoes */
+
 /** CARTEIRAS */
 $route['carteiras'] = "CarteiraController";
 $route['carteiras/add'] = "CarteiraController/add";
