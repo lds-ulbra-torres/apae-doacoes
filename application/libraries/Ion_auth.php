@@ -543,9 +543,22 @@ class Ion_auth
      * @author Joziel O. Santos  - 26-04-2018 
      * @return - retorna a cor do botao de notificacao em caso de haver algum pre-parceiro pendente;
      */
-	public function notification(){
-        $data = $this->NotificationModel->getPrePartner();
+	public function notificationPartner(){
+        $data = $this->NotificationModel->get(null, null,1);
 		if(count($data) != 0){
+			return 'style="color : red"';
+		}
+	}
+	public function notificationAssociated(){
+        $data = $this->NotificationModel->get(null, null,2);
+		if(count($data) != 0){
+			return 'style="color : red"';
+		}
+	}
+	public function notification(){
+		$data = $this->NotificationModel->get(null, null,1);
+		$data1 = $this->NotificationModel->get(null, null,2);
+		if(count($data) != 0 || count($data1) != 0){
 			return 'style="color : red"';
 		}
 	}

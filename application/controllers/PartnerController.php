@@ -46,7 +46,7 @@ class PartnerController extends CI_Controller {
 		$baseUrl = base_url('partner/search?q='. urlencode($searchText));
 		$totalRows = $this->AssociatedModel->searchTotalCount($searchText);
 		$page = $getPage == 0 ? $getPage : ($getPage-1) * self::PER_PAGE;
-		$data['partners'] = $this->PartnerModel->getPartners(self::PER_PAGE, $page);
+		$data['partners'] = $this->PartnerModel->searchAll(self::PER_PAGE, $page, $searchText);
 		$config = PaginationHelper($baseUrl, $totalRows, self::PER_PAGE);
 		$this->pagination->initialize($config);
 		$data['pagination'] = $this->pagination->create_links();

@@ -18,7 +18,7 @@
       <dd><?= $partner['message'] ?></dd>
       <hr>
 
-     <a class="btn btn-info" href="<?=base_url('notification')?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
+     <a class="btn btn-info" href="<?=base_url('newPartners')?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
     </div>
 
   </div>

@@ -24,11 +24,22 @@
       </form>-->
       <ul class="nav navbar-nav navbar-right">
         <?php if ($this->ion_auth->logged_in()) { ?>
+          
+          <li class="dropdown <?=$page==='newPartners'||$page==='newAssociated' ? 'active':''?>">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-bell" <?= $this->ion_auth->notification()?>></span> Notificações <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="<?=$page === 'newPartners' ? 'active':''?>"  >
+                  <a href="<?= base_url('newPartners') ?>">
+                        <span class="glyphicon glyphicon-heart" <?= $this->ion_auth->notificationPartner()?>></span> Novos Parceiros</a>
+              </li>
 
-          <li class="<?=$page === 'notification' ? 'active':''?>"  style="color: red">
-              <a href="<?= base_url('notification') ?>" <?= $this->ion_auth->notification()?>>
-                    <span class="glyphicon glyphicon-bell"></span> Notificação</a>
+              <li class="<?=$page === 'newAssociateds' ? 'active':''?>" >
+                  <a href="<?= base_url('newAssociateds') ?>">
+                        <span class="glyphicon glyphicon-thumbs-up" <?= $this->ion_auth->notificationAssociated()?>></span> Novos Associados</a>
+              </li>
+            </ul>
           </li>
+
 
           <li class="<?=$page === 'donations' ? 'active':''?>">
             <a href="<?= base_url('donations') ?>">
