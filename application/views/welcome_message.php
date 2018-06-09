@@ -53,7 +53,7 @@ p.inner-footer {
 <div class="body">
 
 	<div id="container">
-		<h1>Bem-vindo ao Sistema de Doações da APAE!</h1>
+		<h1>Bem-vindo ao Sistema de Doações da APAE. Ambiente de Teste</h1>
 
 		<div id="body">
 			<p>Esta é a página inicial.</p>
