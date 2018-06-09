@@ -1,1 +1,0 @@
-ALTER TABLE partners modify rg_inscription_partner varchar(45);

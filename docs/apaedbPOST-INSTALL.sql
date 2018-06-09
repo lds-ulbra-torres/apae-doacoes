@@ -9785,11 +9785,36 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 ALTER TABLE partners ADD CONSTRAINT category_id_category 
-FOREIGN KEY(category_id_category) REFERENCES category(id_category)
+FOREIGN KEY(category_id_category) REFERENCES category(id_category);
 
 -- ------------------------------------------------------------------
--- ----------------------------------------------------------------
- ------------------------------------------------------------------
 -- ------------------------------------------------------------------
--- ------------------------------------------------------------------
--- ------------------------------------------------------------------
+-- Joziel: novos scripts para pre cadastro de novos associados
+create table pre_associated(
+	id int auto_increment primary key ,
+    name_associated varchar(45) not null,
+    email_associated varchar(45) not null,
+    phone_cel varchar(45) not null,
+    phone_home varchar(45) not null,
+	phone_commerce varchar(45),
+	became bool default 0,
+    refused bool default 0
+);
+
+-- Joziel: novos scritps para pre cadastros de parceiros. empresas.
+create table pre_partners(
+	id int primary key auto_increment,
+    name_partner varchar(100) not null,
+    name_contact varchar(100) not null,
+    phone varchar(45) not null,
+    email varchar(45) not null,
+    message varchar(1000),
+    became boolean default 0,
+    refused boolean default 0
+);
+
+-- Joziel: alterar inscrição estadual e rg para não ser obrigatório.
+ALTER TABLE partners modify rg_inscription_partner varchar(45);
+
+
+
