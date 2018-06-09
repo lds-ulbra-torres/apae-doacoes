@@ -1,7 +1,7 @@
 <script src="<?= base_url('assets/js/notification/notification.js') ?>" charset="utf-8"></script>
 <div class="well well-lg">
   <div class="page-header">
-    <h2>Parceiros</h2>
+    <h2>Novos Associado</h2>
   </div>
 
   
@@ -11,24 +11,22 @@
     <thead>
       <tr>
 
-        <th>Nome da Empresa</th>
-        <th>Contato</th>
+        <th>Nome</th>
         <th>Telefone</th>
         <th>E-mail</th>
         <th>Ações</th>
       </tr>
     </thead>
     <tbody>
-     <?php foreach ($partners as $partner) :?>
+     <?php foreach ($associateds as $associated) :?>
       <tr>
-        <td><?= $partner->name_partner ?></td>
-        <td><?= $partner->name_contact ?></td>
-        <td><?= $partner->phone ?></td>
-        <td><?= $partner->email?></td>
+        <td><?= $associated->name_associated ?></td>
+        <td><?= $associated->phone_cel ?></td>
+        <td><?= $associated->email?></td>
         <td>  <div class="btn-group">
-          <a class="btn btn-info btn-sm confirm-partner-btn" id="<?= $partner->id_pre_partner ?>" data-toggle="modal" data-target="#delete_modal" href="#">
+          <a class="btn btn-info btn-sm confirm-partner-btn" id="<?= $associated->id ?>" data-toggle="modal" data-target="#delete_modal" href="#">
           <span class="glyphicon glyphicon-ok-sign"></span></a>
-          <a class="btn btn-primary btn-sm" href="<?= base_url('notification/detailPartner/'.  $partner->id_pre_partner) ?>">
+          <a class="btn btn-primary btn-sm" href="<?= base_url('detailAssociated/'.  $associated->id) ?>">
           <span class="glyphicon glyphicon-eye-open"></span></a>
         </div></td>
       </tr>
@@ -50,13 +48,13 @@
           </button>
           <h4 class="modal-title">Confirmar</h4>
         </div>
-        <div class="modal-body">
-          <p>Qual situação deste pré-parceiro?</p>
+        <div class="modal-body">  
+          <p>Qual situação deste pré-associado?</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
-          <a href="#" id="refusedPertner" type="button" class="btn btn-danger">Recusado</a>
-          <a href="#" id="becamePertner" type="button" class="btn btn-success">Tornou-se Parceiro</a>
+          <a href="#" id="refusedAssociated" type="button" class="btn btn-danger">Recusado</a>
+          <a href="#" id="becameAssociated" type="button" class="btn btn-success">Tornou-se Associado</a>
         </div>
       </div>
     </div>
