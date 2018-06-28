@@ -23,6 +23,18 @@ class PartnerApiController extends CI_Controller {
 			echo json_encode($msg);
 		}
 	}
+	// Version 2
+	public function getPartnersByCategoryAPI_V2($id){
+		$data['partnersByCategory'] = $this->PartnerModel->getPartnerByCategory_V2($id);
+		if($data['partnersByCategory'] != null){
+			header('Content-Type: application/json');
+			echo json_encode($data);
+		}else{
+			$msg['error'] = '{error: "Não há parceiros com à categoria fornecida!"}';
+			header('Content-Type: application/json');
+			echo json_encode($msg);
+		}
+	}
 	/**
      * @author Joziel O. Santos  - 19-04-2018 - pega paceiros.
      * @param id - id do parceiro
@@ -30,6 +42,18 @@ class PartnerApiController extends CI_Controller {
      */
 	public function getPartnersByIdAPI($id){
 		$data['partners'] = $this->PartnerModel->getPartnerByIdAPI($id);
+		if($data['partners'] != null){
+			header('Content-Type: application/json');
+			echo json_encode($data);
+		}else{
+			$msg['error'] = '{error: "Não há parceiros com à id fornecida!"}';
+			header('Content-Type: application/json');
+			echo json_encode($msg);
+		}
+	}
+	//Version 2
+	public function getPartnersByIdAPI_V2($id){
+		$data['partners'] = $this->PartnerModel->getPartnerByIdAPI_V2($id);
 		if($data['partners'] != null){
 			header('Content-Type: application/json');
 			echo json_encode($data);

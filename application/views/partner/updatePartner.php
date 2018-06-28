@@ -50,7 +50,7 @@
 
           <label for="owner_name_partner" class="col-sm-3 col-form-label">Nome do Proprietário</label>
           <div class="col-sm-8">
-            <input type="text"
+            <input required type="text"
             class="form-control"
             onchange="close('#nameError')"
             id="owner_name_partner" name="owner_name_partner"
@@ -79,7 +79,7 @@
 
           <label for="cnpj_cpf_partner" class="col-sm-3 col-form-label">CNPJ/CPF</label>
           <div class="col-sm-8">
-            <input type="number"
+            <input required type="number"
             class="form-control"
             onchange="close('#cnpj_cpf_partner')"
             id="cnpj_cpf_partner" name="cnpj_cpf_partner"
@@ -106,17 +106,17 @@
         <div class="form-group row">
           <label for="cep_partner" class="col-sm-3 col-form-label">CEP</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control"
+            <input required type="text" class="form-control"
             id="cep_partner" name="cep_partner"
             value="<?= set_value('cep_partner', isset($partner['cep_partner']) ? $partner['cep_partner']:''); ?>"
             placeholder="CEP" />
           </div>
         </div>
 
-        <div class="form-group row">
+        <div  class="form-group row">
           <label for="street_partner" class="col-sm-3 col-form-label">Rua</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control"
+            <input required type="text" class="form-control"
             id="street_partner" name="street_partner"
             placeholder="Nome da Rua"
             value="<?= set_value('street_partner', isset($partner['street_partner']) ? $partner['street_partner']:''); ?>">
@@ -126,7 +126,7 @@
         <div class="form-group row">
           <label for="number_partner" class="col-sm-3 col-form-label">Número</label>
           <div class="col-sm-8">
-            <input type="number_partner"
+            <input required type="number_partner"
             class="form-control"
             id="number_partner" name="number_partner"
             placeholder="Número da Residência"
@@ -137,7 +137,7 @@
         <div class="form-group row">
           <label for="neighborhood_partner" class="col-sm-3 col-form-label">Bairro</label>
           <div class="col-sm-8">
-            <input type="text"
+            <input required type="text"
             class="form-control"
             id="neighborhood_partner" name="neighborhood_partner"
             placeholder="Bairro"
@@ -150,7 +150,7 @@
 
           <label for="commercial_phone_partner" class="col-sm-3 col-form-label">Telefone Comercial</label>
           <div class="col-sm-8">
-            <input type="number"
+            <input required type="number"
             class="form-control"
             id="commercial_phone_partner" name="commercial_phone_partner"
             placeholder="Telefone"
@@ -161,16 +161,39 @@
         <div class="form-group row">
           <?= form_error('discount_partner','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
 
-          <label for="discount_partner" class="col-sm-3 col-form-label">Valor de Desconto (%)</label>
+          <label for="discount_partner" class="col-sm-3 col-form-label">Valor de Desconto à vista (%)</label>
           <div class="col-sm-8">
-            <input type="number"
+            <input required type="number"
             class="form-control"
             id="discount_partner" name="discount_partner"
             placeholder="Valor de desconto"
             value="<?= set_value('discount_partner', isset($partner['discount_partner']) ? $partner['discount_partner']:''); ?>">
           </div>
         </div>
+        <div class="form-group row">
+          <?= form_error('discount_partner','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
 
+          <label for="discount_partner" class="col-sm-3 col-form-label">Valor de Desconto à prazo(%)</label>
+          <div class="col-sm-8">
+            <input required type="number"
+            class="form-control"
+            id="term_discount_partner" name="term_discount_partner"
+            placeholder="Valor de desconto à prazo"
+            value="<?= set_value('term_discount_partner', isset($partner['term_discount_partner']) ? $partner['term_discount_partner']:''); ?>">
+          </div>
+        </div>
+        <div class="form-group row">
+          <?= form_error('discount_partner','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
+
+          <label for="card_discount_partner" class="col-sm-3 col-form-label">Valor de Desconto no cartão de débito(%)</label>
+          <div class="col-sm-8">
+            <input required type="number"
+            class="form-control"
+            id="card_discount_partner" name="card_discount_partner"
+            placeholder="Valor de desconto no cartão de débito"
+            value="<?= set_value('card_discount_partner', isset($partner['card_discount_partner']) ? $partner['card_discount_partner']:''); ?>">
+          </div>
+        </div>
         <div>
           <a class="btn btn-info" href="#" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
           <button  type="submit" id="create_partner" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
@@ -179,7 +202,7 @@
       </div>
       
       <div class="row">
-        <div class="full-center">
+        <div class="full-center">   
           <img id="partner_image" src="<?= isset($partner['photo_partner']) ? base_url($partner['photo_partner']):'http://www.filecluster.com/howto/wp-content/uploads/2014/07/User-Default.jpg'; ?>" width=250 height=>
         </div>
         <div class="form-group row">

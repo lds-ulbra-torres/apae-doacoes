@@ -18,8 +18,14 @@
       <dt>Nome do Proprietário</dt>
       <dd><?= $partner['owner_name_partner'] ?></dd>
       <hr>
-      <dt>Desconto</dt>
+      <dt>Desconto à vista</dt>
       <dd><?= $partner['discount_partner'].'%' ?></dd>
+      <hr>
+      <dt>Desconto à prazo</dt>
+      <dd><?= $partner['term_discount_partner'].'%' ?></dd>
+      <hr>
+      <dt>Desconto no cartão de débito</dt>
+      <dd><?= $partner['card_discount_partner'].'%' ?></dd>
       <hr>
       <dt>Telefone</dt>
       <dd><?= $partner['commercial_phone_partner'] ?></dd>
