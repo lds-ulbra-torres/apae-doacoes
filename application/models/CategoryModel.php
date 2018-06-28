@@ -7,6 +7,10 @@ class CategoryModel extends CI_Model {
     public function getAll($limit=NULL, $offset=NULL) {
         return $this->db->get($this->table, $limit, $offset)->result();
     }
+    public function getCategoryInPartners() {
+        return $this->db->query("SELECT * FROM category WHERE id_category IN(select category_id_category from partners where category_id_category = category.id_category)")
+                    ->result_array();
+                }
     public function getAllCategoryName() {
         $this->db->order_by('name_category', 'ASC');
           return $this->db->get('category')->result();
