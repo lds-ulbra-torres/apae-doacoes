@@ -10,8 +10,8 @@
 				<div class="form-group row">
 					<label for="neighborhood_partner" class="col-sm-3 col-form-label">Categoria</label>
 					<div class="col-sm-8">
-						<select required class="form-control" name="category_id_category" id="category_id_category">
-							<option selected disabled>Selecione</option>
+						<select required	 class="form-control" name="category_id_category" id="category_id_category" >
+							<option value="">Selecione uma Categoria</option>
 							<?php foreach ($categories as $category) { ?>
 								<option value="<?= $category->id_category ?>">
 									<?= $category->name_category ?>
@@ -62,7 +62,7 @@
 					<?= form_error('cnpj_cpf_partner','<div class="row"><div class="alert alert-danger alert-dismissible col-md-8 col-md-offset-1" role="alert">', '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div>') ?>
 					<label for="cnpj_cpf_partner" class="col-sm-3 col-form-label">CNPJ/CPF</label>
 					<div class="col-sm-8">
-						<input type="number" class="form-control" onchange="close('#cpfCnpjError')"
+						<input required	 type="number" class="form-control" onchange="close('#cpfCnpjError')"
 						id="cnpj_cpf_partner" name="cnpj_cpf_partner" placeholder="CPF/CNPJ"
 						value="<?= set_value('cnpj_cpf_partner', isset($partner->cnpj_cpf_partner) ? $partner->cnpj_cpf_partner:''); ?>"/>
 					</div>
@@ -78,11 +78,29 @@
 				</div>
 
 				<div class="form-group row">
-					<label for="commercial_phone_partner" class="col-sm-3 col-form-label">Desconto</label>
+					<label for="commercial_phone_partner" class="col-sm-3 col-form-label">Desconto à vista</label>
 					<div class="col-sm-8">
 						<input required type="number" class="form-control"
-						id="discount_partner" name="discount_partner" placeholder="Porcentagem de desconto"
+						id="discount_partner" name="discount_partner" placeholder="Porcentagem de desconto à vista"
 						value="<?= set_value('discount_partner', isset($partner->discount_partner) ? $partner->discount_partner:''); ?>">
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label for="commercial_phone_partner" class="col-sm-3 col-form-label">Desconto à prazo</label>
+					<div class="col-sm-8">
+						<input required type="number" class="form-control"
+						id="term_discount_partner" name="term_discount_partner" placeholder="Porcentagem de desconto à prazo"
+						value="<?= set_value('term_discount_partner', isset($partner->term_discount_partner) ? $partner->term_discount_partner:''); ?>">
+					</div>
+				</div>
+				
+				<div class="form-group row">
+					<label for="commercial_phone_partner" class="col-sm-3 col-form-label">Desconto no cartão de débito</label>
+					<div class="col-sm-8">
+						<input required type="number" class="form-control"
+						id="card_discount_partner" name="card_discount_partner" placeholder="Porcentagem de desconto no cartão de débito"
+						value="<?= set_value('card_discount_partner', isset($partner->card_discount_partner) ? $partner->card_discount_partner:''); ?>">
 					</div>
 				</div>
 
@@ -90,7 +108,7 @@
 					<label for="id_city" class="col-sm-3 col-form-label">Cidade</label>
 					<div class="col-sm-8">
 						<select required class="form-control" name="id_city" id="id_city">
-							<option selected disabled>Selecione</option>
+							<option value = "">Selecione</option>
 							<?php foreach ($cidades as $cidade) { ?>
 							<option value="<?= $cidade->id_city ?>">
 								<?= $cidade->name_city ?>

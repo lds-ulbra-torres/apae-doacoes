@@ -12,7 +12,7 @@ class CategoryApiController extends CI_Controller {
      * @return - retorna as categorias;
      */
 	public function getCategories(){
-		$data['category'] = $this->CategoryModel->getAll();
+		$data['category'] = $this->CategoryModel->getCategoryInPartners();
 		header('Content-Type: application/json');
 		echo json_encode($data);
 	}

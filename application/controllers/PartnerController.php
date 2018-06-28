@@ -82,10 +82,8 @@ class PartnerController extends CI_Controller {
 
 			$id = $this->PartnerModel->create($partner);
 			if($id !== 0) {
-				$message = [
-					"title" => "Novo parceiro da APAE Torres",
-					"message" => $partner['fantasy_name_partner'] . " é o novo parceiro da APAE Torres! Confira os benefícios."
-				];
+				$message =  $partner['fantasy_name_partner'] . " é o novo parceiro da APAE Torres! Confira os benefícios.";
+				
 				$this->notifyFcm($message);
 
 				redirect('partner/partner-detail/' . $id,'refresh');
@@ -156,29 +154,29 @@ class PartnerController extends CI_Controller {
 		}
 	}
 
-	private function notifyFcm($message) {
-		$url = 'https://fcm.googleapis.com/fcm/send';
-		$fields = array(
-				'to' => '/topics/new-partner',
-				'data' => $message
-		);
+	private function notifyFcm($msg) {
 
-		$headers = array('Content-Type: application/json',
-				'Authorization:key=AAAA2MHj0hc:APA91bFeklIhDriYGY_ETK3MNfOJShYFbxk4LIsUP5XgaNy3DSvLBzJNeyYg6FQNYo65MuDlnUrC_F6wf3PQrBXJota-9-ReojTGs418f6DokvGNkSTshgtdG0QWaR7ctFz2VDG4q2sq'
-		);
-
-		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
-		$result = curl_exec($ch);
-		if ($result == FALSE) {
-			die('Curl failed: ' . curl_error($ch));
-		}
-		curl_close($ch);
+		$argumentsInvalid = ['error' => 'Wrong number of arguments'];
+        if($msg != "") {
+			$msg = array("body" => $msg, "sound" => "default");
+			$notify = new NotificationFirebaseModel();
+			$notify->topic = 'global_ios';
+			$notify->message = $msg;
+			$response = $notify->sendNotification();
+			$notify->topic = 'global_android';
+			$response1 = $notify->sendNotification();
+			if($response){
+				if($response1){
+					return json_encode(array('success' => $response ." e ". $response1), 200);
+				}else{
+					return json_encode(array('eror' => 'Erro notify'), 500);
+				}
+			}else{
+				return json_encode(array('eror' => 'Erro notify'), 500);
+			}
+        }else{
+            return json_encode($argumentsInvalid, 406);
+        }
 	}
 }
 

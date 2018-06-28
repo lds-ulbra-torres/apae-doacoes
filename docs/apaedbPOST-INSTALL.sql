@@ -9772,7 +9772,7 @@ INSERT INTO city VALUES (1, 1, 'ACRELANDIA')
 
 
 
-/* Josiel Oliverira: inclusão de categorias para parceiros */
+/* Joziel Oliverira: inclusão de categorias para parceiros */
 
 ALTER TABLE partners ADD category_id_category int(11);
 CREATE TABLE IF NOT EXISTS `category` (
@@ -9787,7 +9787,13 @@ DEFAULT CHARACTER SET = utf8;
 ALTER TABLE partners ADD CONSTRAINT category_id_category 
 FOREIGN KEY(category_id_category) REFERENCES category(id_category);
 
+/* Joziel Oliverira: inclusao de descontos por cartão e a prazo de cada parceiro */
+
+ALTER TABLE partners add card_discount_partner int not null;
+ALTER TABLE partners add term_discount_partner int not null;
 -- ------------------------------------------------------------------
+-- ----------------------------------------------------------------
+-- ----------------------------------------------------------------
 -- ------------------------------------------------------------------
 -- Joziel: novos scripts para pre cadastro de novos associados
 create table pre_associated(

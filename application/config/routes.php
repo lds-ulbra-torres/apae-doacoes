@@ -169,6 +169,9 @@ $route['users'] = 'auth';
 $route['api/partner/(:num)'] = "PartnerApiController/getPartnersByIdAPI/$1";
 $route['api/category'] = "CategoryApiController/getCategories";
 $route['api/partnerByCategory/(:num)'] = "PartnerApiController/getPartnersByCategoryAPI/$1";
+//Version 2
+$route['api/v2/partnerByCategory/(:num)'] = "PartnerApiController/getPartnersByCategoryAPI_V2/$1";
+$route['api/v2/partner/(:num)'] = "PartnerApiController/getPartnersByIdAPI_V2/$1";
 /**FIM API */
 
 

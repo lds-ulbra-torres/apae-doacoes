@@ -71,7 +71,18 @@ class PartnerModel extends CI_Model {
 		$this->db->where('id_partner', $id);
 		$this->db->join('city', 'partners.id_city = city.id_city');
 		$this->db->join('state', 'city.id_state = state.id_state');
+	    $this->db->select("id_partner, owner_name_partner, fantasy_name_partner, email_partner, cnpj_cpf_partner,
+			rg_inscription_partner, cep_partner, street_partner, number_partner, neighborhood_partner,
+			commercial_phone_partner, discount_partner, partners.id_city, photo_partner, category_id_category,  
+			state.id_state, name_city, uf_state, name_state");
 		return $this->db->get('partners')->result_array()[0];
+	}
+	//Version 2
+	public function getPartnerByIdAPI_V2($id){
+		$this->db->where('id_partner', $id);
+		$this->db->join('city', 'partners.id_city = city.id_city');
+		$this->db->join('state', 'city.id_state = state.id_state');
+	 	return $this->db->get('partners')->result_array()[0];
 	}
 	/**
      * @author Joziel O. Santos  - 13-04-2018 - pega parceiros por categoria.
@@ -81,6 +92,13 @@ class PartnerModel extends CI_Model {
 	public function getPartnerByCategory($id){
 		$this->db->where('category_id_category', $id);
 		$this->db->select('id_partner,fantasy_name_partner,photo_partner,discount_partner');
+		return $this->db->get('partners')->result();
+	}
+	//Version 2	
+	public function getPartnerByCategory_V2($id){
+		$this->db->where('category_id_category', $id);
+		$this->db->select('id_partner,fantasy_name_partner,photo_partner,discount_partner,
+		term_discount_partner,card_discount_partner');
 		return $this->db->get('partners')->result();
 	}
 	public function delete($id){
