@@ -2,6 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class NotificationApiController extends CI_Controller {
+    public function __construct(){
+		header('Access-Control-Allow-Origin: *');
+		header("Access-Control-Allow-Methods: GET");
+		parent::__construct();
+	}
     /**
      * @author Joziel O. Santos  - 11-05-2018 - recebe pre-parceiro.
      */
