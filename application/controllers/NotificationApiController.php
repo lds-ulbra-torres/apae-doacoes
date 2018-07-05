@@ -48,7 +48,7 @@ class NotificationApiController extends CI_Controller {
 
     }
     public function validacaoAssociated($data){
-        if(($data['name_associated'] != "") && ($data['phone_cel'] != "") &&($data['email'] != "")){ 
+        if(($data['name_associated'] != "") && ($data['phone_cel'] != "") &&($data['email_associated'] != "")){ 
             return true;
         }else{
             return false;
