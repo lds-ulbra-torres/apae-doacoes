@@ -141,13 +141,13 @@ $route['newPartners'] = "NotificationController/newPartners";
 $route['detailPartner/(:num)'] = "NotificationController/detailPartner/$1";
 $route['became-partner/(:num)'] = "NotificationController/becamePartner/$1";
 $route['refused-partner/(:num)'] = "NotificationController/refusedPartner/$1";
-$route['api/pre_partner']['post'] = "NotificationApiController/postPrePartner";
+$route['api/pre_partner'] = "NotificationApiController/postPrePartner";
 //New Associated
 $route['newAssociateds'] = "NotificationController/newAssociateds";
 $route['detailAssociated/(:num)'] = "NotificationController/detailAssociated/$1";
 $route['became-associated/(:num)'] = "NotificationController/becameAssociated/$1";
 $route['refused-associated/(:num)'] = "NotificationController/refusedAssociated/$1";
-$route['api/pre_associated']['post'] = "NotificationApiController/postPreAssociated";
+$route['api/pre_associated'] = "NotificationApiController/postPreAssociated";
 /** FIM Notificacoes */
 
 /** CARTEIRAS */
