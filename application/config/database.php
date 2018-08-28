@@ -119,7 +119,7 @@ $db['test'] = array(
 
 $db['prod'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql986.umbler.com',
+	'hostname' => 'mysql556.umbler.com',
 	'username' => 'apae_doacoes',
 	'password' => 'Presidente*1',
 	'database' => 'apae_doacoes',
