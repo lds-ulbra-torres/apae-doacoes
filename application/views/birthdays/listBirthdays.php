@@ -11,27 +11,11 @@
                 </a>
             </div>
 
-
-
-
-            <style>
-            
-
-                .dropdown {
-                    height: 32px;
-                }
-
-            </style>
-
-
-
-
-
             <div class="col-xs-8 no-padding-right">
                 <form method="GET" action="<?=base_url('birthdays/search')?>" class="form-inline">
                     <div class="input-group pull-right" >
 
-            <select name="month" class="dropdown">
+            <select name="month" class="dropdown form-control">
                 <?php foreach ($months as $month):  ?>
                     <?php if( $mesAtual == $month -> id_month ){ ?>
                         <option value="<?= $month -> id_month ?>" selected ><?= $month -> name_month ?></option>

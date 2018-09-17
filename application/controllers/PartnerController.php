@@ -84,7 +84,7 @@ class PartnerController extends CI_Controller {
 			if($id !== 0) {
 				$message =  $partner['fantasy_name_partner'] . " é o novo parceiro da APAE Torres! Confira os benefícios.";
 			// Notification FireBase	
-			//	$this->notifyFcm($message);
+				$this->notifyFcm($message);
 
 				redirect('partner/partner-detail/' . $id,'refresh');
 			} else {

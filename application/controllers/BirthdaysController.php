@@ -34,7 +34,6 @@ class BirthdaysController extends CI_Controller {
 
 /* GET /associated *birthdays* */
   public function index($searchText=NULL) {
-    $this->load->model('BirthdaysModel');
     $baseUrl = base_url('birthdays');
     $totalRows = $this->BirthdaysModel->totalCount();
     $getPage = (int) $this->input->get("page");
@@ -56,7 +55,6 @@ class BirthdaysController extends CI_Controller {
 
 /* GET /birthdays?month={queryString} */
   public function search() {
-    $this->load->model('BirthdaysModel');
     $data['months'] = $this->BirthdaysModel->getAllMonths();// dropdown list
     $searchText = $this->input->get('month');
     $data['mesAtual'] = $searchText;
