@@ -45,6 +45,7 @@
 
 textarea{
   resize: none;
+  
 }
 
 #addContact{
@@ -139,4 +140,8 @@ table.table-collections tbody tr td:nth-child(4)
 
 .content-filter [class *= 'col-lg']{
   width: 20% !important;
+}
+
+.dropdown {
+  height: 28px;
 }
