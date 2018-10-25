@@ -3,29 +3,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class BirthdaysModel extends CI_Model {
 
-	var $table = "associated";
-
-	public function getAll($limit=NULL, $offset=NULL) {
-    	return $this->db->get($this->table, $limit, $offset)->result();
-    }
-	
+	var $table = "associated";	
 	
 	// procura pelo mes
-	public function getBirthdaysMonths($data) {
+	public function getBirthdaysMonths($data, $limit=NULL, $offset=NULL) {
         $searchText = $this->input->get('month');
 		if($searchText == null){
 			$sql= "month(birth_date) = " . $data['mesAtual'];
 		}else{
 			$sql= "month(birth_date) = " . $searchText;
 		}
-    	return $this->db->get_where($this->table, $sql)->result();
+    	return $this->db->get_where($this->table, $sql, $limit, $offset)->result();
     }
 
 	// busca no db os meses para o dropdown list
     public function getAllMonths(){
-        return $this->db->get('months')->result();
+		$meses = array (
+			1 => "Janeiro", 2 => "Fevereiro", 3 => "Março", 4 => "Abril", 5 => "Maio", 6 => "Junho",
+			7 => "Julho", 8 => "Agosto", 9 => "Setembro", 10 => "Outubro", 11 => "Novembro", 12 => "Dezembro",
+		);
+        return $meses;
     }
 
+	public function getDataBirthdays($id)
+	{
+		foreach ($id as $key => $value) {
+			$sql = $value . " = id_associate ";
+			$b[] = $this->db->get_where($this->table, $sql)->row();
+		}
+
+		return $b;
+	}
 
 	public function searchAll($limit=NULL, $offset=NULL, $search=NULL) {
 		$this->db
@@ -55,8 +63,14 @@ class BirthdaysModel extends CI_Model {
     return $this->db->get($this->table, $limit, $offset)->result();
 	}
 
-	public function totalCount() {
-    	return $this->db->count_all($this->table);
+	public function totalCount($data) {
+		$searchText = $this->input->get('month');
+		if($searchText == null){
+			$sql= "month(birth_date) = " . $data['mesAtual'];
+		}else{
+			$sql= "month(birth_date) = " . $searchText;
+		}
+    	return count($this->db->get_where($this->table, $sql)->result());
 	}
 
 	public function searchTotalCount($search) {

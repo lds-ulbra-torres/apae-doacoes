@@ -34,27 +34,28 @@ class BirthdaysController extends CI_Controller {
 
 /* GET /associated *birthdays* */
   public function index($searchText=NULL) {
-    $baseUrl = base_url('birthdays');
-    $totalRows = $this->BirthdaysModel->totalCount();
+
+    $searchText = $this->input->get('month');
+    $data['mesAtual'] = (empty($searchText) ? date('n', time()) : $searchText);  
     $getPage = (int) $this->input->get("page");
-    $page = $getPage == 0 ? $getPage : ($getPage-1) * self::PER_PAGE;
+    $data['search'] = $searchText;
+    $baseUrl = base_url('birthdays?month='. urlencode($searchText));
+
+    $page = $getPage == 0 ? $getPage : ($getPage-1) * self::PER_PAGE; 
+
+    $totalRows = $this->BirthdaysModel->totalCount($data);
+    $data['months'] = $this->BirthdaysModel->getAllMonths();
+    $data['birthdays'] = $this->BirthdaysModel->getBirthdaysMonths($data, self::PER_PAGE, $page);
     $config = PaginationHelper($baseUrl, $totalRows, self::PER_PAGE);
     $this->pagination->initialize($config);
-    $data['pagination'] = $this->pagination->create_links();
-    $dateTime = new DateTime();
-    $dateTime = $dateTime->format('m');
-      if($dateTime[0] == 0){
-        $data['mesAtual'] = substr($dateTime, 1);
-      } else{
-        $data['mesAtual'] = $dateTime;
-      }
-    $data['months'] = $this->BirthdaysModel->getAllMonths();
-    $data['birthdays'] = $this->BirthdaysModel->getBirthdaysMonths($data);    
+    $data['pagination'] = $this->pagination->create_links();   
+
+    
     $this->template->load('template', 'birthdays/listBirthdays', $data);
   }
 
 /* GET /birthdays?month={queryString} */
-  public function search() {
+  public function Search() {
     $data['months'] = $this->BirthdaysModel->getAllMonths();// dropdown list
     $searchText = $this->input->get('month');
     $data['mesAtual'] = $searchText;
@@ -70,5 +71,129 @@ class BirthdaysController extends CI_Controller {
     $this->template->load('template', 'birthdays/listBirthdays', $data);
   }
 
+
+
+
+  public function CreateMessage(){ //pagina de edição
+    $data['email'] = $this->ReturnIdSelected();
+    $this->template->load('template', 'birthdays/CreateMessage', $data);
+  }
+
+  public function ReturnIdSelected(){ // retorna os selecionados
+    if(isset($_POST['checked'])){
+      $checked = $_POST['checked'];
+        foreach ($checked as $key => $value) {
+          $selecionados[] = $value;
+        }
+    } else { 
+      $this->index(); 
+    }
+    return $selecionados;
+  }
+
   
+
+  public function Send(){
+    @header('Content-Type: text/html; charset=utf-8');
+
+    $id = $this->ReturnIdSelected(); // recebe os id's selecionados no checkbox
+    $data['email'] = $this->BirthdaysModel->getDataBirthdays($id); // recebe lista de emails
+    
+    foreach ($data['email'] as $key => $value) { // coloca a lista de emails em um vetor
+      $to[] = $value->email_associate;
+    }
+    
+    $subject = $_POST['subject'];
+    $mensagem = nl2br($_POST['message']);
+
+   // require APPPATH . "views/birthdays/email.php"; 
+
+   $stringmail = $this->htmlMail($subject, $mensagem);
+   
+      $this->ConfigMail($to, $subject, $stringmail);
+
+     $this->template->load('template', 'birthdays/send');
+  }
+  
+  private function htmlMail($subject, $mensagem){
+      return $html = "    
+      <style>
+          * {
+              position:relative;
+              margin:0px;
+              max-width: 500px;
+              max-height: 408px;
+  
+          }
+  
+          h1 {
+              position: absolute;
+              top: 150px;
+              left: 50px;
+              font-size: 20pt;
+          }
+  
+          h2 {
+              position: absolute;
+              top: 230px;
+              left: 60px;
+              font-size: 10pt;
+          }
+  
+      </style>
+     
+      <img src=\"    \" alt=\"\">
+    
+      <h1>{$subject}</h1>
+  
+      <h2>{$mensagem}</h2>
+    ";
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  public function ConfigMail($to, $subject, $txt){
+    require 'assets/mailer/PHPMailerAutoload.php';
+
+    $mail = new PHPMailer();
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = 'tls';
+    $mail->Username = 'usuario101050@gmail.com';
+    $mail->Password = 'Marcilio1';
+    $mail->Port = 587;
+    $mail->CharSet   = 'utf-8';
+    $mail->setFrom('apae@gmail.com');
+    $mail->isHTML(true);
+
+    foreach ($to as $key => $value) {
+      $mail->addBCC($value);      
+    }
+
+    $mail->Subject = $subject;
+    $mail->Body    = $txt;
+    $mail->AltBody = $txt;
+    $mail->setLanguage('pt');
+
+    if(!$mail->send()) {
+      echo 'Não foi possível enviar a mensagem.<br>';
+      echo 'Erro: ' . $mail->ErrorInfo;
+    } else {
+      echo 'Mensagem enviada.';
+    }
+  }
+
 }

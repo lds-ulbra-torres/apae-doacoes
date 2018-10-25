@@ -15,14 +15,12 @@
                 <form method="GET" action="<?=base_url('birthdays/search')?>" class="form-inline">
                     <div class="input-group pull-right" >
 
+
+
             <select name="month" class="dropdown form-control">
-                <?php foreach ($months as $month):  ?>
-                    <?php if( $mesAtual == $month -> id_month ){ ?>
-                        <option value="<?= $month -> id_month ?>" selected ><?= $month -> name_month ?></option>
-                    <?php } else { ?>
-                        <option value="<?= $month -> id_month ?>"><?= $month -> name_month ?></option>
-                    <?php } ?>
-                <?php endforeach; ?>
+                <?php foreach ($months as $i => $month) { ?>
+                    <option value="<?= $i ?>" <?= ($mesAtual==$i ? "selected" : "")?> ><?= $month ?></option>
+                <?php } ?>
             </select>
                         <span  class="input-group-btn width-min" >
                             <button type="submit" class="btn btn-info">
@@ -40,9 +38,12 @@
 
     <?= $this->session->flashdata('alert') ?>
 
-    <table class="table table-associated table-responsive table-striped table-hover text-center">
+
+<form action="<?= base_url('birthdays/createmessage')?>" method="POST">
+    <table class="table table-birthday table-responsive table-striped table-hover text-center">
       <thead>
         <tr>
+        <th><input type="checkbox" name="checkAll" id="checkAll"'/> </th>
           <th>Código Único</th>
           <th>Nome</th>
           <th>Data Nascimento</th>
@@ -53,9 +54,10 @@
       <tbody>
         <?php foreach($birthdays as $birthday): ?>
         <tr>
+          <td><input type="checkbox" name="checked[]" value="<?= $birthday->id_associate ?>">  </td>
           <td><a href="<?=base_url('associated-detail/'. $birthday->id_associate)?>"><?= $birthday->uuid_associate ?></a></td>
           <td><?= $birthday->name_associate ?></td>
-          <td><?= date_format(date_create($birthday->birth_date), 'd/m/y')?></td>
+          <td><?= date_format(date_create($birthday->birth_date), 'd/m/Y')?></td>
           <td><?php if($birthday->disable == 1){ echo '<span class="label label-danger">Inativo</span>'; } ?></td>
           <td>
             <div class="btn-group">
@@ -68,11 +70,14 @@
       <?php endforeach; ?>
       </tbody>
     </table>
+    <button type="submit" value="Submit">Envia</button>
     <div class="row">
         <div class="col-md-12 text-center">
             <?= $pagination ?>
         </div>
     </div>
+</form>
   </div>
 
 </div>
+<script src="<?= base_url('assets/js/birthdays/birthdays.js') ?>" charset="utf-8"></script>
