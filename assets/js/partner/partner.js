@@ -1,7 +1,12 @@
 $(document).ready(function(){
 	
 	$('.delete-partner-btn').click(function(){
-		$('#confirmDelete').attr('href', location.href + '/delete/' + this.id)
+		var url = location.href.toString().split('?');
+
+		var host = url[0];
+		var get = "?" + url[1];
+		
+		$('#confirmDelete').attr('href', host + '/delete/' + this.id + get);
 	})
 
 	$("#photo_partner").change(function(){
