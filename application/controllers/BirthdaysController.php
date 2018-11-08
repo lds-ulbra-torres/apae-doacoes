@@ -102,66 +102,47 @@ class BirthdaysController extends CI_Controller {
     foreach ($data['email'] as $key => $value) { // coloca a lista de emails em um vetor
       $to[] = $value->email_associate;
     }
-    
-    $subject = $_POST['subject'];
-    $mensagem = nl2br($_POST['message']);
 
-   // require APPPATH . "views/birthdays/email.php"; 
+    $route = null;
+    if (isset($_FILES)) {
+      $tmp = $_FILES['photo_birthdays']['tmp_name'];
+      $name = $_FILES['photo_birthdays']['name'];
+      $type = substr($name, -4, 4);
+      $new_name = md5($name.microtime());
+      $dir = './uploads/';
+      $route = $dir . $new_name . $type;
 
-   $stringmail = $this->htmlMail($subject, $mensagem);
+      if (!file_exists($dir)) {
+        mkdir($dir, 0777, true);
+      }
+      move_uploaded_file($tmp, $route); 
+    }
+
+      $subject = $_POST['subject'];
+      $mensagem = nl2br($_POST['message']);
+      $image = base_url('uploads/' . $new_name . $type);
+  
+     
+      var_dump($image);
+  
+
+      $stringmail = $this->htmlMail($subject, $mensagem, $image);
    
       $this->ConfigMail($to, $subject, $stringmail);
 
      $this->template->load('template', 'birthdays/send');
   }
   
-  private function htmlMail($subject, $mensagem){
-      return $html = "    
-      <style>
-          * {
-              position:relative;
-              margin:0px;
-              max-width: 500px;
-              max-height: 408px;
-  
-          }
-  
-          h1 {
-              position: absolute;
-              top: 150px;
-              left: 50px;
-              font-size: 50pt;
-          }
-  
-          h2 {
-              position: absolute;
-              top: 230px;
-              left: 60px;
-              font-size: 30pt;
-          }
-  
-      </style>
-     
-      <img src=\"    \" alt=\"\">
+  public function htmlMail($subject, $mensagem, $image){
     
-      <h1>{$subject}</h1>
+    return $html = "    
+      <img src=\" $image \" alt=\"\">
+    
+      <h1 style='position: absolute; top: 150px; left: 50px; font-size:20pt;'>{$subject}</h1>
   
-      <h2>{$mensagem}</h2>
+      <h2 style='position: absolute;top: 230px;left: 60px; font-size: 14pt;'>{$mensagem}</h2>
     ";
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   public function ConfigMail($to, $subject, $txt){
