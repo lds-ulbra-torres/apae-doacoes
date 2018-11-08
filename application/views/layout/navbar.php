@@ -45,7 +45,7 @@
             <a href="<?= base_url('donations') ?>">
               <span class="glyphicon glyphicon-dashboard"></span> Doações</a></li>
 
-          <li class="dropdown <?=$page==='users'||$page==='frequency'||$page==='banks'||$page==='associated'||$page==='cedentes' ? 'active':''?>">
+          <li class="dropdown <?=$page==='users'||$page==='frequency'||$page==='banks'||$page==='associated'||$page==='cedentes'||$page==='birthdays' ? 'active':''?>">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list"></span> Entidades <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <?php if ($this->ion_auth->is_admin()) { ?>
@@ -76,6 +76,10 @@
               <li class="<?=$page === 'category' ? 'active':''?>">
                   <a href="<?= base_url('category') ?>">
                     <span class="glyphicon glyphicon-menu-hamburger"></span> Categorias</a>
+              </li>
+              <li class="<?=$page === 'birthdays' ? 'active':''?>">
+                  <a href="<?= base_url('birthdays') ?>">
+                    <span class="glyphicon glyphicon-bookmark"></span> Aniversariantes</a>
               </li>
               </ul>
           </li>

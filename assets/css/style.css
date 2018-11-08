@@ -45,6 +45,7 @@
 
 textarea{
   resize: none;
+  
 }
 
 #addContact{
@@ -58,7 +59,9 @@ table.text-center thead tr th{
 table.table-donations tbody tr td:nth-child(2), 
 table.table-associated tbody tr td:nth-child(2),
 table.table-donations thead tr th:nth-child(2), 
-table.table-associated thead tr th:nth-child(2)
+table.table-associated thead tr th:nth-child(2),
+table.table-birthday thead tr th:nth-child(3),
+table.table-birthday td:nth-child(3)
 {text-align: left !important}
 
 
@@ -139,4 +142,9 @@ table.table-collections tbody tr td:nth-child(4)
 
 .content-filter [class *= 'col-lg']{
   width: 20% !important;
+}
+
+#email {
+  width: 500px;
+  height: 408px;
 }

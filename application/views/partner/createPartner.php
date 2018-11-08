@@ -175,7 +175,7 @@
 							<label for="fantasy_name_partner" class="col-sm-12 col-form-label">Imagem da Empresa</label>
 							<div class=" form-group">
 							<input type="file" class="file col-sm-12"
-							id="photo_partner" name="photo_partner"
+							id="photo_birthdays" name="photo_birthdays"
 							placeholder="Nome da empresa"/>
 							</div>
 						</div>

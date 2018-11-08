@@ -178,3 +178,18 @@ $route['api/v2/partner/(:num)'] = "PartnerApiController/getPartnersByIdAPI_V2/$1
 /** Testes */
 $route['tests'] = 'tests/TestsController';
 $route['tests/associated'] = 'tests/AssociatedTestController';
+
+
+/** Aniversariantes */
+$route['birthdays'] = "BirthdaysController";
+$route['birthdays/search'] = "BirthdaysController";
+
+
+$route['birthdays/createmessage'] = "BirthdaysController/CreateMessage";
+$route['birthdays/send'] = "BirthdaysController/Send";
+
+
+
+
+$route['birthdays/email'] = "BirthdaysController/ExibeEmail";
+/** FIM Aniversariantes */
