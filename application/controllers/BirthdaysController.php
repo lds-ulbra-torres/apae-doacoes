@@ -130,14 +130,14 @@ class BirthdaysController extends CI_Controller {
               position: absolute;
               top: 150px;
               left: 50px;
-              font-size: 20pt;
+              font-size: 50pt;
           }
   
           h2 {
               position: absolute;
               top: 230px;
               left: 60px;
-              font-size: 10pt;
+              font-size: 30pt;
           }
   
       </style>
