@@ -49,7 +49,6 @@ class BirthdaysController extends CI_Controller {
     $config = PaginationHelper($baseUrl, $totalRows, self::PER_PAGE);
     $this->pagination->initialize($config);
     $data['pagination'] = $this->pagination->create_links();   
-
     
     $this->template->load('template', 'birthdays/listBirthdays', $data);
   }
@@ -71,9 +70,6 @@ class BirthdaysController extends CI_Controller {
     $this->template->load('template', 'birthdays/listBirthdays', $data);
   }
 
-
-
-
   public function CreateMessage(){ //pagina de edição
     $data['email'] = $this->ReturnIdSelected();
     $this->template->load('template', 'birthdays/CreateMessage', $data);
@@ -91,10 +87,7 @@ class BirthdaysController extends CI_Controller {
     return $selecionados;
   }
 
-  
-
   public function Send(){
-    @header('Content-Type: text/html; charset=utf-8');
 
     $id = $this->ReturnIdSelected(); // recebe os id's selecionados no checkbox
     $data['email'] = $this->BirthdaysModel->getDataBirthdays($id); // recebe lista de emails
@@ -120,21 +113,17 @@ class BirthdaysController extends CI_Controller {
 
       $subject = $_POST['subject'];
       $mensagem = nl2br($_POST['message']);
-      $image = base_url('uploads/' . $new_name . $type);
-  
-     
-      var_dump($image);
-  
+      $image = base_url('uploads/' . $new_name . $type);  
 
       $stringmail = $this->htmlMail($subject, $mensagem, $image);
-   
-      $this->ConfigMail($to, $subject, $stringmail);
+
+      $dataMsg =  $this->ConfigMail($to, $subject, $stringmail);
 
      $this->template->load('template', 'birthdays/send');
   }
   
   public function htmlMail($subject, $mensagem, $image){
-    
+
     return $html = "    
       <img src=\" $image \" alt=\"\">
     
@@ -163,7 +152,8 @@ class BirthdaysController extends CI_Controller {
     foreach ($to as $key => $value) {
       $mail->addBCC($value);      
     }
-
+    
+    $mail->MsgHTML($txt);
     $mail->Subject = $subject;
     $mail->Body    = $txt;
     $mail->AltBody = $txt;
@@ -173,7 +163,7 @@ class BirthdaysController extends CI_Controller {
       echo 'Não foi possível enviar a mensagem.<br>';
       echo 'Erro: ' . $mail->ErrorInfo;
     } else {
-      echo 'Mensagem enviada.';
+      return 'Mensagem enviada.';
     }
   }
 

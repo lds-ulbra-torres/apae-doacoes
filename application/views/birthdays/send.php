@@ -5,8 +5,10 @@
 
     <div class="container-fluid">
 
-        <p>Email enviado com sucesso para</p>
+        <p>Email enviado com sucesso</p>
 
+        <a class="btn btn-info" href="<?=base_url('birthdays')?>">
+        <span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
 
     </div>
   </div>
