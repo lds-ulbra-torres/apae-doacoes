@@ -72,7 +72,7 @@ class BirthdaysController extends CI_Controller {
 
   public function CreateMessage(){ //pagina de edição
     $data['email'] = $this->ReturnIdSelected();
-    $this->template->load('template', 'birthdays/CreateMessage', $data);
+    $this->template->load('template', 'birthdays/createMessage', $data);
   }
 
   public function ReturnIdSelected(){ // retorna os selecionados
