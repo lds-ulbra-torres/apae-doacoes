@@ -122,6 +122,10 @@ $route['associated/(:num)/collections/new'] = "CollectionsController/newCollecti
 $route['associated/(:num)/collections/create'] = "CollectionsController/createCollection";
 $route['associated/(:num)/collections/delete/(:num)'] = "CollectionsController/deleteCollection/$2";
 $route['associated/(:num)/collections/renew'] = "CollectionsController/renewCollection/$1";
+
+$route['associated/printAssociated'] = "AssociatedController/printAssociated";
+$route['associated/printEnvelope'] = "AssociatedController/printEnvelope";
+
 /** Fim Associados */
 
 /** Parceiros */
@@ -183,13 +187,7 @@ $route['tests/associated'] = 'tests/AssociatedTestController';
 /** Aniversariantes */
 $route['birthdays'] = "BirthdaysController";
 $route['birthdays/search'] = "BirthdaysController";
-
-
 $route['birthdays/createmessage'] = "BirthdaysController/CreateMessage";
 $route['birthdays/send'] = "BirthdaysController/Send";
 
-
-
-
-$route['birthdays/email'] = "BirthdaysController/ExibeEmail";
 /** FIM Aniversariantes */

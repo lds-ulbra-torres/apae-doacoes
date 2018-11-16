@@ -1,21 +1,12 @@
 <div class="well well-lg">
   <?= $this->session->flashdata('alert') ?>
   <div class="page-header">
-    <h2>Associados</h2>
+    <h2>Associados imprimir envelopes</h2>
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-2 no-padding-left">
-                <a class="btn btn-success" href="<?= base_url('associated/new') ?>">
-                  <span class="glyphicon glyphicon-plus"></span> Cadastrar Associado
-                </a>
-            </div>
-            <div class="col-xs-2 no-padding-left">
-                <a class="btn btn-success" href="<?= base_url('associated/printAssociated') ?>">
-                  <span class="glyphicon glyphicon-print"></span> Imprimir Envelopes
-                </a>
-            </div>
-            <div class="col-xs-8 no-padding-right">
+
+            <div class="col-xs-12 no-padding-right">
                 <form method="GET" action="<?=base_url('associated/search')?>" class="form-inline">
                     <div class="input-group pull-right" >
                         <input type="text" class="form-control"
@@ -44,15 +35,16 @@
   <div class="">
 
     <?= $this->session->flashdata('alert') ?>
-
-    <table class="table table-associated table-responsive table-striped table-hover text-center">
+<form action="<?= base_url('associated/printEnvelope')?>" method="POST">
+    <table class="table table-associatedPrint table-responsive table-striped table-hover text-center">
+    <button type="submit" class="btn btn-success" value="Submit">Imprimir</button>
       <thead>
         <tr>
+        <th><input type="checkbox" name="checkAll" id="checkAll"'/> </th>
           <th>Código Único</th>
           <th>Nome</th>
-          <th>Data Nascimento</th>
-          <th>RG</th>
-          <th>CPF</th>
+          <th>Endereço</th>
+          <th>CEP</th>
           <th></th>
           <th>Ações</th>
         </tr>
@@ -60,11 +52,11 @@
       <tbody>
         <?php foreach($associated as $associate): ?>
         <tr>
+          <td><input type="checkbox" name="checked[]" value="<?= $associate->id_associate ?>">  </td>
           <td><a href="<?=base_url('associated-detail/'. $associate->id_associate)?>"><?= $associate->uuid_associate ?></a></td>
           <td><?= $associate->name_associate ?></td>
-          <td><?= date_format(date_create($associate->birth_date), 'd/m/y')?></td>
-          <td><?= $associate->rg ?></td>
-          <td><?= $associate->cpf ?></td>
+          <td><?= $associate->street?>, <?=$associate->number?> </td>
+          <td><?= $associate->cep ?></td>
           <td><?php if($associate->disable == 1){ echo '<span class="label label-danger">Inativo</span>'; } ?></td>
           <td>
             <div class="btn-group">
@@ -77,11 +69,16 @@
       <?php endforeach; ?>
       </tbody>
     </table>
+</form>
+
+
+<!--
     <div class="row">
         <div class="col-md-12 text-center">
             <?= $pagination ?>
         </div>
     </div>
-  </div>
-
+  </div> 
+-->
 </div>
+<script src="<?= base_url('assets/js/associated/associated.js') ?>" charset="utf-8"></script>

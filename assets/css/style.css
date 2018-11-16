@@ -58,12 +58,17 @@ table.text-center thead tr th{
 
 table.table-donations tbody tr td:nth-child(2), 
 table.table-associated tbody tr td:nth-child(2),
+table.table-associatedPrint tbody tr td:nth-child(3),
 table.table-donations thead tr th:nth-child(2), 
 table.table-associated thead tr th:nth-child(2),
+table.table-associatedPrint thead tr th:nth-child(3),
 table.table-birthday thead tr th:nth-child(3),
 table.table-birthday td:nth-child(3)
 {text-align: left !important}
 
+table.table-associatedPrint thead tr th:nth-child(3){
+  width: 330px;
+}
 
 table.table-donations tbody tr td:nth-child(5),
 table.table-donations thead tr th:nth-child(5)

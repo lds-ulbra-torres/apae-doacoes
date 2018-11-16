@@ -165,4 +165,30 @@ class AssociatedController extends CI_Controller {
     redirect('associated-detail/'. $id, 'refresh');
   }
 
+  public function printAssociated(){
+    $baseUrl = base_url('associated/printAssociated');
+    $totalRows = $this->AssociatedModel->totalCount();
+    $getPage = (int) $this->input->get("page");
+    $page = $getPage == 0 ? $getPage : ($getPage-1) * self::PER_PAGE;
+    $data['associated'] = $this->AssociatedModel->getEnvelope();
+    $config = PaginationHelper($baseUrl, $totalRows, self::PER_PAGE);
+    $this->pagination->initialize($config);
+    $data['pagination'] = $this->pagination->create_links();
+
+    $this->template->load('template', 'associated/printAssociated', $data);
+  }
+
+  public function printEnvelope(){
+
+    if(isset($_POST['checked'])){
+      $checked = $_POST['checked'];
+        foreach ($checked as $key => $value) {
+          $selecionados[] = $value;
+        }
+    } 
+
+    $data['print'] = $this->AssociatedModel->getEnvelopeSelected($selecionados);    
+    $this->load->view('associated/printEnvelope', $data);
+  }
+
 }
