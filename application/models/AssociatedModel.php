@@ -217,4 +217,41 @@ class AssociatedModel extends CI_Model {
 		return $this->db->get('payment_type')->result();
 	}
 
+	public function getEnvelope(){
+		
+		$sql = '
+		SELECT  a.uuid_associate, a.id_associate, a.name_associate, a.street, a.number, a.complement, a.neighborhood, a.cep, a.disable, c.name_city, s.uf_state	
+		FROM associated	a		
+		INNER JOIN city c
+		ON a.id_city = c.id_city
+		INNER JOIN state s
+		ON c.id_state = s.id_state
+		WHERE (name_associate <> \'\' or not null) and 
+		(street <> \'\' or not null) and 
+		(number <> \'\' or not null) and
+		(neighborhood <> \'\' or not null) and
+		(cep <> \'\' or not null) and 
+		(a.id_city <> \'\' or not null)and
+		(a.disable = \'0\');
+		';
+	
+		 return $this->db->query($sql)->result();
+	}
+
+	public function getEnvelopeSelected($id){
+		foreach ($id as $key => $value) {
+			$sql = "
+			SELECT a.uuid_associate, a.id_associate, a.name_associate, a.street, a.number, a.complement, a.neighborhood, a.cep, a.disable, c.name_city, s.uf_state
+			FROM associated	a		
+			INNER JOIN city c
+			ON a.id_city = c.id_city
+			INNER JOIN state s
+			ON c.id_state = s.id_state
+			WHERE a.id_associate =" . $value;
+			
+			$consulta[] = $this->db->query($sql)->row();
+		}
+		return $consulta;
+	}
+
 }
