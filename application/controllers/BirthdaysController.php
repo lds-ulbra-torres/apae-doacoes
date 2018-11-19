@@ -142,8 +142,8 @@ class BirthdaysController extends CI_Controller {
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = 'tls';
-    $mail->Username = 'apaedetorres@gmail.com';
-    $mail->Password = 'apae2533';
+    $mail->Username = 'usuario101050@gmail.com';
+    $mail->Password = 'Marcilio1';
     $mail->Port = 587;
     $mail->CharSet   = 'utf-8';
     $mail->setFrom('apae@gmail.com');
