@@ -69,7 +69,7 @@
         <td>  <div class="btn-group">
           <a class="btn btn-info btn-sm" href="<?= base_url('partner/partner-detail/'. $partner['id_partner']) ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
           <a class="btn btn-primary btn-sm" href="<?= base_url('partner/edit/'.  $partner['id_partner']) ?>"><span class="glyphicon glyphicon-edit"></span></a>
-          <a class="btn btn-danger btn-sm delete-partner-btn" id="<?= $partner['id_partner'] ?>" data-toggle="modal" data-target="#delete_modal" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+          <a class="btn btn-danger btn-sm delete-partner-btn" data-route="<?= base_url("partner/delete/{$partner['id_partner']}")?>" id="<?= $partner['id_partner'] ?>" data-toggle="modal" data-target="#delete_modal" href="#"><span class="glyphicon glyphicon-trash"></span></a>
         </div></td>
       </tr>
       <?php endforeach; ?>
